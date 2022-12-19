@@ -1,6 +1,7 @@
 import styled from "styled-components";
 type RegistrationProps = {
   background?: string;
+  src?: string;
 };
 const Container = styled.div`
   position: relative;
@@ -20,7 +21,7 @@ const RectPic = styled.div<RegistrationProps>`
 const TextWrap1 = styled.h1`
   width: 344px;
   height: 49px;
-  font-family: "Helvetica Neue";
+  font-family: "Poppins";
   padding-top: 142px;
   margin: 0px, 0px, 0px, 0px;
   font-weight: 500;
@@ -30,14 +31,14 @@ const TextWrap1 = styled.h1`
 const TextWrap2 = styled.h3`
   width: 403px;
   height: 24px;
-  font-family: "Helvetica Neue";
+  font-family: "Poppins";
   font-weight: 400;
   font-size: 20px;
 `;
 const Input = styled.input`
   width: 362px;
   height: 21.43px;
-  font-family: "Helvetica Neue";
+  font-family: "Poppins";
   font-weight: 300;
   font-size: 17.9653px;
   border-width: 0 0 2px;
@@ -47,14 +48,16 @@ const Input = styled.input`
   }
 `;
 const LoginLink = styled.button`
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins";
   border: none;
+  text-decoration-line: underline;
+  background: none;
   font-size: 22px;
 `;
 const CreateAccountButton = styled.button`
   width: 363px;
   height: 58px;
-  font-family: "Helvetica Neue";
+  font-family: "Poppins";
   font-weight: 400;
   font-size: 21.6179px;
   color: #f3f2ff;
@@ -64,10 +67,13 @@ const CreateAccountButton = styled.button`
 const SignGoogleButton = styled.button`
   width: 363px;
   height: 58px;
-  font-family: "Helvetica Neue";
-  font-weight: 300;
-  font-size: 17.9653px;
+  display: flex;
   background: none;
+  color: #2f2e41;
+  font-family: "Poppins";
+  font-weight: 300;
+  padding-top: 15px;
+  font-size: 17.9653px;
   margin-top: 25px;
   border: 1.79653px solid rgba(47, 46, 65, 0.15);
   border-radius: 9.00744px;
@@ -79,9 +85,9 @@ const Form = styled.div`
 `;
 const TextWrap3 = styled.h4`
   position: absolute;
-  width: 254px;
-  height: 22px;
-  font-family: "Helvetica Neue";
+  padding-left:60px;
+  display:flex;
+  height: 22px; "Poppins";
   font-weight: 300;
   font-size: 18px;
   color: #2f2e41;
@@ -90,7 +96,7 @@ const TextWrap4 = styled.h4`
   width: 204px;
   height: 29px;
   margin-top: 71px;
-  font-family: "Helvetica Neue";
+  font-family: "Poppins";
   font-weight: 700;
   font-size: 24px;
   color: #f3f2ff;
@@ -99,7 +105,7 @@ const TextWrap5 = styled.h4`
   width: 789px;
   height: 118px;
   margin-top: 595px;
-  font-family: "Helvetica Neue";
+  font-family: "Poppins";
   font-weight: 700;
   font-size: 48px;
   color: #f3f2ff;
@@ -108,7 +114,7 @@ const TextWrap5 = styled.h4`
 const TextWrap6 = styled.h4`
   width: 219px;
   height: 49px;
-  font-family: "Helvetica Neue";
+  font-family: "Poppins";
   font-weight: 500;
   margin-top: 43px;
   font-size: 40px;
@@ -119,10 +125,16 @@ const TextWrap7 = styled.h3`
   width: 278px;
   height: 29px;
   margin-top: -53px;
-  font-family: "Helvetica Neue";
+  font-family: "Poppins";
   font-weight: 500;
   font-size: 24px;
   color: #f3f2ff;
+`;
+const GoogleLogo1 = styled.img<RegistrationProps>`
+  margin-left: 67px;
+  margin-right: 16px;
+  margin-top: -7px;
+  background-image: url(${(props) => props.src});
 `;
 
 export {
@@ -131,6 +143,7 @@ export {
   CreateAccountButton,
   SignGoogleButton,
   Container,
+  GoogleLogo1,
   Input,
   TextWrap6,
   TextWrap7,

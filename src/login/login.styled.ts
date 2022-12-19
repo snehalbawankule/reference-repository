@@ -7,13 +7,14 @@ const Horizontal = styled.h5`
 const Forget = styled.button`
   width: 169px;
   height: 24px;
-  font-family: "Helvetica Neue";
+  font-family: "Poppins";
   font-weight: 500;
   font-size: 20px;
-  margin-top: 15px;
   margin-left: 194px;
   color: #2f2e41;
+  margin-top: 15px;
+  text-decoration-line: underline;
   border: none;
-  background-color: #f3f2ff;
+  background: none;
 `;
 export { Horizontal, Forget };

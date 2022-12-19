@@ -1,12 +1,12 @@
-import React from "react";
+import GoogleLogo from "../assets/images/GoogleLogo.png";
 import {
   Container,
   CreateAccountButton,
   Input,
-  SignGoogleButton,
   RectPic,
   Form,
-  LoginLink,
+  GoogleLogo1,
+  SignGoogleButton,
   TextWrap3,
   TextWrap1,
   TextWrap6,
@@ -14,17 +14,22 @@ import {
   TextWrap4,
   TextWrap5,
   TextWrap2,
+  LoginLink,
 } from "./registration.styled";
+import { useGoogleLogin } from "@react-oauth/google";
 import Rectangle1 from "../assets/images/Rectangle1.png";
-//import { useNavigate } from "react-router-dom";
-//import { validate } from "../validate/validate";
+import { useNavigate } from "react-router-dom";
 import { FormValidate } from "../validate/formValidate";
-//import { RoboText } from "../login/Login.styled";
-
 const Registration = () => {
-  /* const navigate = useNavigate();
+  const login = useGoogleLogin({
+    onSuccess: (tokenResponse) => console.log(tokenResponse),
+  });
+  const navigate = useNavigate();
   const navLogin = () => {
     navigate("/login");
+  };
+  /*const navHome = () => {
+    navigate("/home");
   };*/
   return (
     <Container>
@@ -84,11 +89,15 @@ const Registration = () => {
           <CreateAccountButton onClick={FormValidate}>
             Create an Account
           </CreateAccountButton>
-          <SignGoogleButton>Sign up with Google</SignGoogleButton>
-          <TextWrap3>
-            Already have an account?<LoginLink>Log in</LoginLink>
-          </TextWrap3>
+          <SignGoogleButton onClick={() => login()}>
+            <GoogleLogo1 src={GoogleLogo} />
+            Sign up with Google
+          </SignGoogleButton>
         </form>
+        <TextWrap3>
+          Already have an account?
+          <LoginLink onClick={navLogin}>Log in</LoginLink>
+        </TextWrap3>
       </Form>
     </Container>
   );
