@@ -14,6 +14,7 @@ const RectPic = styled.div<RegistrationProps>`
   flex: 1;
   width: 876px;
   height: 1024px;
+  padding-left: 50px;
   background-image: url(${(props) => props.background});
 `;
 const TextWrap1 = styled.h1`
@@ -21,6 +22,7 @@ const TextWrap1 = styled.h1`
   height: 49px;
   font-family: "Helvetica Neue";
   padding-top: 142px;
+  margin: 0px, 0px, 0px, 0px;
   font-weight: 500;
   font-size: 40px;
   color: #2f2e41;
@@ -41,12 +43,11 @@ const Input = styled.input`
   border-width: 0 0 2px;
   margin-bottom: 56px;
   ::placeholder {
-    color: rgba(47, 46, 65, 0.75);
+    color: #2f2e41bf;
   }
 `;
 const LoginLink = styled.button`
   font-family: "Roboto", sans-serif;
-  color: #2ed2c9;
   border: none;
   font-size: 22px;
 `;
@@ -66,8 +67,8 @@ const SignGoogleButton = styled.button`
   font-family: "Helvetica Neue";
   font-weight: 300;
   font-size: 17.9653px;
+  background: none;
   margin-top: 25px;
-  color: #2f2e41;
   border: 1.79653px solid rgba(47, 46, 65, 0.15);
   border-radius: 9.00744px;
 `;
@@ -75,8 +76,53 @@ const Form = styled.div`
   width: 563px;
   padding-left: 98px;
   height: 1024px;
-  left: 1440px;
-  top: 0px;
+`;
+const TextWrap3 = styled.h4`
+  position: absolute;
+  width: 254px;
+  height: 22px;
+  font-family: "Helvetica Neue";
+  font-weight: 300;
+  font-size: 18px;
+  color: #2f2e41;
+`;
+const TextWrap4 = styled.h4`
+  width: 204px;
+  height: 29px;
+  margin-top: 71px;
+  font-family: "Helvetica Neue";
+  font-weight: 700;
+  font-size: 24px;
+  color: #f3f2ff;
+`;
+const TextWrap5 = styled.h4`
+  width: 789px;
+  height: 118px;
+  margin-top: 595px;
+  font-family: "Helvetica Neue";
+  font-weight: 700;
+  font-size: 48px;
+  color: #f3f2ff;
+`;
+
+const TextWrap6 = styled.h4`
+  width: 219px;
+  height: 49px;
+  font-family: "Helvetica Neue";
+  font-weight: 500;
+  margin-top: 43px;
+  font-size: 40px;
+  color: #f3f2ff;
+`;
+
+const TextWrap7 = styled.h3`
+  width: 278px;
+  height: 29px;
+  margin-top: -53px;
+  font-family: "Helvetica Neue";
+  font-weight: 500;
+  font-size: 24px;
+  color: #f3f2ff;
 `;
 
 export {
@@ -86,6 +132,11 @@ export {
   SignGoogleButton,
   Container,
   Input,
+  TextWrap6,
+  TextWrap7,
+  TextWrap3,
+  TextWrap5,
+  TextWrap4,
   LoginLink,
   RectPic,
   Form,
