@@ -12,7 +12,6 @@ const Container = styled.div`
 `;
 
 const RectPic = styled.div<RegistrationProps>`
-  flex: 1;
   width: 876px;
   height: 1024px;
   padding-left: 50px;
@@ -23,7 +22,7 @@ const TextWrap1 = styled.h1`
   height: 49px;
   font-family: "Poppins";
   padding-top: 142px;
-  margin: 0px, 0px, 0px, 0px;
+  margin-top: 0px;
   font-weight: 500;
   font-size: 40px;
   color: #2f2e41;
@@ -84,7 +83,6 @@ const Form = styled.div`
   height: 1024px;
 `;
 const TextWrap3 = styled.h4`
-  position: absolute;
   padding-left:60px;
   display:flex;
   height: 22px; "Poppins";
@@ -95,7 +93,8 @@ const TextWrap3 = styled.h4`
 const TextWrap4 = styled.h4`
   width: 204px;
   height: 29px;
-  margin-top: 71px;
+  margin-top: auto;
+  padding-top: 71px;
   font-family: "Poppins";
   font-weight: 700;
   font-size: 24px;
