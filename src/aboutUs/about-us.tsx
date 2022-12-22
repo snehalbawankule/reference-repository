@@ -1,12 +1,6 @@
 import React from "react";
-import { Container } from "../registration/registration.styled";
-
 function AboutUs() {
-  return (
-    <Container>
-      <h1>about us</h1>
-    </Container>
-  );
+  return <h1>about us</h1>;
 }
 
 export default AboutUs;
