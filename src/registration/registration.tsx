@@ -18,9 +18,12 @@ import {
 import { useGoogleLogin } from "@react-oauth/google";
 import Rectangle1 from "../assets/images/Rectangle1.png";
 import { useNavigate } from "react-router-dom";
+
 import { FormValidate } from "../validate/formValidate";
 import React from "react";
+import useMediaQuery from "../hooks/use-media-query";
 const Registration = () => {
+  const { isTablet, isMobile, isDesktop } = useMediaQuery();
   const Login = useGoogleLogin({
     onSuccess: (tokenResponse) => console.log(tokenResponse),
   });
@@ -29,7 +32,7 @@ const Registration = () => {
     navigate("/login");
   };
   return (
-    <Grid container>
+    <Grid container style={{ background: "white" }}>
       <Grid
         item
         xs={100}
@@ -37,7 +40,6 @@ const Registration = () => {
         md={50}
         lg={9}
         style={{
-          justifyContent: "center",
           alignContent: "center",
           backgroundImage: `url(${Rectangle1})`,
           backgroundPosition: "center",
@@ -57,7 +59,14 @@ const Registration = () => {
         sm={100}
         md={50}
         lg={3}
-        style={{ textAlign: "center", paddingTop: 142 }}
+        display="flex"
+        style={{
+          paddingLeft: isMobile ? "80px" : isTablet ? "20px" : "20px",
+          justifyContent: isDesktop ? "flex-start" : "center",
+          textAlign: "center",
+          alignItems: isMobile ? "center" : "flex-start",
+          paddingTop: 142,
+        }}
       >
         <Form>
           <form>
@@ -109,7 +118,12 @@ const Registration = () => {
             <CreateAccountButton onClick={FormValidate}>
               Create an Account
             </CreateAccountButton>
-            <SignGoogleButton onClick={() => Login()}>
+            <SignGoogleButton
+              style={{
+                marginLeft: isDesktop ? "85px" : isTablet ? "100px" : "100px",
+              }}
+              onClick={() => Login()}
+            >
               <GoogleLogo1 src={GoogleLogo} />
               Sign up with Google
             </SignGoogleButton>

@@ -3,28 +3,28 @@ type RegistrationProps = {
   background?: string;
   src?: string;
 };
+const pxToRem = (size: number) => `${size / 16}rem`;
 const TextWrap1 = styled.text`
   font-family: "Poppins";
   font-weight: 500;
-  font-size: 40px;
+  font-size: ${pxToRem(40)};
   color: #2f2e41;
 `;
 const TextWrap2 = styled.text`
   font-family: "Poppins";
   font-weight: 400;
-  font-size: 20px;
+  font-size: ${pxToRem(20)};
 `;
 const Container = styled.div`
   color: white;
 `;
 const Input = styled.input`
   width: 362px;
-  height: 21.43px;
   font-family: "Poppins";
   font-weight: 300;
-  font-size: 17.9653px;
+  font-size: ${pxToRem(17)};
   border-width: 0 0 2px;
-  margin-bottom: 56px;
+  margin-bottom: ${pxToRem(56)};
   ::placeholder {
     color: #2f2e41bf;
   }
@@ -34,14 +34,14 @@ const LoginLink = styled.button`
   border: none;
   text-decoration-line: underline;
   background: none;
-  font-size: 22px;
+  font-size: ${pxToRem(22)};
 `;
 const CreateAccountButton = styled.button`
   width: 363px;
   height: 58px;
   font-family: "Poppins";
   font-weight: 400;
-  margin-top: 50px;
+  margin-top: ${pxToRem(50)};
   font-size: 21.6179px;
   color: #f3f2ff;
   align-item: center;
@@ -54,29 +54,24 @@ const SignGoogleButton = styled.button`
   display: flex;
   background: none;
   color: #2f2e41;
-  margin-left: 100px;
   font-family: "Poppins";
   font-weight: 300;
-  padding-top: 15px;
+  padding-top: ${pxToRem(15)};
   font-size: 17.9653px;
   align-item: center;
-  margin-top: 25px;
+  margin-top: ${pxToRem(25)};
   border: 1.79653px solid rgba(47, 46, 65, 0.15);
-  border-radius: 9.00744px;
+  border-radius: ${pxToRem(9)};
 `;
 const TextWrap3 = styled.h4`
-  height: 22px;
   font-family: "Poppins";
   font-weight: 300;
   font-size: 18px;
   color: #2f2e41;
 `;
 const TextWrap4 = styled.h4`
-  width: 204px;
-  height: 29px;
-  margin-top: auto;
-  padding-left: 50px;
-  padding-top: 71px;
+  padding-left: ${pxToRem(50)};
+  padding-top: ${pxToRem(71)};
   font-family: "Poppins";
   font-weight: 700;
   font-size: 24px;
@@ -84,8 +79,8 @@ const TextWrap4 = styled.h4`
 `;
 const TextWrap5 = styled.h4`
   width: 789px;
-  margin-top: 595px;
-  padding-left: 50px;
+  margin-top: ${pxToRem(695)};
+  padding-left: ${pxToRem(50)};
   font-family: "Poppins";
   font-weight: 700;
   font-size: 48px;
@@ -93,31 +88,29 @@ const TextWrap5 = styled.h4`
 `;
 const Form = styled.div`
   width: 563px;
-  align-item: center;
-  padding-left: 98px;
   height: 1024px;
 `;
 const TextWrap6 = styled.h4`
   font-family: "Poppins";
   font-weight: 500;
-  padding-left: 50px;
-  margin-top: 43px;
+  padding-left: ${pxToRem(50)};
+  margin-top: ${pxToRem(43)};
   font-size: 40px;
   color: #f3f2ff;
 `;
 
 const TextWrap7 = styled.h3`
-  padding-left: 50px;
-  margin-top: -53px;
+  padding-left: ${pxToRem(50)};
+  margin-top: ${pxToRem(-53)};
   font-family: "Poppins";
   font-weight: 500;
   font-size: 24px;
   color: #f3f2ff;
 `;
 const GoogleLogo1 = styled.img<RegistrationProps>`
-  margin-left: 67px;
-  margin-right: 16px;
-  margin-top: -7px;
+  margin-left: ${pxToRem(67)};
+  margin-right: ${pxToRem(16)};
+  margin-top: ${pxToRem(-7)};
 
   background-image: url(${(props) => props.src});
 `;

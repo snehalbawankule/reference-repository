@@ -9,6 +9,7 @@ import Login from "./login/login";
 function App() {
   return (
     <>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
       <Routes>
         <Route path="/" element={<Registration />} />
         <Route path="/login" element={<Login />} />
