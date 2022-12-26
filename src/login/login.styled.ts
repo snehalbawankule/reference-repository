@@ -1,9 +1,5 @@
 import styled from "styled-components";
-const Horizontal = styled.h5`
-  display: flex;
-  flex-direction: row;
-  margin-top: 64px;
-`;
+
 const Forget = styled.button`
   width: 169px;
   height: 24px;
@@ -17,4 +13,4 @@ const Forget = styled.button`
   border: none;
   background: none;
 `;
-export { Horizontal, Forget };
+export { Forget };

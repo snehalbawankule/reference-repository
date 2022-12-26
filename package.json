@@ -10,6 +10,7 @@
     "@material/react-text-field": "^0.15.0",
     "@material/toolbar": "^2.3.0",
     "@mui/icons-material": "^5.11.0",
+    "@mui/lab": "^5.0.0-alpha.113",
     "@mui/material": "^5.11.0",
     "@react-oauth/google": "^0.5.1",
     "@reduxjs/toolkit": "^1.9.1",

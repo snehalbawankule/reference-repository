@@ -1,24 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { addArticle } from "../store/services";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import Toolbar from "@mui/material/Toolbar";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-//import Home1 from "./home";
-//import AddPost from "../add-post/add-post";
+import MenuItem from "@mui/material/MenuItem";
+import AppBar from "@mui/material/AppBar";
+import MenuList from "@mui/material/MenuList";
 import { PostArticle, TextWrap } from "./home.styled";
+import { useAppDispatch } from "../hooks/hooks";
 import Grid from "@mui/material/Grid";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Divider } from "@mui/material";
+import Homee from "./homee";
 
 const Home = () => {
-  const [value, setValue] = React.useState("1");
+  const dispatch = useAppDispatch();
+  //const article = useAppSelector((state) => state.articles.article);
+  useEffect(() => {
+    dispatch(addArticle());
+  }, [dispatch]);
+  /*const [value, setValue] = React.useState("0");
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
-  };
+  };*/
 
   const navigate = useNavigate();
   const navAddPost = () => {
@@ -26,57 +33,42 @@ const Home = () => {
   };
   return (
     <Grid container>
-      <Toolbar>
-        <Grid item xs={12} sm={12} md={12} lg={8}>
-          <TextWrap>SkillupAfrica Blog</TextWrap>
-        </Grid>
-        <Grid item xs={12} sm={12} md={12} lg={8}>
-          <Tabs
-            variant="fullWidth"
-            value={value}
-            onChange={handleChange}
-            aria-label="nav tabs example"
-          >
-            <Tab value="1" label="Home" style={{ marginLeft: 100 }} />
-            <Tab value="2" label="Article" />
-            <Tab value="3" label="ContactUs" />
-          </Tabs>
-        </Grid>
-        <Grid item xs={12} sm={4} md={12} lg={10} style={{ marginLeft: 30 }}>
-          <FacebookRoundedIcon />
-          <TwitterIcon />
-          <InstagramIcon />
-          <YouTubeIcon />
-        </Grid>
-        <Grid item xs={12} sm={6} md={12} lg={12}>
-          <PostArticle onClick={navAddPost}>Post your Article</PostArticle>
-        </Grid>
-      </Toolbar>
+      <AppBar position="static">
+        <Toolbar>
+          <Grid item xs={12} sm={12} md={3} lg={12}>
+            <TextWrap>SkillupAfrica Blog</TextWrap>
+          </Grid>
+          <Grid item xs={12} sm={12} md={3} lg={30}>
+            <MenuList>
+              <MenuItem>Home</MenuItem>
+              <MenuItem>Article</MenuItem>
+              <MenuItem>Contact Us</MenuItem>
+            </MenuList>
+          </Grid>
 
+          <Grid item xs={12} sm={4} md={12} lg={20} style={{ marginLeft: 30 }}>
+            <FacebookRoundedIcon />
+            <TwitterIcon />
+            <InstagramIcon />
+            <YouTubeIcon />
+          </Grid>
+          <Grid item xs={12} sm={6} md={12} lg={12}>
+            <PostArticle onClick={navAddPost}>Post your Article</PostArticle>
+          </Grid>
+        </Toolbar>
+      </AppBar>
       <Divider />
-      {/*</Grid><Tabs
-          value={value}
-          onChange={handleChange}
-          textColor="secondary"
-          indicatorColor="secondary"
-          aria-label="secondary tabs example"
-        >
-          <Tab value="one" label="Home" />
-          <Tab value="two" label="Article" />
-          <Tab value="three" label="Contact Us" />
-        </Tabs>
-      </Box>
-      <FacebookRoundedIcon />
-      <TwitterIcon />
-      <InstagramIcon />
-      <YouTubeIcon />
-      <PostArticle onClick={navAddPost}>Post your Article</PostArticle>
-      <Routes>
-        <Route path="/home" element={<Home1 />} />
-        <Route path="/home/article" element={<Article />} />
-        <Route path="/home/aboutus" element={<AboutUs />} />
-        <Route path="/home/addpost" element={<AddPost />} />
-  </Routes>*/}
+      <Grid
+        container
+        style={{
+          paddingTop: 100,
+          borderBlock: 20,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Homee />
+      </Grid>
     </Grid>
   );
 };

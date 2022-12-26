@@ -1,6 +1,5 @@
 import styled from "styled-components";
 type RegistrationProps = {
-  background?: string;
   src?: string;
 };
 const pxToRem = (size: number) => `${size / 16}rem`;
@@ -13,10 +12,8 @@ const TextWrap1 = styled.text`
 const TextWrap2 = styled.text`
   font-family: "Poppins";
   font-weight: 400;
+  margin-top: ${pxToRem(40)};
   font-size: ${pxToRem(20)};
-`;
-const Container = styled.div`
-  color: white;
 `;
 const Input = styled.input`
   width: 362px;
@@ -67,6 +64,7 @@ const TextWrap3 = styled.h4`
   font-family: "Poppins";
   font-weight: 300;
   font-size: 18px;
+  margin-top: ${pxToRem(50)};
   color: #2f2e41;
 `;
 const TextWrap4 = styled.h4`
@@ -123,7 +121,6 @@ export {
   GoogleLogo1,
   Input,
   Form,
-  Container,
   TextWrap6,
   TextWrap7,
   TextWrap3,

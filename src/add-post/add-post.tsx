@@ -1,4 +1,4 @@
-import { Container, NewArticle, InputBox} from "./add-post.styled";
+import { Container, NewArticle, InputBox } from "./add-post.styled";
 const AddPost = () => {
   return (
     <Container>
