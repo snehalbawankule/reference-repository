@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { actions } from "../store/reducer";
-import { addArticle } from "../store/services";
+import { actions } from "../../store/reducer";
+import { addArticle } from "../../store/services";
 import { Grid, Card } from "@mui/material";
 import { Boxes, Image } from "./home.styled";
-import { useAppSelector, useAppDispatch } from "../hooks/hooks";
+import { useAppSelector, useAppDispatch } from "../../hooks/hooks";
 
 const Homee = () => {
   const dispatch = useAppDispatch();

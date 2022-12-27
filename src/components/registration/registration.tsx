@@ -1,4 +1,4 @@
-import GoogleLogo from "../assets/images/GoogleLogo.png";
+import GoogleLogo from "../../assets/images/GoogleLogo.png";
 import Grid from "@mui/material/Grid";
 import {
   CreateAccountButton,
@@ -16,12 +16,10 @@ import {
   LoginLink,
 } from "./registration.styled";
 import { useGoogleLogin } from "@react-oauth/google";
-import Rectangle1 from "../assets/images/Rectangle1.png";
+import Rectangle1 from "../../assets/images/Rectangle1.png";
 import { useNavigate } from "react-router-dom";
-
 import { FormValidate } from "../validate/formValidate";
-import React from "react";
-import useMediaQuery from "../hooks/use-media-query";
+import useMediaQuery from "../../hooks/use-media-query";
 const Registration = () => {
   const { isTablet, isMobile, isDesktop } = useMediaQuery();
   const Login = useGoogleLogin({

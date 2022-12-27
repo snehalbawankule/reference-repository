@@ -1,13 +1,13 @@
 import React from "react";
 //import { Link } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
-import Registration from "./registration/registration";
-import Home from "./home/home-page";
+import Registration from "./components/registration/registration";
+import Home from "./components/home/home-page";
 //import Regi from "./registration/regi";
-import Login from "./login/login";
-import AddPost from "./add-post/add-post";
-import Article from "./article/article";
-import AboutUs from "./aboutUs/about-us";
+import Login from "./components/login/login";
+import AddPost from "./components/add-post/add-post";
+import Article from "./components/article/article";
+import AboutUs from "./components/aboutUs/about-us";
 
 function App() {
   return (

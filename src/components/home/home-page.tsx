@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import { Box, Menu, Toolbar, Button } from "@mui/material";
+import { Box, Menu, Toolbar, Button, Link } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
 import React from "react";
@@ -27,7 +27,6 @@ const Home = () => {
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  const pages = ["Home", "Article", "About Us"];
   const navigate = useNavigate();
   const navAddPost = () => {
     navigate("/addpost");
@@ -68,30 +67,42 @@ const Home = () => {
                 display: { xs: "block" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem>
+                <Link href="/article">Article</Link>
+              </MenuItem>
+              <MenuItem>
+                <Link href="/about">Contact Us</Link>
+              </MenuItem>
             </Menu>
           </Box>
           <Grid item xs={12} sm={12} md={12} lg={12}>
-            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-              {pages.map((page) => (
-                <Button
-                  key={page}
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  {page}
-                </Button>
-              ))}
+            <Box
+              sx={{
+                flexGrow: 1,
+                display: { my: 2, xs: "none", md: "flex" },
+              }}
+            >
+              <MenuItem>
+                <Link style={{ color: "white" }}>Home</Link>
+              </MenuItem>
+
+              <MenuItem>
+                <Link style={{ color: "white" }} href="/article">
+                  Article
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link style={{ color: "white" }} href="/about">
+                  Contact Us
+                </Link>
+              </MenuItem>
             </Box>
           </Grid>
-          <Grid item xs={12} sm={4} md={12} lg={20} style={{ marginLeft: 30 }}>
+          <Grid item xs={12} sm={4} md={12} lg={12} style={{ marginLeft: 30 }}>
             <FacebookRoundedIcon />
-            <TwitterIcon />
-            <InstagramIcon />
-            <YouTubeIcon />
+            <TwitterIcon style={{ marginLeft: 20 }} />
+            <InstagramIcon style={{ marginLeft: 20 }} />
+            <YouTubeIcon style={{ marginLeft: 20 }} />
           </Grid>
           <Grid item xs={12} sm={6} md={12} lg={12}>
             <PostArticle onClick={navAddPost}>Post your Article</PostArticle>

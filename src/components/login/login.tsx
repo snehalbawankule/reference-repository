@@ -1,5 +1,5 @@
 import { useGoogleLogin } from "@react-oauth/google";
-import GoogleLogo from "../assets/images/GoogleLogo.png";
+import GoogleLogo from "../../assets/images/GoogleLogo.png";
 import Grid from "@mui/material/Grid";
 import { Divider } from "@mui/material";
 
@@ -19,9 +19,9 @@ import {
   Form,
 } from "../registration/registration.styled";
 import { Forget } from "./login.styled";
-import Rectangle2 from "../assets/images/Rectangle2.png";
+import Rectangle2 from "../../assets/images/Rectangle2.png";
 import { useNavigate } from "react-router-dom";
-import useMediaQuery from "../hooks/use-media-query";
+import useMediaQuery from "../../hooks/use-media-query";
 const Registration = () => {
   const { isTablet, isDesktop } = useMediaQuery();
   const navigate = useNavigate();
