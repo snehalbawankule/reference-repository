@@ -1,4 +1,4 @@
-import { Container, NewArticle, InputBox } from "./add-post.styled";
+import { Container, NewArticle, InputBox, PostButton } from "./add-post.styled";
 const AddPost = () => {
   return (
     <Container>
@@ -12,6 +12,7 @@ const AddPost = () => {
         style={{ width: 1240, height: 520 }}
         placeholder="Blog Content"
       ></InputBox>
+      <PostButton>Post</PostButton>
     </Container>
   );
 };

@@ -29,4 +29,5 @@ const InputBox = styled.input`
   font-size: 36px;
   color: #2f2e41;
 `;
-export { NewArticle, InputBox, Container };
+const PostButton = styled.button``;
+export { NewArticle, InputBox, PostButton, Container };

@@ -23,6 +23,7 @@ const PostArticle = styled.button`
 const Image = styled.img<HomeProps>`
   width: ${pxToRem(460)};
   height: ${pxToRem(200)};
+  object-fit: fill;
   image: url(${(props) => props.src});
 `;
 const Boxes = styled.div`
