@@ -12,6 +12,7 @@ import Grid from "@mui/material/Grid";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTubeIcon from "@mui/icons-material/YouTube";
+import { TextWrap } from "../home/home.styled";
 const Navbar = () => {
   const pages = ["home", "article", "contact", "addpost"];
 
@@ -31,7 +32,7 @@ const Navbar = () => {
 
   return (
     <Grid container>
-      <AppBar position="fixed">
+      <AppBar position="fixed" style={{ background: "white", color: "black" }}>
         <Toolbar>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <Grid item xs={3} sm={3}>
@@ -72,28 +73,31 @@ const Navbar = () => {
                 ))}
               </Menu>
             </Grid>
+            <Grid item xs={6} sm={6} style={{ alignItems: "center" }}>
+              <TextWrap>SkillupAfrica Blog</TextWrap>
+            </Grid>
+          </Box>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            <Grid item md={8} lg={12}>
+              <Typography>SkillupAfrica Blog</Typography>
+            </Grid>
+            <Grid item md={12} lg={12} style={{ paddingLeft: 40 }}>
+              {pages.map((page) => (
+                <Button onClick={handleCloseNavMenu}>
+                  <Link
+                    style={{
+                      color: "black",
+                      textDecoration: "none",
+                    }}
+                    to={`/${page}`}
+                  >
+                    {page}
+                  </Link>
+                </Button>
+              ))}
+            </Grid>
           </Box>
 
-          <Grid item md={12} lg={12}>
-            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-              <Typography>SkillupAfrica Blog</Typography>
-              <Grid item md={10} lg={10} style={{ paddingLeft: 20 }}>
-                {pages.map((page) => (
-                  <Button onClick={handleCloseNavMenu}>
-                    <Link
-                      style={{
-                        color: "white",
-                        textDecoration: "none",
-                      }}
-                      to={`/${page}`}
-                    >
-                      {page}
-                    </Link>
-                  </Button>
-                ))}
-              </Grid>
-            </Box>
-          </Grid>
           <Grid
             item
             xs={3}
@@ -108,9 +112,6 @@ const Navbar = () => {
             <TwitterIcon />
             <InstagramIcon />
             <YouTubeIcon />
-          </Grid>
-          <Grid item xs={4} sm={6} md={4} lg={4}>
-            <PostArticle onClick={navAddPost}>Post your Article</PostArticle>
           </Grid>
         </Toolbar>
       </AppBar>

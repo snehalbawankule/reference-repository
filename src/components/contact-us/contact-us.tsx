@@ -1,6 +1,6 @@
 import { NewArticle, PostButton } from "../add-post/add-post.styled";
-import { Box, Grid } from "@mui/material";
-import TextareaAutosize from "@mui/base/TextareaAutosize";
+import { Box} from "@mui/material";
+
 import TextField from "@mui/material/TextField";
 const ContactUs = () => {
   return (

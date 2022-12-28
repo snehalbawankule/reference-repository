@@ -5,7 +5,7 @@ type HomeProps = {
 };
 const TextWrap = styled.div`
   font-family: "Poppins";
-  font-weight: 700;
+  font-weight: 500;
   font-size: ${pxToRem(24)};
   color: #2f2e41;
 `;
