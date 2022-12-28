@@ -1,26 +1,30 @@
 import React from "react";
-//import { Link } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
-import Registration from "./components/registration/registration";
-import Home from "./components/home/home-page";
-//import Regi from "./registration/regi";
-import Login from "./components/login/login";
-import AddPost from "./components/add-post/add-post";
-import Article from "./components/article/article";
-import AboutUs from "./components/aboutUs/about-us";
-
-function App() {
+import Grid from "@mui/material/Grid";
+import Registration from "./components/registration";
+import { useGoogleLogin } from "@react-oauth/google";
+import Navbar from "./components/navbar/navbar";
+import Home from "./components/home";
+import Login from "./components/login";
+import AddPost from "./components/add-post";
+import Article from "./components/article";
+import ContactUs from "./components/contact-us";
+const App = () => {
+  const Login1 = useGoogleLogin({
+    onSuccess: (tokenResponse) => console.log(tokenResponse),
+  });
   return (
-    <>
+    <Grid container>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Registration />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/registration" element={<Registration />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/home" element={<Home />} />
         <Route path="/addpost" element={<AddPost />} />
-        <Route path="/about" element={<AboutUs />} />
+        <Route path="/contact" element={<ContactUs />} />
         <Route path="/article" element={<Article />} />
       </Routes>
-    </>
+    </Grid>
   );
-}
+};
 export default App;

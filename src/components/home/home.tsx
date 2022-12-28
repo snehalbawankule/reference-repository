@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { actions } from "../../store/reducer";
+import React, { useEffect } from "react";
 import { addArticle } from "../../store/services";
 import { Grid, Card } from "@mui/material";
 import { Boxes, Image } from "./home.styled";
 import { useAppSelector, useAppDispatch } from "../../hooks/hooks";
 
-const Homee = () => {
+const Home = () => {
   const dispatch = useAppDispatch();
   const article = useAppSelector((state) => state.articles.article);
   useEffect(() => {
@@ -13,7 +12,7 @@ const Homee = () => {
   }, [dispatch]);
 
   return (
-    <Grid container direction="row" display="flex" spacing={10}>
+    <Grid container direction="row" display="flex" spacing={5}>
       {article &&
         article.map((item: any, index: any) => {
           return (
@@ -22,7 +21,7 @@ const Homee = () => {
               xs={12}
               sm={12}
               md={6}
-              lg={4}
+              lg={3}
               display="flex"
               justifyContent="center"
             >
@@ -52,4 +51,4 @@ const Homee = () => {
   );
 };
 
-export default Homee;
+export default Home;

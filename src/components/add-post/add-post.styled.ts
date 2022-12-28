@@ -10,7 +10,6 @@ const NewArticle = styled.div`
   color: #2f2e41;
 `;
 const Container = styled.div`
-  position: relative;
   width: 1440px;
   height: 1024px;
   margin-left: 100px;
@@ -29,5 +28,15 @@ const InputBox = styled.input`
   font-size: 36px;
   color: #2f2e41;
 `;
-const PostButton = styled.button``;
+const PostButton = styled.button`
+  width: 178px;
+  height: 56.77px;
+  margin-top: 50px;
+  color: white;
+  font-family: "Poppins";
+  font-weight: 700;
+  font-size: 24px;
+  background: #2f2e41;
+  border-radius: 9.62162px;
+`;
 export { NewArticle, InputBox, PostButton, Container };
