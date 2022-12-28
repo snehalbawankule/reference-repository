@@ -1,13 +1,13 @@
 import { useNavigate, Link } from "react-router-dom";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import { Box, Menu, Toolbar } from "@mui/material";
+import { Box, Menu, Toolbar, Button } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
 import React from "react";
 import AppBar from "@mui/material/AppBar";
 import MenuIcon from "@mui/icons-material/Menu";
 import IconButton from "@mui/material/IconButton";
-import { PostArticle, TextWrap } from "./navbar.styled";
+import { PostArticle } from "./navbar.styled";
 import Grid from "@mui/material/Grid";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import TwitterIcon from "@mui/icons-material/Twitter";
@@ -74,39 +74,31 @@ const Navbar = () => {
             </Grid>
           </Box>
 
-          <Grid md={12} lg={12}>
-            <Box
-              sx={{
-                flexGrow: 1,
-                display: { my: 2, xs: "none", md: "flex" },
-              }}
-            >
-              <Grid md={4} lg={4}>
-                <TextWrap>SkillupAfrica Blog</TextWrap>
+          <Grid item md={12} lg={12}>
+            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+              <Typography>SkillupAfrica Blog</Typography>
+              <Grid item md={10} lg={10} style={{ paddingLeft: 20 }}>
+                {pages.map((page) => (
+                  <Button onClick={handleCloseNavMenu}>
+                    <Link
+                      style={{
+                        color: "white",
+                        textDecoration: "none",
+                      }}
+                      to={`/${page}`}
+                    >
+                      {page}
+                    </Link>
+                  </Button>
+                ))}
               </Grid>
-              <MenuItem>
-                <Link style={{ color: "white" }} to="/home">
-                  Home
-                </Link>
-              </MenuItem>
-
-              <MenuItem>
-                <Link style={{ color: "white" }} to="/article">
-                  Article
-                </Link>
-              </MenuItem>
-              <MenuItem>
-                <Link style={{ color: "white" }} to="/contact">
-                  Contact Us
-                </Link>
-              </MenuItem>
             </Box>
           </Grid>
           <Grid
             item
             xs={3}
             sm={4}
-            md={12}
+            md={4}
             lg={4}
             style={{ marginLeft: 30 }}
             display="flex"

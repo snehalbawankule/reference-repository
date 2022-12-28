@@ -21,13 +21,12 @@ const PostArticle = styled.button`
   border-radius: 7.24416px;
 `;
 const Image = styled.img<HomeProps>`
-  width: ${pxToRem(460)};
+  width: ${pxToRem(400)};
   height: ${pxToRem(200)};
   object-fit: fill;
   image: url(${(props) => props.src});
 `;
 const Boxes = styled.div`
-  width: ${pxToRem(460)};
   height: ${pxToRem(340)};
 `;
 export { TextWrap, PostArticle, Boxes, Image, Bar };

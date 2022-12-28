@@ -1,24 +1,25 @@
-import {
-  Container,
-  NewArticle,
-  InputBox,
-  PostButton,
-} from "../add-post/add-post.styled";
+import { NewArticle, PostButton } from "../add-post/add-post.styled";
+import { Box, Grid } from "@mui/material";
+import TextareaAutosize from "@mui/base/TextareaAutosize";
+import TextField from "@mui/material/TextField";
 const ContactUs = () => {
   return (
-    <Container>
+    <Box
+      display="column"
+      justifyContent="center"
+      sx={{
+        m: 5,
+        width: 700,
+        maxWidth: "100%",
+      }}
+    >
       <NewArticle>Contact Us</NewArticle>
-      <br></br>
-      <InputBox placeholder="Enter your full name"></InputBox>
-      <br></br>
-      <InputBox placeholder="Email address" />
-      <br></br>
-      <InputBox
-        style={{ width: 1240, height: 250, textAlign: "start" }}
-        placeholder="Enter your message"
-      ></InputBox>
+      <TextField fullWidth style={{ marginTop: 20 }} label="Enter full name" />
+      <TextField style={{ marginTop: 20 }} fullWidth label="Enter Email" />
+      <TextField fullWidth style={{ marginTop: 20 }} label="Contact No" />
+      <TextField fullWidth style={{ marginTop: 20 }} label="Enter message" />
       <PostButton>Post</PostButton>
-    </Container>
+    </Box>
   );
 };
 export default ContactUs;

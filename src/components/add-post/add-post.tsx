@@ -1,19 +1,23 @@
-import { Container, NewArticle, InputBox, PostButton } from "./add-post.styled";
+import { NewArticle, PostButton } from "./add-post.styled";
+import { Box } from "@mui/material";
+import TextField from "@mui/material/TextField";
 const AddPost = () => {
   return (
-    <Container>
+    <Box
+      display="column"
+      justifyContent="center"
+      sx={{
+        m: 5,
+        width: 700,
+        maxWidth: "100%",
+      }}
+    >
       <NewArticle>Post a new article</NewArticle>
-      <br></br>
-      <InputBox placeholder="Blog Title"></InputBox>
-      <br></br>
-      <InputBox placeholder="Image url" />
-      <br></br>
-      <InputBox
-        style={{ width: 1240, height: 520 }}
-        placeholder="Blog Content"
-      ></InputBox>
+      <TextField fullWidth style={{ marginTop: 20 }} label="Blog Title" />
+      <TextField style={{ marginTop: 20 }} fullWidth label="Image url" />
+      <TextField fullWidth style={{ marginTop: 20 }} label="Blog Content" />
       <PostButton>Post</PostButton>
-    </Container>
+    </Box>
   );
 };
 export default AddPost;

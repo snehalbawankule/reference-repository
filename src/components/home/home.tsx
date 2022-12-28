@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { addArticle } from "../../store/services";
-import { Grid, Card } from "@mui/material";
-import { Boxes, Image } from "./home.styled";
+import { Grid, Card, Box } from "@mui/material";
+import { Image } from "./home.styled";
 import { useAppSelector, useAppDispatch } from "../../hooks/hooks";
 
 const Home = () => {
@@ -12,21 +12,27 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <Grid container direction="row" display="flex" spacing={5}>
+    <Grid
+      container
+      direction="row"
+      display="flex"
+      sx={{ p: 5, mt: 4 }}
+      spacing={5}
+    >
       {article &&
         article.map((item: any, index: any) => {
           return (
             <Grid
               item
               xs={12}
-              sm={12}
-              md={6}
-              lg={3}
+              sm={6}
+              md={4}
+              lg={4}
               display="flex"
               justifyContent="center"
             >
-              <Card style={{ background: "gray", paddingLeft: 10 }}>
-                <Boxes key={index}>
+              <Card style={{ background: "gray" }}>
+                <Box sx={{ height: 340 }} key={index}>
                   <Grid
                     item
                     xs={12}
@@ -42,7 +48,7 @@ const Home = () => {
                   <Grid item xs={12} sm={12} md={12} lg={12} textAlign="center">
                     {item.title}
                   </Grid>
-                </Boxes>
+                </Box>
               </Card>
             </Grid>
           );
