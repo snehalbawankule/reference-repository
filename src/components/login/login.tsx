@@ -2,7 +2,7 @@ import { useGoogleLogin } from "@react-oauth/google";
 import GoogleLogo from "../../assets/images/GoogleLogo.png";
 import Grid from "@mui/material/Grid";
 import { Divider } from "@mui/material";
-
+import { validate } from "../validate/validate";
 import {
   CreateAccountButton,
   Input,
@@ -27,6 +27,9 @@ const Registration = () => {
   const navigate = useNavigate();
   const navRegistration = () => {
     navigate("/");
+  };
+  const navHome = () => {
+    navigate("/home");
   };
   const login = useGoogleLogin({
     onSuccess: (tokenResponse) => console.log(tokenResponse),
@@ -54,12 +57,12 @@ const Registration = () => {
         <TextWrap7>Lead Writer, SkillupAfrica</TextWrap7>
       </Grid>
       <Grid
+        item
         xs={100}
         sm={100}
         md={50}
         lg={3}
-        display="flex"
-        direction="column"
+        display="flex-column"
         style={{
           paddingLeft: isDesktop ? "70px" : isTablet ? "40px" : "150px",
           justifyContent: isDesktop ? "" : "center",
@@ -83,7 +86,12 @@ const Registration = () => {
             OR
           </Divider>
 
-          <form>
+          <form
+            onSubmit={() => {
+              validate();
+              navHome();
+            }}
+          >
             <Input
               style={{ marginTop: 90, marginBottom: 76 }}
               type="email"

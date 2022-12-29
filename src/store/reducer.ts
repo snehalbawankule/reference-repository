@@ -16,6 +16,9 @@ const { actions, reducer } = createSlice({
     addArticle(state, action) {
       state.article = action.payload;
     },
+    addNewArticle(state, action) {
+      state.article = action.payload;
+    },
   },
 });
 export { actions };

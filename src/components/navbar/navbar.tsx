@@ -73,18 +73,24 @@ const Navbar = () => {
                 ))}
               </Menu>
             </Grid>
-            <Grid item xs={6} sm={6} style={{ alignItems: "center" }}>
+            <Grid item xs={6} sm={6}>
               <TextWrap>SkillupAfrica Blog</TextWrap>
             </Grid>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "flex", alignItems: "center" },
+            }}
+          >
             <Grid item md={8} lg={12}>
-              <Typography>SkillupAfrica Blog</Typography>
+              <TextWrap>SkillupAfrica Blog</TextWrap>
             </Grid>
             <Grid item md={12} lg={12} style={{ paddingLeft: 40 }}>
               {pages.map((page) => (
                 <Button onClick={handleCloseNavMenu}>
                   <Link
+                    key={page}
                     style={{
                       color: "black",
                       textDecoration: "none",

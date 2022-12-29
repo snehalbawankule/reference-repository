@@ -10,20 +10,16 @@ import Login from "./components/login";
 import AddPost from "./components/add-post";
 import Article from "./components/article";
 import ContactUs from "./components/contact-us";
-const App = () => {
-  /*const Login1 = useGoogleLogin({
-    onSuccess: (tokenResponse) => console.log(tokenResponse),
-  });*/
+function App() {
   const location = useLocation();
   return (
     <Grid container>
-      {location.pathname !== `/registration` &&
-      location.pathname !== `/login` ? (
+      {location.pathname !== `/` && location.pathname !== `/login` ? (
         <Navbar />
       ) : null}
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/registration" element={<Registration />} />
+        <Route path="/" element={<Registration />} />
         <Route path="/login" element={<Login />} />
         <Route path="/addpost" element={<AddPost />} />
         <Route path="/contact" element={<ContactUs />} />
@@ -31,5 +27,5 @@ const App = () => {
       </Routes>
     </Grid>
   );
-};
+}
 export default App;

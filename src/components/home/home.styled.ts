@@ -5,11 +5,52 @@ type HomeProps = {
 };
 const TextWrap = styled.div`
   font-family: "Poppins";
-  font-weight: 500;
+  font-weight: 700;
+  padding-left: ${pxToRem(60)};
   font-size: ${pxToRem(24)};
   color: #2f2e41;
 `;
-const Bar = styled.div``;
+const TextWrap01 = styled.div`
+  font-family: "Poppins";
+  padding-top: ${pxToRem(24)};
+  font-weight: 300;
+  font-size: ${pxToRem(16)};
+  color: #6d6d6d;
+`;
+
+const TextWrap02 = styled.div`
+  font-family: "Poppins";
+  font-weight: 700;
+  padding-top: ${pxToRem(24)};
+  font-size: ${pxToRem(27.61)};
+  color: #2f2e41;
+`;
+
+const TextWrap03 = styled.div`
+  font-weight: 300;
+  color: #000000;
+  padding-top: ${pxToRem(24)};
+  font-family: "Poppins";
+  font-size: ${pxToRem(20)};
+`;
+const TextWrap04 = styled.div`
+  font-weight: 700;
+  width: ${pxToRem(906)};
+  color: #e6e6e6;
+  padding-top: ${pxToRem(174)};
+  padding-left: ${pxToRem(100)};
+  font-family: "Poppins";
+  font-size: ${pxToRem(96)};
+`;
+const TextWrap05 = styled.div`
+  width: ${pxToRem(710)};
+  font-weight: 300;
+  color: #e6e6e6;
+  padding-top: ${pxToRem(46)};
+  padding-left: ${pxToRem(100)};
+  font-family: "Poppins";
+  font-size: ${pxToRem(32)};
+`;
 const PostArticle = styled.button`
   font-family: "Poppins";
   font-style: italic;
@@ -21,12 +62,21 @@ const PostArticle = styled.button`
   border-radius: 7.24416px;
 `;
 const Image = styled.img<HomeProps>`
-  width: ${pxToRem(400)};
-  height: ${pxToRem(200)};
-  object-fit: fill;
-  image: url(${(props) => props.src});
+  border-radius: ${pxToRem(10)};
+  background-image: url(${(props) => props.src});
 `;
 const Boxes = styled.div`
-  height: ${pxToRem(340)};
+  height: ${pxToRem(560)};
 `;
-export { TextWrap, PostArticle, Boxes, Image, Bar };
+
+export {
+  TextWrap,
+  TextWrap01,
+  TextWrap02,
+  TextWrap03,
+  TextWrap04,
+  TextWrap05,
+  PostArticle,
+  Boxes,
+  Image,
+};

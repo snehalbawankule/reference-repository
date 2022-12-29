@@ -1,5 +1,6 @@
 import GoogleLogo from "../../assets/images/GoogleLogo.png";
 import Grid from "@mui/material/Grid";
+import { useState } from "react";
 import {
   CreateAccountButton,
   Input,
@@ -18,16 +19,46 @@ import {
 import { useGoogleLogin } from "@react-oauth/google";
 import Rectangle1 from "../../assets/images/Rectangle1.png";
 import { useNavigate } from "react-router-dom";
-import { FormValidate } from "../validate/formValidate";
+//import { FormValidate } from "../validate/formValidate";
 import useMediaQuery from "../../hooks/use-media-query";
 const Registration = () => {
   const { isTablet, isMobile, isDesktop } = useMediaQuery();
   const Login = useGoogleLogin({
     onSuccess: (tokenResponse) => console.log(tokenResponse),
   });
+
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+    console.log(userInfo);
+    setUserInfo({ name: "", email: "", password: "", password1: "" });
+  };
+  const [userInfo, setUserInfo] = useState({
+    name: "",
+    email: "",
+    password: "",
+    password1: "",
+  });
+  const handleChange = (event: any) => {
+    setUserInfo({ ...userInfo, [event.target.name]: event.target.value });
+  };
   const navigate = useNavigate();
   const navLogin = () => {
     navigate("/login");
+  };
+  const FormValidate = () => {
+    const password: HTMLElement | any = document.getElementById("pass10");
+    const confirm_password: HTMLElement | any =
+      document.getElementById("pass20");
+
+    function validatePassword() {
+      if (password.value === confirm_password.value) {
+        navLogin();
+      } else {
+        confirm_password.setCustomValidity("Passwords Don't Match");
+      }
+    }
+    password.onchange = validatePassword();
+    confirm_password.onkeyup = validatePassword();
   };
   return (
     <Grid container style={{ background: "white" }}>
@@ -57,9 +88,9 @@ const Registration = () => {
         sm={100}
         md={50}
         lg={3}
-        display="flex"
+        display="flex-column"
         style={{
-          paddingLeft: isMobile ? "80px" : isTablet ? "20px" : "20px",
+          paddingLeft: isMobile ? "100px" : isTablet ? "120px" : "20px",
           justifyContent: isDesktop ? "flex-start" : "center",
           textAlign: "center",
           alignItems: isMobile ? "center" : "flex-start",
@@ -67,7 +98,12 @@ const Registration = () => {
         }}
       >
         <Form>
-          <form>
+          <form
+            onSubmit={(e) => {
+              FormValidate();
+              handleSubmit(e);
+            }}
+          >
             <TextWrap1>Create an Account</TextWrap1>
             <br />
             <TextWrap2>Let's start a journey to great articles</TextWrap2>
@@ -76,46 +112,51 @@ const Registration = () => {
               type="text"
               style={{ marginTop: 63 }}
               name="name"
+              onChange={handleChange}
+              value={userInfo.name}
               placeholder="Name"
               minLength={5}
               maxLength={10}
               required
             />
-            <br></br>
+
             <Input
               type="email"
               name="email"
               placeholder="Email Address"
+              onChange={handleChange}
+              value={userInfo.email}
               required
             />
-            <br></br>
+
             <Input
-              type="password"
+              type="text"
               name="profilepic"
               placeholder="Add Profile Picture"
               required
             />
-            <br></br>
             <Input
               type="password"
               id="pass10"
               name="password"
+              onChange={handleChange}
+              value={userInfo.password}
               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
               title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
               placeholder="Password"
               required
             />
-            <br></br>
+
             <Input
               type="password"
               id="pass20"
               name="password1"
+              onChange={handleChange}
+              value={userInfo.password1}
               placeholder="Confirm Password"
               required
             />
-            <CreateAccountButton onClick={FormValidate}>
-              Create an Account
-            </CreateAccountButton>
+            <CreateAccountButton>Create an Account</CreateAccountButton>
             <SignGoogleButton
               style={{
                 marginLeft: isDesktop ? "85px" : isTablet ? "100px" : "100px",
