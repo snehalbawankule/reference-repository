@@ -87,10 +87,9 @@ const Navbar = () => {
               <TextWrap>SkillupAfrica Blog</TextWrap>
             </Grid>
             <Grid item md={12} lg={12} style={{ paddingLeft: 40 }}>
-              {pages.map((page) => (
-                <Button onClick={handleCloseNavMenu}>
+              {pages.map((page, index) => (
+                <Button key={index} onClick={handleCloseNavMenu}>
                   <Link
-                    key={page}
                     style={{
                       color: "black",
                       textDecoration: "none",

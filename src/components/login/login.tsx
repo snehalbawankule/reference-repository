@@ -60,12 +60,12 @@ const Registration = () => {
         item
         xs={100}
         sm={100}
-        md={50}
+        md={3}
         lg={3}
         display="flex-column"
         style={{
           paddingLeft: isDesktop ? "70px" : isTablet ? "40px" : "150px",
-          justifyContent: isDesktop ? "" : "center",
+          justifyContent: isDesktop ? "flex" : isTablet ? "center" : "center",
           textAlign: "center",
           alignItems: "center",
           paddingTop: 142,
@@ -86,12 +86,7 @@ const Registration = () => {
             OR
           </Divider>
 
-          <form
-            onSubmit={() => {
-              validate();
-              navHome();
-            }}
-          >
+          <form onSubmit={navHome}>
             <Input
               style={{ marginTop: 90, marginBottom: 76 }}
               type="email"

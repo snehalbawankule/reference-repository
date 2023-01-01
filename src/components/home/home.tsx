@@ -14,7 +14,7 @@ import {
 import { useAppSelector, useAppDispatch } from "../../hooks/hooks";
 import useMediaQuery from "../../hooks/use-media-query";
 const Home = () => {
-  const { isTablet, isMobile, isDesktop } = useMediaQuery();
+  const { isMobile } = useMediaQuery();
   const dispatch = useAppDispatch();
   const article = useAppSelector((state) => state.articles.article);
   useEffect(() => {
@@ -29,7 +29,7 @@ const Home = () => {
       sx={{ p: 3, mt: 4 }}
       spacing={5}
     >
-      {/*<Grid
+      <Grid
         item
         sx={{ mt: 4 }}
         xs={100}
@@ -49,11 +49,19 @@ const Home = () => {
           Learning a new skill is important and here at skillup africa we help
           train student in various digital skills
         </TextWrap05>
-      </Grid>*/}
+      </Grid>
       {article &&
         article.map((post: any) => {
           return (
-            <Grid item xs={132} sm={6} md={4} lg={3} display="flex">
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              lg={3}
+              display="flex"
+              key={post.id}
+            >
               <Card
                 style={{
                   border: "none",
@@ -61,7 +69,7 @@ const Home = () => {
                   justifyContent: isMobile ? "center" : "flex",
                 }}
               >
-                <Box key={post.id}>
+                <Box>
                   <Grid
                     item
                     xs={12}

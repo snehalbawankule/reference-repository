@@ -29,6 +29,11 @@ const Registration = () => {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
+    if (userInfo.password === userInfo.password1) {
+      navLogin();
+    } else {
+      event.password1.setCustomValidity("Passwords Don't Match");
+    }
     console.log(userInfo);
     setUserInfo({ name: "", email: "", password: "", password1: "" });
   };
@@ -39,26 +44,12 @@ const Registration = () => {
     password1: "",
   });
   const handleChange = (event: any) => {
+    console.log(event.target.value);
     setUserInfo({ ...userInfo, [event.target.name]: event.target.value });
   };
   const navigate = useNavigate();
   const navLogin = () => {
     navigate("/login");
-  };
-  const FormValidate = () => {
-    const password: HTMLElement | any = document.getElementById("pass10");
-    const confirm_password: HTMLElement | any =
-      document.getElementById("pass20");
-
-    function validatePassword() {
-      if (password.value === confirm_password.value) {
-        navLogin();
-      } else {
-        confirm_password.setCustomValidity("Passwords Don't Match");
-      }
-    }
-    password.onchange = validatePassword();
-    confirm_password.onkeyup = validatePassword();
   };
   return (
     <Grid container style={{ background: "white" }}>
@@ -100,7 +91,6 @@ const Registration = () => {
         <Form>
           <form
             onSubmit={(e) => {
-              FormValidate();
               handleSubmit(e);
             }}
           >
@@ -112,8 +102,8 @@ const Registration = () => {
               type="text"
               style={{ marginTop: 63 }}
               name="name"
-              onChange={handleChange}
-              value={userInfo.name}
+              onBlur={handleChange}
+              defaultValue={userInfo.name}
               placeholder="Name"
               minLength={5}
               maxLength={10}
@@ -124,8 +114,8 @@ const Registration = () => {
               type="email"
               name="email"
               placeholder="Email Address"
-              onChange={handleChange}
-              value={userInfo.email}
+              onBlur={handleChange}
+              defaultValue={userInfo.email}
               required
             />
 
@@ -139,8 +129,8 @@ const Registration = () => {
               type="password"
               id="pass10"
               name="password"
-              onChange={handleChange}
-              value={userInfo.password}
+              onBlur={handleChange}
+              defaultValue={userInfo.password}
               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
               title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
               placeholder="Password"
@@ -151,8 +141,8 @@ const Registration = () => {
               type="password"
               id="pass20"
               name="password1"
-              onChange={handleChange}
-              value={userInfo.password1}
+              onBlur={handleChange}
+              defaultValue={userInfo.password1}
               placeholder="Confirm Password"
               required
             />

@@ -4,6 +4,7 @@ export const FormValidate = () => {
 
   function validatePassword() {
     if (password.value === confirm_password.value) {
+      alert("password created successfully");
     } else {
       confirm_password.setCustomValidity("Passwords Don't Match");
     }
