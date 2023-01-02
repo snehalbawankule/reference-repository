@@ -1,6 +1,7 @@
 import GoogleLogo from "../../assets/images/GoogleLogo.png";
 import Grid from "@mui/material/Grid";
 import { useState } from "react";
+import textwrap from "../textwrap/textwrap.json";
 import {
   CreateAccountButton,
   Input,
@@ -19,7 +20,6 @@ import {
 import { useGoogleLogin } from "@react-oauth/google";
 import Rectangle1 from "../../assets/images/Rectangle1.png";
 import { useNavigate } from "react-router-dom";
-//import { FormValidate } from "../validate/formValidate";
 import useMediaQuery from "../../hooks/use-media-query";
 const Registration = () => {
   const { isTablet, isMobile, isDesktop } = useMediaQuery();
@@ -41,12 +41,11 @@ const Registration = () => {
       setUserInfo({ name: "", email: "", password: "", password1: "" });
       navLogin();
     } else {
-      event.target.password1.setCustomValidity("Passwords Don't Match");
+      //setCustomValidity("Passwords Don't Match");
     }
   };
 
   const handleChange = (event: any) => {
-    console.log(event.target.value);
     setUserInfo({ ...userInfo, [event.target.name]: event.target.value });
   };
   const navigate = useNavigate();
@@ -68,6 +67,9 @@ const Registration = () => {
           backgroundSize: "cover",
         }}
       >
+        {/*{textwrap && textwrap.map(({id, title})=>(
+
+        ))}*/}
         <TextWrap4>SkillupAfrica Blog</TextWrap4>
         <TextWrap5>
           The Ancient city of Rome and the history of the great city.

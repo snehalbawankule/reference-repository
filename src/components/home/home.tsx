@@ -5,6 +5,7 @@ import { addArticle } from "../../store/services";
 import { Grid, Card, Box } from "@mui/material";
 import {
   Image,
+  Button,
   TextWrap01,
   TextWrap02,
   TextWrap03,
@@ -14,7 +15,7 @@ import {
 import { useAppSelector, useAppDispatch } from "../../hooks/hooks";
 import useMediaQuery from "../../hooks/use-media-query";
 const Home = () => {
-  const { isMobile, isDesktop } = useMediaQuery();
+  const { isMobile, isDesktop, isTablet } = useMediaQuery();
   const dispatch = useAppDispatch();
   const article = useAppSelector((state) => state.articles.article);
   useEffect(() => {
@@ -22,29 +23,50 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <Grid container display="flex">
-      <Grid
-        item
-        xs={12}
-        sm={12}
-        md={12}
-        lg={12}
-        sx={{ mt: 10, textAlign: "center" }}
+    <Grid container display="flex" sx={{ mt: 10 }}>
+      <Box
         style={{
-          height: isDesktop ? "46.87rem" : "",
+          height: isDesktop ? "750px" : isMobile ? "300px" : "500px",
           display: "flex-column",
           backgroundImage: `url(${picture})`,
           backgroundPosition: "center",
           backgroundSize: "cover",
         }}
       >
-        <TextWrap04>Prepare for the Future</TextWrap04>
-
-        <TextWrap05>
-          Learning a new skill is important and here at skillup africa we help
-          train student in various digital skills
-        </TextWrap05>
-      </Grid>
+        <Grid
+          item
+          xs={12}
+          sm={12}
+          md={7}
+          lg={6}
+          sx={{ pl: isDesktop ? 10 : 3, mt: isDesktop ? 20 : 10 }}
+        >
+          <TextWrap04>Prepare for the Future</TextWrap04>
+        </Grid>
+        <Grid
+          item
+          xs={11}
+          sm={10}
+          md={7}
+          lg={7}
+          sx={{ pl: isDesktop ? 10 : 3 }}
+        >
+          <TextWrap05>
+            Learning a new skill is important and here at skillup africa we help
+            train student in various digital skills
+          </TextWrap05>
+        </Grid>
+        <Grid
+          item
+          xs={6}
+          sm={6}
+          md={3}
+          lg={3}
+          sx={{ pl: isDesktop ? 10 : 3, mt: isDesktop ? 10 : 3 }}
+        >
+          <Button>Read More</Button>
+        </Grid>
+      </Box>
       {article &&
         article.map((post: any) => {
           return (
@@ -54,7 +76,7 @@ const Home = () => {
               sm={6}
               md={4}
               lg={3}
-              sx={{ p: 3, mt: 4 }}
+              sx={{ p: 3 }}
               spacing={5}
               display="flex"
               key={post.id}

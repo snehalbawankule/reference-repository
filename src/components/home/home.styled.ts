@@ -33,32 +33,34 @@ const TextWrap03 = styled.div`
   font-family: "Poppins";
   font-size: ${pxToRem(20)};
 `;
-const TextWrap04 = styled.div`
+const TextWrap04 = styled.text`
   color: #e6e6e6;
   font-family: "Poppins";
-  font-size: 6rem;
+  font-size: ${pxToRem(96)};
+  @media (max-width: 767px) {
+    font-size: ${pxToRem(40)};
+  }
 `;
-const TextWrap05 = styled.div`
+const TextWrap05 = styled.text`
   color: #e6e6e6;
   font-family: "Poppins";
-  font-size: 2rem;
+  font-size: ${pxToRem(32)};
+  @media (max-width: 767px) {
+    font-size: ${pxToRem(16)};
+  }
 `;
-const PostArticle = styled.button`
+const Button = styled.button`
   font-family: "Poppins";
-  font-style: italic;
   font-weight: 300;
-  font-size: 14.4883px;
-  margin-left: 50px;
+  font-size: ${pxToRem(24)};
   color: #f3f2ff;
   background: #2f2e41;
   border-radius: 7.24416px;
+  @media (max-width: 767px) {
+    font-size: ${pxToRem(16)};
+  }
 `;
-const Image1 = styled.div<HomeProps>`
-  height: ${pxToRem(750)};
-  background-position: "center";
-  background-size: "cover";
-  background-image: url(${(props) => props.src});
-`;
+
 const Image = styled.img<HomeProps>`
   border-radius: ${pxToRem(10)};
   background-image: url(${(props) => props.src});
@@ -66,12 +68,11 @@ const Image = styled.img<HomeProps>`
 
 export {
   TextWrap,
-  Image1,
   TextWrap01,
   TextWrap02,
   TextWrap03,
   TextWrap04,
   TextWrap05,
-  PostArticle,
+  Button,
   Image,
 };
