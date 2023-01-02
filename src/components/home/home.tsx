@@ -14,7 +14,7 @@ import {
 import { useAppSelector, useAppDispatch } from "../../hooks/hooks";
 import useMediaQuery from "../../hooks/use-media-query";
 const Home = () => {
-  const { isMobile } = useMediaQuery();
+  const { isMobile, isDesktop } = useMediaQuery();
   const dispatch = useAppDispatch();
   const article = useAppSelector((state) => state.articles.article);
   useEffect(() => {
@@ -22,29 +22,24 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <Grid
-      container
-      direction="row"
-      display="flex"
-      sx={{ p: 3, mt: 4 }}
-      spacing={5}
-    >
+    <Grid container display="flex">
       <Grid
         item
-        sx={{ mt: 4 }}
-        xs={100}
-        sm={100}
-        md={50}
+        xs={12}
+        sm={12}
+        md={12}
         lg={12}
+        sx={{ mt: 10, textAlign: "center" }}
         style={{
-          height: 750,
-          alignContent: "center",
+          height: isDesktop ? "46.87rem" : "",
+          display: "flex-column",
           backgroundImage: `url(${picture})`,
           backgroundPosition: "center",
           backgroundSize: "cover",
         }}
       >
         <TextWrap04>Prepare for the Future</TextWrap04>
+
         <TextWrap05>
           Learning a new skill is important and here at skillup africa we help
           train student in various digital skills
@@ -59,6 +54,8 @@ const Home = () => {
               sm={6}
               md={4}
               lg={3}
+              sx={{ p: 3, mt: 4 }}
+              spacing={5}
               display="flex"
               key={post.id}
             >
@@ -75,7 +72,7 @@ const Home = () => {
                     xs={12}
                     sm={12}
                     md={12}
-                    lg={12}
+                    lg={100}
                     display="flex"
                     justifyContent="center"
                   >

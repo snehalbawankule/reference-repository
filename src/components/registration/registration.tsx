@@ -27,22 +27,24 @@ const Registration = () => {
     onSuccess: (tokenResponse) => console.log(tokenResponse),
   });
 
-  const handleSubmit = (event: any) => {
-    event.preventDefault();
-    if (userInfo.password === userInfo.password1) {
-      navLogin();
-    } else {
-      event.password1.setCustomValidity("Passwords Don't Match");
-    }
-    console.log(userInfo);
-    setUserInfo({ name: "", email: "", password: "", password1: "" });
-  };
   const [userInfo, setUserInfo] = useState({
     name: "",
     email: "",
     password: "",
     password1: "",
   });
+
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+    if (userInfo.password === userInfo.password1) {
+      console.log(userInfo);
+      setUserInfo({ name: "", email: "", password: "", password1: "" });
+      navLogin();
+    } else {
+      event.target.password1.setCustomValidity("Passwords Don't Match");
+    }
+  };
+
   const handleChange = (event: any) => {
     console.log(event.target.value);
     setUserInfo({ ...userInfo, [event.target.name]: event.target.value });
@@ -141,7 +143,7 @@ const Registration = () => {
               type="password"
               id="pass20"
               name="password1"
-              onBlur={handleChange}
+              onChange={handleChange}
               defaultValue={userInfo.password1}
               placeholder="Confirm Password"
               required

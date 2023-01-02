@@ -72,7 +72,7 @@ const TextWrap4 = styled.h4`
   padding-top: ${pxToRem(71)};
   font-family: "Poppins";
   font-weight: 700;
-  font-size: 24px;
+  font-size: ${pxToRem(24)};
   color: #f3f2ff;
 `;
 const TextWrap5 = styled.h4`

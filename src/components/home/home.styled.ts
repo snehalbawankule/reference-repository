@@ -34,22 +34,14 @@ const TextWrap03 = styled.div`
   font-size: ${pxToRem(20)};
 `;
 const TextWrap04 = styled.div`
-  font-weight: 700;
-  width: ${pxToRem(906)};
   color: #e6e6e6;
-  padding-top: ${pxToRem(174)};
-  padding-left: ${pxToRem(100)};
   font-family: "Poppins";
-  font-size: ${pxToRem(96)};
+  font-size: 6rem;
 `;
 const TextWrap05 = styled.div`
-  width: ${pxToRem(710)};
-  font-weight: 300;
   color: #e6e6e6;
-  padding-top: ${pxToRem(46)};
-  padding-left: ${pxToRem(100)};
   font-family: "Poppins";
-  font-size: ${pxToRem(32)};
+  font-size: 2rem;
 `;
 const PostArticle = styled.button`
   font-family: "Poppins";
@@ -61,22 +53,25 @@ const PostArticle = styled.button`
   background: #2f2e41;
   border-radius: 7.24416px;
 `;
+const Image1 = styled.div<HomeProps>`
+  height: ${pxToRem(750)};
+  background-position: "center";
+  background-size: "cover";
+  background-image: url(${(props) => props.src});
+`;
 const Image = styled.img<HomeProps>`
   border-radius: ${pxToRem(10)};
   background-image: url(${(props) => props.src});
 `;
-const Boxes = styled.div`
-  height: ${pxToRem(560)};
-`;
 
 export {
   TextWrap,
+  Image1,
   TextWrap01,
   TextWrap02,
   TextWrap03,
   TextWrap04,
   TextWrap05,
   PostArticle,
-  Boxes,
   Image,
 };
