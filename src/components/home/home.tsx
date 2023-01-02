@@ -15,7 +15,7 @@ import {
 import { useAppSelector, useAppDispatch } from "../../hooks/hooks";
 import useMediaQuery from "../../hooks/use-media-query";
 const Home = () => {
-  const { isMobile, isDesktop, isTablet } = useMediaQuery();
+  const { isMobile, isDesktop } = useMediaQuery();
   const dispatch = useAppDispatch();
   const article = useAppSelector((state) => state.articles.article);
   useEffect(() => {

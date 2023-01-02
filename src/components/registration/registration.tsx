@@ -41,7 +41,7 @@ const Registration = () => {
       setUserInfo({ name: "", email: "", password: "", password1: "" });
       navLogin();
     } else {
-      //setCustomValidity("Passwords Don't Match");
+      alert("Passwords Don't Match");
     }
   };
 
