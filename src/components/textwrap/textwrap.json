@@ -5,6 +5,7 @@
     "author": "Olive Junior",
     "authorCategory": "Lead Writer, SkillupAfrica",
     "createAccount": "Create an Account",
+    "createAccountButton": "Create an account",
     "accountDescription": "Let’s start a journey to great articles",
     "alreadyHas": "Already have an account?",
     "welcome": "Welcome Back!",
@@ -13,6 +14,8 @@
     "registerLink": "Create an account",
     "loginLink": "Log in",
     "googleSignUp": "Sign up with Google",
-    "googleSignIn": "Sign in with Google"
+    "googleSignIn": "Sign in with Google",
+    "forgotPassword": "Forget Password?",
+    "loginButton": "Login"
   }
 ]

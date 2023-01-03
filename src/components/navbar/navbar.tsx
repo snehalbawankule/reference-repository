@@ -1,4 +1,4 @@
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import { Box, Menu, Toolbar, Button } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
@@ -7,7 +7,7 @@ import React from "react";
 import AppBar from "@mui/material/AppBar";
 import MenuIcon from "@mui/icons-material/Menu";
 import IconButton from "@mui/material/IconButton";
-import { PostArticle } from "./navbar.styled";
+//import { PostArticle } from "./navbar.styled";
 import Grid from "@mui/material/Grid";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import TwitterIcon from "@mui/icons-material/Twitter";
@@ -25,11 +25,6 @@ const Navbar = () => {
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  const navigate = useNavigate();
-  const navAddPost = () => {
-    navigate("/addpost");
-  };
-
   return (
     <Grid container>
       <AppBar position="fixed" style={{ background: "white", color: "black" }}>

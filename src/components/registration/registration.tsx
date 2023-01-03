@@ -3,7 +3,6 @@ import { useState } from "react";
 import {
   CreateAccountButton,
   Input,
-  Form,
   GoogleLogo1,
   SignGoogleButton,
   TextWrap3,
@@ -23,7 +22,7 @@ import { useNavigate } from "react-router-dom";
 import useMediaQuery from "../../hooks/use-media-query";
 
 const Registration = () => {
-  const { isTablet, isMobile, isDesktop } = useMediaQuery();
+  const { isMobile, isDesktop } = useMediaQuery();
   const Login = useGoogleLogin({
     onSuccess: (tokenResponse) => console.log(tokenResponse),
   });
@@ -55,67 +54,108 @@ const Registration = () => {
   };
   return (
     <Grid container style={{ background: "white" }}>
-      <Grid
-        item
-        xs={100}
-        sm={100}
-        md={50}
-        lg={9}
-        style={{
-          alignContent: "center",
-          backgroundImage: `url(${Rectangle1})`,
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-        }}
-      >
+      <Grid item xs={12} sm={12} md={8} lg={8}>
         {textwrap &&
           textwrap.map(({ title, description, author, authorCategory }) => (
-            <Box>
-              <TextWrap4>{title}</TextWrap4>
-              <TextWrap5>{description}</TextWrap5>
-              <TextWrap6>{author}</TextWrap6>
-              <TextWrap7>{authorCategory}</TextWrap7>
+            <Box
+              style={{
+                backgroundImage: `url(${Rectangle1})`,
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+              }}
+            >
+              <Grid
+                item
+                xs={12}
+                sm={12}
+                md={7}
+                lg={6}
+                sx={{ pl: isDesktop ? 10 : 4, pt: isDesktop ? 5 : 1 }}
+              >
+                <TextWrap4>{title}</TextWrap4>
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                sm={8}
+                md={8}
+                lg={8}
+                sx={{ pl: isDesktop ? 10 : 4, pt: isMobile ? 15 : 60 }}
+              >
+                <TextWrap5>{description}</TextWrap5>
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                sm={12}
+                md={6}
+                lg={6}
+                sx={{ pl: isDesktop ? 10 : 4 }}
+              >
+                <TextWrap6>{author}</TextWrap6>
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                md={6}
+                lg={6}
+                sx={{
+                  pl: isDesktop ? 10 : 4,
+                  mt: isMobile ? -3 : -5,
+                  pb: isMobile ? 3 : 8,
+                }}
+              >
+                <TextWrap7>{authorCategory}</TextWrap7>
+              </Grid>
             </Box>
           ))}
       </Grid>
       <Grid
         item
-        xs={100}
-        sm={100}
-        md={50}
-        lg={3}
-        display="flex-column"
+        xs={12}
+        sm={12}
+        md={4}
+        lg={4}
+        display="block"
         style={{
-          paddingLeft: isMobile ? "100px" : isTablet ? "120px" : "20px",
           justifyContent: isDesktop ? "flex-start" : "center",
           textAlign: "center",
           alignItems: isMobile ? "center" : "flex-start",
-          paddingTop: 142,
         }}
       >
-        <Form>
-          <form
-            onSubmit={(e) => {
-              handleSubmit(e);
-            }}
-          >
-            {textwrap &&
-              textwrap.map(
-                ({
-                  createAccount,
-                  accountDescription,
-                  alreadyHas,
-                  googleSignUp,
-                  loginLink,
-                }) => (
-                  <Box>
+        <form
+          onSubmit={(e) => {
+            handleSubmit(e);
+          }}
+        >
+          {textwrap &&
+            textwrap.map(
+              ({
+                createAccount,
+                accountDescription,
+                alreadyHas,
+                googleSignUp,
+                loginLink,
+                createAccountButton,
+              }) => (
+                <Box sx={{ pt: isDesktop ? 10 : 3 }}>
+                  <Grid item xs={12} sm={12} md={12} lg={12}>
                     <TextWrap1>{createAccount}</TextWrap1>
-                    <br />
+                  </Grid>
+                  <Grid item xs={12} sm={12} md={12} lg={12}>
                     <TextWrap2>{accountDescription}</TextWrap2>
-
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    lg={12}
+                    sx={{ marginTop: 4 }}
+                  >
                     <Input
                       type="text"
-                      style={{ marginTop: 63 }}
                       name="name"
                       onBlur={handleChange}
                       defaultValue={userInfo.name}
@@ -124,7 +164,8 @@ const Registration = () => {
                       maxLength={10}
                       required
                     />
-
+                  </Grid>
+                  <Grid item xs={12} sm={12} md={12} lg={12}>
                     <Input
                       type="email"
                       name="email"
@@ -133,13 +174,16 @@ const Registration = () => {
                       defaultValue={userInfo.email}
                       required
                     />
-
+                  </Grid>
+                  <Grid item xs={12} sm={12} md={12} lg={12}>
                     <Input
                       type="text"
                       name="profilepic"
                       placeholder="Add Profile Picture"
                       required
                     />
+                  </Grid>
+                  <Grid item xs={12} sm={12} md={12} lg={12}>
                     <Input
                       type="password"
                       id="pass10"
@@ -151,7 +195,8 @@ const Registration = () => {
                       placeholder="Password"
                       required
                     />
-
+                  </Grid>
+                  <Grid item xs={12} sm={12} md={12} lg={12}>
                     <Input
                       type="password"
                       id="pass20"
@@ -161,29 +206,28 @@ const Registration = () => {
                       placeholder="Confirm Password"
                       required
                     />
-                    <CreateAccountButton>Create an Account</CreateAccountButton>
-                    <SignGoogleButton
-                      style={{
-                        marginLeft: isDesktop
-                          ? "85px"
-                          : isTablet
-                          ? "100px"
-                          : "100px",
-                      }}
-                      onClick={() => Login()}
-                    >
+                  </Grid>
+                  <Grid item xs={12} sm={12} md={12} lg={12}>
+                    <CreateAccountButton>
+                      {createAccountButton}
+                    </CreateAccountButton>
+                  </Grid>
+                  <Grid item xs={12} sm={12} md={12} lg={12}>
+                    <SignGoogleButton onClick={() => Login()}>
                       <GoogleLogo1 src={GoogleLogo} />
                       {googleSignUp}
                     </SignGoogleButton>
+                  </Grid>
+                  <Grid item xs={12} sm={12} md={12} lg={12}>
                     <TextWrap3>
                       {alreadyHas}
                       <LoginLink onClick={navLogin}>{loginLink}</LoginLink>
                     </TextWrap3>
-                  </Box>
-                )
-              )}
-          </form>
-        </Form>
+                  </Grid>
+                </Box>
+              )
+            )}
+        </form>
       </Grid>
     </Grid>
   );

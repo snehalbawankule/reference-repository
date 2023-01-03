@@ -3,7 +3,6 @@ import GoogleLogo from "../../assets/images/GoogleLogo.png";
 import { Box, Grid } from "@mui/material";
 import { Divider } from "@mui/material";
 import {
-  CreateAccountButton,
   Input,
   SignGoogleButton,
   LoginLink,
@@ -15,9 +14,8 @@ import {
   TextWrap4,
   TextWrap5,
   TextWrap2,
-  Form,
 } from "../registration/registration.styled";
-import { Forget } from "./login.styled";
+import { Forget, LoginButton } from "./login.styled";
 import textwrap from "../textwrap/textwrap.json";
 import Rectangle2 from "../../assets/images/Rectangle2.png";
 import { useNavigate } from "react-router-dom";
@@ -101,11 +99,9 @@ const Registration = () => {
         lg={3}
         display="flex-column"
         style={{
-          paddingLeft: isDesktop ? "70px" : isTablet ? "40px" : "10px",
           justifyContent: isDesktop ? "flex" : isTablet ? "center" : "center",
           textAlign: "center",
           alignItems: "center",
-          paddingTop: 142,
         }}
       >
         {textwrap &&
@@ -116,53 +112,78 @@ const Registration = () => {
               notRegisterd,
               registerLink,
               googleSignIn,
+              forgotPassword,
+              loginButton,
             }) => (
-              <Box>
-                <TextWrap1>{welcome}</TextWrap1>
-                <br />
-                <TextWrap2>{loginDescription}</TextWrap2>
-
-                <SignGoogleButton
-                  style={{ marginTop: 77 }}
-                  onClick={() => login()}
+              <Box sx={{ pt: isDesktop ? 10 : 3 }}>
+                <Grid item xs={12} sm={12} md={12} lg={12}>
+                  <TextWrap1>{welcome}</TextWrap1>
+                </Grid>
+                <Grid item xs={12} sm={12} md={12} lg={12}>
+                  <TextWrap2>{loginDescription}</TextWrap2>
+                </Grid>
+                <Grid
+                  item
+                  xs={12}
+                  sm={12}
+                  md={12}
+                  lg={12}
+                  sx={{ pt: isDesktop ? 5 : 1 }}
                 >
-                  <GoogleLogo1 src={GoogleLogo} />
-                  {googleSignIn}
-                </SignGoogleButton>
-                <Divider style={{ marginTop: 65, paddingLeft: 100 }}>
-                  OR
-                </Divider>
+                  <SignGoogleButton onClick={() => login()}>
+                    <GoogleLogo1 src={GoogleLogo} />
+                    {googleSignIn}
+                  </SignGoogleButton>
+                </Grid>
+                <Divider style={{ marginTop: 65 }}>OR</Divider>
 
                 <form onSubmit={navHome}>
-                  <Input
-                    style={{ marginTop: 90, marginBottom: 76 }}
-                    type="email"
-                    name="email"
-                    placeholder="Email Address"
-                    required
-                  />
-
-                  <Input
-                    style={{ marginBottom: 0 }}
-                    type="password"
-                    id="pass"
-                    name="password1"
-                    placeholder="Confirm Password"
-                    required
-                  />
-
-                  <Forget>Forget Password?</Forget>
-
-                  <CreateAccountButton style={{ marginTop: 50 }}>
-                    Login
-                  </CreateAccountButton>
-
-                  <TextWrap3>
-                    {notRegisterd}
-                    <LoginLink onClick={navRegistration}>
-                      {registerLink}
-                    </LoginLink>
-                  </TextWrap3>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    lg={12}
+                    sx={{ marginTop: isMobile ? 5 : 15 }}
+                  >
+                    <Input
+                      type="email"
+                      name="email"
+                      placeholder="Email Address"
+                      required
+                    />
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    lg={12}
+                    sx={{ marginTop: 5 }}
+                  >
+                    <Input
+                      style={{ marginBottom: 0 }}
+                      type="password"
+                      id="pass"
+                      name="password1"
+                      placeholder="Confirm Password"
+                      required
+                    />
+                  </Grid>
+                  <Forget>{forgotPassword}</Forget>
+                  <Grid item xs={12} sm={12} md={12} lg={12}>
+                    <LoginButton style={{ marginTop: 50 }}>
+                      {loginButton}
+                    </LoginButton>
+                  </Grid>
+                  <Grid item xs={12} sm={12} md={12} lg={12}>
+                    <TextWrap3>
+                      {notRegisterd}
+                      <LoginLink onClick={navRegistration}>
+                        {registerLink}
+                      </LoginLink>
+                    </TextWrap3>
+                  </Grid>
                 </form>
               </Box>
             )
