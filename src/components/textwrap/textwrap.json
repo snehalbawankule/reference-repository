@@ -1,18 +1,18 @@
 [
   {
-    "id": 1,
-    "title": "SkillupAfrica Blog"
-  },
-  {
-    "id": 2,
-    "title": "The Ancient city of Rome and the history of the great city."
-  },
-  {
-    "id": 3,
-    "title": "Olive Junior"
-  },
-  {
-    "id": 4,
-    "title": "Lead Writer, SkillupAfrica"
+    "title": "SkillupAfrica Blog",
+    "description": "The Ancient city of Rome and the history of the great city.",
+    "author": "Olive Junior",
+    "authorCategory": "Lead Writer, SkillupAfrica",
+    "createAccount": "Create an Account",
+    "accountDescription": "Let’s start a journey to great articles",
+    "alreadyHas": "Already have an account?",
+    "welcome": "Welcome Back!",
+    "loginDescription": "Welcome back, please enter your details",
+    "notRegisterd": "Not registered yet?",
+    "registerLink": "Create an account",
+    "loginLink": "Log in",
+    "googleSignUp": "Sign up with Google",
+    "googleSignIn": "Sign in with Google"
   }
 ]

@@ -77,7 +77,6 @@ const Home = () => {
               md={4}
               lg={3}
               sx={{ p: 3 }}
-              spacing={5}
               display="flex"
               key={post.id}
             >
