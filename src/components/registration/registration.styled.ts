@@ -68,21 +68,21 @@ const TextWrap3 = styled.h4`
   color: #2f2e41;
 `;
 const TextWrap4 = styled.h4`
-  padding-left: ${pxToRem(50)};
-  padding-top: ${pxToRem(71)};
   font-family: "Poppins";
-  font-weight: 700;
   font-size: ${pxToRem(24)};
   color: #f3f2ff;
+  font-weight: 700;
+  @media (max-width: 767px) {
+    font-size: ${pxToRem(12)};
+  }
 `;
 const TextWrap5 = styled.h4`
-  width: 789px;
-  margin-top: ${pxToRem(695)};
-  padding-left: ${pxToRem(50)};
   font-family: "Poppins";
-  font-weight: 700;
-  font-size: 48px;
+  font-size: ${pxToRem(48)};
   color: #f3f2ff;
+  @media (max-width: 767px) {
+    font-size: ${pxToRem(24)};
+  }
 `;
 const Form = styled.div`
   width: 563px;
@@ -90,19 +90,21 @@ const Form = styled.div`
 `;
 const TextWrap6 = styled.h4`
   font-family: "Poppins";
-  font-weight: 500;
-  padding-left: ${pxToRem(50)};
-  margin-top: ${pxToRem(43)};
-  font-size: 40px;
+  font-size: ${pxToRem(40)};
   color: #f3f2ff;
+  font-weight: 500;
+  @media (max-width: 767px) {
+    font-size: ${pxToRem(20)};
+  }
 `;
 
 const TextWrap7 = styled.h3`
-  padding-left: ${pxToRem(50)};
-  margin-top: ${pxToRem(-53)};
   font-family: "Poppins";
   font-weight: 500;
-  font-size: 24px;
+  @media (max-width: 767px) {
+    font-size: ${pxToRem(16)};
+  }
+  font-size: ${pxToRem(24)};
   color: #f3f2ff;
 `;
 const GoogleLogo1 = styled.img<RegistrationProps>`
