@@ -1,7 +1,6 @@
 import { useGoogleLogin } from "@react-oauth/google";
 import GoogleLogo from "../../assets/images/GoogleLogo.png";
-import { Box, Grid } from "@mui/material";
-import { Divider } from "@mui/material";
+import { Box, Grid, Divider } from "@mui/material";
 import {
   Input,
   SignGoogleButton,

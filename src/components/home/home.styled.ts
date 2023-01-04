@@ -5,9 +5,12 @@ type HomeProps = {
 };
 const TextWrap = styled.div`
   font-weight: 700;
-  padding-left: ${pxToRem(60)};
   font-size: ${pxToRem(24)};
   color: #2f2e41;
+  display: contents;
+  @media (max-width: 767px) {
+    font-size: ${pxToRem(12)};
+  }
 `;
 const TextWrap01 = styled.div`
   padding-top: ${pxToRem(24)};
@@ -47,24 +50,32 @@ const TextWrap05 = styled.text`
   }
 `;
 const Button = styled.button`
+  height: 50px;
   font-weight: 300;
   font-size: ${pxToRem(24)};
+  padding-left: ${pxToRem(40)};
+  padding-right: ${pxToRem(40)};
   color: #f3f2ff;
   background: #2f2e41;
-  border-radius: 7.24416px;
+  border: 2px solid #2f2e41;
+  border-radius: ${pxToRem(15)};
   @media (max-width: 767px) {
     font-size: ${pxToRem(16)};
+    height: ${pxToRem(30)};
+    padding-left: ${pxToRem(16)};
+    padding-right: ${pxToRem(16)};
   }
 `;
 
 const Image = styled.img<HomeProps>`
   border-radius: ${pxToRem(10)};
   background-image: url(${(props) => props.src});
+  backgroundPosition: "center",
+  backgroundSize: "cover",
 `;
 const LatestArticle = styled.text`
   font-weight: 700;
   font-size: ${pxToRem(54)};
-  padding-left: ${pxToRem(100)};
 `;
 export {
   TextWrap,

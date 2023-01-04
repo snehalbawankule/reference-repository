@@ -11,22 +11,30 @@ import {
   TextWrap03,
   TextWrap04,
   TextWrap05,
+  LatestArticle,
 } from "./home.styled";
 import { useAppSelector, useAppDispatch } from "../../hooks/hooks";
 import useMediaQuery from "../../hooks/use-media-query";
+import Footer from "../footer/footer";
 const Home = () => {
-  const { isMobile, isDesktop } = useMediaQuery();
+  const { isMobile, isDesktop, isTablet } = useMediaQuery();
   const dispatch = useAppDispatch();
   const article = useAppSelector((state) => state.articles.article);
+
   useEffect(() => {
     dispatch(addArticle());
   }, [dispatch]);
 
   return (
     <Grid container display="flex" sx={{ mt: 10 }}>
-      <Box
+      <Grid
+        item
+        xs={12}
+        sm={12}
+        md={12}
+        lg={12}
         style={{
-          height: isDesktop ? "750px" : isMobile ? "300px" : "500px",
+          height: isDesktop ? "750px" : isMobile ? "350px" : "600px",
           display: "flex-column",
           backgroundImage: `url(${picture})`,
           backgroundPosition: "center",
@@ -35,7 +43,7 @@ const Home = () => {
       >
         <Grid
           item
-          xs={12}
+          xs={10}
           sm={12}
           md={7}
           lg={6}
@@ -66,54 +74,83 @@ const Home = () => {
         >
           <Button>Read More</Button>
         </Grid>
-      </Box>
-      {article &&
-        article.map((post: any) => {
-          return (
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              lg={3}
-              sx={{ p: 3 }}
-              display="flex"
-              key={post.id}
-            >
-              <Card
-                style={{
-                  border: "none",
-                  boxShadow: "none",
-                  justifyContent: isMobile ? "center" : "flex",
-                }}
+      </Grid>
+      <Grid container sx={{ p: isDesktop ? 10 : isTablet ? 5 : 3 }} spacing={5}>
+        <Grid item xs={12} sm={12} md={12} lg={12}>
+          <LatestArticle>Latest Articles</LatestArticle>
+        </Grid>
+        {article &&
+          article.map((post: any) => {
+            return (
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                md={6}
+                lg={4}
+                display="flex"
+                key={post.id}
               >
-                <Box>
-                  <Grid
-                    item
-                    xs={12}
-                    sm={12}
-                    md={12}
-                    lg={100}
-                    display="flex"
-                    justifyContent="center"
-                  >
-                    <Image src={image}></Image>
-                  </Grid>
-                  <TextWrap01>10 Oct 2022</TextWrap01>
-                  <TextWrap02>
-                    How to build a successfully business in Nigeria
-                  </TextWrap02>
-
-                  <TextWrap03>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Iaculis urna imperdiet netus nibh at fermentum mattis. Amet
-                    adipiscing
-                  </TextWrap03>
-                </Box>
-              </Card>
-            </Grid>
-          );
-        })}
+                <Card
+                  style={{
+                    border: "none",
+                    boxShadow: "none",
+                    justifyContent: isMobile ? "center" : "flex",
+                  }}
+                >
+                  <Box>
+                    <Box
+                      style={{
+                        height: "320px",
+                        backgroundImage: `url(${image})`,
+                        backgroundPosition: "center",
+                        backgroundSize: "cover",
+                      }}
+                    />
+                    <Grid
+                      item
+                      xs={12}
+                      sm={12}
+                      md={12}
+                      lg={10}
+                      justifyContent="center"
+                    >
+                      <TextWrap01>10 Oct 2022</TextWrap01>
+                    </Grid>
+                    <Grid
+                      item
+                      xs={12}
+                      sm={12}
+                      md={12}
+                      lg={12}
+                      justifyContent="center"
+                    >
+                      <TextWrap02>
+                        How to build a successfully business in Nigeria
+                      </TextWrap02>
+                    </Grid>
+                    <Grid
+                      item
+                      xs={12}
+                      sm={12}
+                      md={12}
+                      lg={12}
+                      display="flex"
+                      justifyContent="center"
+                    >
+                      <TextWrap03>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Iaculis urna imperdiet netus nibh at fermentum mattis.
+                        Amet adipiscing
+                      </TextWrap03>
+                    </Grid>
+                  </Box>
+                </Card>
+              </Grid>
+            );
+          })}
+      </Grid>
+      <Footer />
     </Grid>
   );
 };
