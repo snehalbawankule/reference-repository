@@ -2,9 +2,17 @@ import { NewArticle, PostButton } from "./add-post.styled";
 import { Box } from "@mui/material";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import TextField from "@mui/material/TextField";
+import { useState } from "react";
 const AddPost = () => {
   const dispatch = useAppDispatch();
-  const article = useAppSelector((state) => state.articles.article);
+  const [article, setArticle] = useState({
+    title: "",
+    image: "",
+    content: "",
+  });
+  const handleChange = (event: any) => {
+    setArticle({ ...article, [event.target.name]: event.target.value });
+  };
 
   const onSavePostClicked = async () => {
     //dispatch(addNewArticle({ title, content, })).unwrap()
@@ -20,9 +28,27 @@ const AddPost = () => {
       }}
     >
       <NewArticle>Post a new article</NewArticle>
-      <TextField fullWidth style={{ marginTop: 20 }} label="Blog Title" />
-      <TextField style={{ marginTop: 20 }} fullWidth label="Image url" />
-      <TextField fullWidth style={{ marginTop: 20 }} label="Blog Content" />
+      <TextField
+        fullWidth
+        style={{ marginTop: 20 }}
+        label="Blog Title"
+        defaultValue={article.title}
+        onBlur={handleChange}
+      />
+      <TextField
+        style={{ marginTop: 20 }}
+        fullWidth
+        label="Image url"
+        defaultValue={article.image}
+        onBlur={handleChange}
+      />
+      <TextField
+        fullWidth
+        style={{ marginTop: 20 }}
+        label="Blog Content"
+        defaultValue={article.content}
+        onBlur={handleChange}
+      />
       <PostButton onClick={onSavePostClicked}>Post</PostButton>
     </Box>
   );

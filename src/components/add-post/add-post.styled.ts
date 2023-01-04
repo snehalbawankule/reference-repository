@@ -4,7 +4,6 @@ const NewArticle = styled.div`
   width: ${pxToRem(308)};
   height: ${pxToRem(44)};
   margin-top: 50px;
-  font-family: "Poppins";
   font-weight: 700;
   font-size: 36px;
   color: #2f2e41;
@@ -14,7 +13,6 @@ const PostButton = styled.button`
   height: ${pxToRem(58)};
   margin-top: ${pxToRem(50)};
   color: white;
-  font-family: "Poppins";
   font-weight: 700;
   font-size: ${pxToRem(24)};
   background: #2f2e41;

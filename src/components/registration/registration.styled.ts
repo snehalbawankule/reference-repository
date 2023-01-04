@@ -4,7 +4,6 @@ type RegistrationProps = {
 };
 const pxToRem = (size: number) => `${size / 16}rem`;
 const TextWrap1 = styled.text`
-  font-family: "Poppins";
   font-weight: 500;
   font-size: ${pxToRem(40)};
   color: #2f2e41;
@@ -13,13 +12,11 @@ const TextWrap1 = styled.text`
   }
 `;
 const TextWrap2 = styled.text`
-  font-family: "Poppins";
   font-weight: 400;
   margin-top: ${pxToRem(40)};
   font-size: ${pxToRem(20)};
 `;
 const Input = styled.input`
-  font-family: "Poppins";
   font-weight: 300;
   font-size: ${pxToRem(17)};
   border-width: 0 0 2px;
@@ -35,7 +32,6 @@ const Input = styled.input`
   }
 `;
 const LoginLink = styled.button`
-  font-family: "Poppins";
   border: none;
   text-decoration-line: underline;
   background: none;
@@ -43,7 +39,7 @@ const LoginLink = styled.button`
 `;
 const CreateAccountButton = styled.button`
   height: ${pxToRem(58)};
-  font-family: "Poppins";
+
   font-weight: 400;
   margin-top: ${pxToRem(50)};
   font-size: ${pxToRem(21)};
@@ -65,7 +61,6 @@ const SignGoogleButton = styled.button`
   display: inline-flex;
   background: none;
   color: #2f2e41;
-  font-family: "Poppins";
   font-weight: 300;
   padding-top: ${pxToRem(15)};
   font-size: 17.9653px;
@@ -80,7 +75,6 @@ const SignGoogleButton = styled.button`
   }
 `;
 const TextWrap3 = styled.h4`
-  font-family: "Poppins";
   font-weight: 300;
   font-size: ${pxToRem(18)};
   margin-top: ${pxToRem(50)};
@@ -90,7 +84,6 @@ const TextWrap3 = styled.h4`
   color: #2f2e41;
 `;
 const TextWrap4 = styled.h4`
-  font-family: "Poppins";
   font-size: ${pxToRem(24)};
   color: #f3f2ff;
   font-weight: 700;
@@ -99,7 +92,6 @@ const TextWrap4 = styled.h4`
   }
 `;
 const TextWrap5 = styled.h4`
-  font-family: "Poppins";
   font-size: ${pxToRem(48)};
   color: #f3f2ff;
   @media (max-width: 767px) {
@@ -108,7 +100,6 @@ const TextWrap5 = styled.h4`
 `;
 
 const TextWrap6 = styled.h4`
-  font-family: "Poppins";
   font-size: ${pxToRem(40)};
   color: #f3f2ff;
   font-weight: 500;
@@ -118,7 +109,6 @@ const TextWrap6 = styled.h4`
 `;
 
 const TextWrap7 = styled.h3`
-  font-family: "Poppins";
   font-weight: 500;
   @media (max-width: 767px) {
     font-size: ${pxToRem(16)};

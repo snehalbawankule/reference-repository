@@ -16,6 +16,7 @@
     "googleSignUp": "Sign up with Google",
     "googleSignIn": "Sign in with Google",
     "forgotPassword": "Forget Password?",
-    "loginButton": "Login"
+    "loginButton": "Login",
+    "latestArticle": "Latest Articles"
   }
 ]
