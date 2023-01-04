@@ -1,10 +1,10 @@
 import { NewArticle, PostButton } from "./add-post.styled";
 import { Box } from "@mui/material";
-import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+//import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
 const AddPost = () => {
-  const dispatch = useAppDispatch();
+  //const dispatch = useAppDispatch();
   const [article, setArticle] = useState({
     title: "",
     image: "",
@@ -14,9 +14,7 @@ const AddPost = () => {
     setArticle({ ...article, [event.target.name]: event.target.value });
   };
 
-  const onSavePostClicked = async () => {
-    //dispatch(addNewArticle({ title, content, })).unwrap()
-  };
+  const onSavePostClicked = async () => {};
   return (
     <Box
       display="column"

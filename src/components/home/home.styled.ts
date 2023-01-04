@@ -1,8 +1,5 @@
 import styled from "styled-components";
 const pxToRem = (size: number) => `${size / 16}rem`;
-type HomeProps = {
-  src?: string;
-};
 const TextWrap = styled.div`
   font-weight: 700;
   font-size: ${pxToRem(24)};
@@ -53,8 +50,8 @@ const Button = styled.button`
   height: 50px;
   font-weight: 300;
   font-size: ${pxToRem(24)};
-  padding-left: ${pxToRem(40)};
-  padding-right: ${pxToRem(40)};
+  padding-left: ${pxToRem(59)};
+  padding-right: ${pxToRem(59)};
   color: #f3f2ff;
   background: #2f2e41;
   border: 2px solid #2f2e41;
@@ -66,25 +63,38 @@ const Button = styled.button`
     padding-right: ${pxToRem(16)};
   }
 `;
-
-const Image = styled.img<HomeProps>`
+const ReadButton = styled.button`
+  line-height: 19px;
+  color: #ffffff;
+  height: 50px;
+  font-weight: 300;
+  font-size: ${pxToRem(16)};
+  padding-left: ${pxToRem(40)};
+  padding-right: ${pxToRem(40)};
+  background: #2f2e41;
   border-radius: ${pxToRem(10)};
-  background-image: url(${(props) => props.src});
-  backgroundPosition: "center",
-  backgroundSize: "cover",
+  @media (max-width: 767px) {
+    font-size: ${pxToRem(10)};
+    height: ${pxToRem(30)};
+    padding-left: ${pxToRem(16)};
+    padding-right: ${pxToRem(16)};
+  }
 `;
-const LatestArticle = styled.text`
+const Article = styled.text`
   font-weight: 700;
   font-size: ${pxToRem(54)};
+  @media (max-width: 767px) {
+    font-size: ${pxToRem(30)};
+  }
 `;
 export {
   TextWrap,
   TextWrap01,
   TextWrap02,
   TextWrap03,
-  LatestArticle,
+  Article,
   TextWrap04,
   TextWrap05,
   Button,
-  Image,
+  ReadButton,
 };

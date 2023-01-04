@@ -12,7 +12,7 @@ import Grid from "@mui/material/Grid";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTubeIcon from "@mui/icons-material/YouTube";
-import { TextWrap } from "../home/home.styled";
+import { TextWrap4 } from "../registration/registration.styled";
 const Navbar = () => {
   const pages = ["home", "article", "contact", "addpost"];
 
@@ -69,7 +69,9 @@ const Navbar = () => {
               </Menu>
             </Grid>
             <Grid item xs={6} sm={6}>
-              <TextWrap>SkillupAfrica Blog</TextWrap>
+              <TextWrap4 style={{ color: "black" }}>
+                SkillupAfrica Blog
+              </TextWrap4>
             </Grid>
           </Box>
           <Box
@@ -79,9 +81,20 @@ const Navbar = () => {
             }}
           >
             <Grid item md={8} lg={12}>
-              <TextWrap>SkillupAfrica Blog</TextWrap>
+              <TextWrap4 style={{ color: "black" }}>
+                SkillupAfrica Blog
+              </TextWrap4>
             </Grid>
-            <Grid item md={12} lg={12} style={{ paddingLeft: 40 }}>
+            <Grid
+              item
+              md={12}
+              lg={12}
+              style={{
+                paddingLeft: 40,
+                display: "flex",
+                justifyContent: "space-evenly",
+              }}
+            >
               {pages.map((page, index) => (
                 <Button key={index} onClick={handleCloseNavMenu}>
                   <Link
