@@ -14,8 +14,11 @@ const PostButton = styled.button`
   border-radius: 7.24416px;
   font-style: italic;
   font-weight: 300;
-  font-size: 14.4883px;
-  color: #f3f2ff;
+  font-size: ${pxToRem(15)};
+  @media (max-width: 1024px) {
+    font-size: ${pxToRem(7)};
+    height: ${pxToRem(22)};
+  }
 `;
 
 export { Image, PostButton };

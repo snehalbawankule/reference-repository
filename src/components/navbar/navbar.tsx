@@ -13,8 +13,9 @@ import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { TextWrap4 } from "../registration/registration.styled";
-
+import useMediaQuery from "../../hooks/use-media-query";
 const Navbar = () => {
+  const { isMobile, isDesktop, isTablet } = useMediaQuery();
   const pages = ["home", "article", "contact"];
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -69,8 +70,8 @@ const Navbar = () => {
                 ))}
               </Menu>
             </Grid>
-            <Grid item xs={6} sm={6}>
-              <TextWrap4 style={{ color: "black" }}>
+            <Grid item xs={9} sm={9}>
+              <TextWrap4 style={{ color: "black", paddingLeft: 10 }}>
                 SkillupAfrica Blog
               </TextWrap4>
             </Grid>
@@ -82,7 +83,12 @@ const Navbar = () => {
             }}
           >
             <Grid item md={8} lg={12}>
-              <TextWrap4 style={{ color: "black" }}>
+              <TextWrap4
+                style={{
+                  color: "black",
+                  paddingLeft: isDesktop ? 30 : isTablet ? 70 : "",
+                }}
+              >
                 SkillupAfrica Blog
               </TextWrap4>
             </Grid>
@@ -91,7 +97,7 @@ const Navbar = () => {
               md={12}
               lg={12}
               style={{
-                paddingLeft: 40,
+                paddingLeft: isDesktop ? 50 : 40,
                 display: "flex",
                 justifyContent: "space-evenly",
               }}
@@ -114,11 +120,10 @@ const Navbar = () => {
 
           <Grid
             item
-            xs={3}
+            xs={4}
             sm={3}
             md={3}
             lg={3}
-            style={{ marginLeft: 30 }}
             display="flex"
             justifyContent="space-evenly"
           >
@@ -127,7 +132,7 @@ const Navbar = () => {
             <InstagramIcon />
             <YouTubeIcon />
           </Grid>
-          <Grid item xs={3} sm={3} md={3} lg={3}>
+          <Grid item xs={3} sm={3} md={2} lg={3} display="contents">
             <PostButton onClick={handleCloseNavMenu}>
               <Link
                 style={{

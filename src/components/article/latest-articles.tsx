@@ -2,32 +2,30 @@ import React, { useEffect } from "react";
 import image from "../../assets/images/image.png";
 import { Grid, Card, Box, Divider } from "@mui/material";
 import { addArticle } from "../../store/services";
-import {
-  TextWrap01,
-  TextWrap02,
-  TextWrap03,
-  Article,
-} from "../home/home.styled";
+import { TextWrap01, TextWrap02, TextWrap03, Article } from "./article.styled";
+import { LoadMoreButton } from "./article.styled";
 import { useAppSelector, useAppDispatch } from "../../hooks/hooks";
 import useMediaQuery from "../../hooks/use-media-query";
 const LatestArticles = () => {
   const { isMobile, isDesktop, isTablet } = useMediaQuery();
-  const article = useAppSelector((state) => state.articles.article);
+
+  const articles = useAppSelector((state) => state.articles);
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(addArticle());
   }, [dispatch]);
-
+  const data = articles.article.slice(0, 6);
   return (
-    <Grid container sx={{ p: isDesktop ? 10 : isTablet ? 5 : 3 }} spacing={5}>
-      <Grid item xs={12} sm={12} md={12} lg={12}>
-        <Article>Latest Articles</Article>
-      </Grid>
-      <Grid item xs={12} sm={12} md={12} lg={12} style={{ paddingTop: 12 }}>
-        <Divider sx={{ borderBottomWidth: 2 }} />
-      </Grid>
-      {article &&
-        article.map((post: any) => {
+    <>
+      <Grid container sx={{ p: isDesktop ? 10 : isTablet ? 5 : 3 }} spacing={5}>
+        <Grid item xs={12} sm={12} md={12} lg={12}>
+          <Article>Latest Articles</Article>
+        </Grid>
+        <Grid item xs={12} sm={12} md={12} lg={12} style={{ paddingTop: 12 }}>
+          <Divider sx={{ borderBottomWidth: 2 }} />
+        </Grid>
+
+        {data.map((post: any) => {
           return (
             <Grid
               item
@@ -96,7 +94,18 @@ const LatestArticles = () => {
             </Grid>
           );
         })}
-    </Grid>
+        <Grid
+          item
+          xs={12}
+          sm={12}
+          md={12}
+          lg={12}
+          style={{ display: "flex", justifyContent: "center" }}
+        >
+          <LoadMoreButton>Load more articles</LoadMoreButton>
+        </Grid>
+      </Grid>
+    </>
   );
 };
 

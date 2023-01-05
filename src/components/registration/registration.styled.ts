@@ -87,7 +87,7 @@ const TextWrap4 = styled.h4`
   font-size: ${pxToRem(24)};
   color: #f3f2ff;
   font-weight: 700;
-  @media (max-width: 767px) {
+  @media (max-width: 1024px) {
     font-size: ${pxToRem(12)};
   }
 `;
