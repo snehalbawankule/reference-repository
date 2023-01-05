@@ -87,6 +87,21 @@ const Article = styled.text`
     font-size: ${pxToRem(30)};
   }
 `;
+const LoadMoreButton = styled.button`
+  height: ${pxToRem(85)};
+  background: #2f2e41;
+  font-weight: 700;
+  font-size: ${pxToRem(24)};
+  color: #f3f2ff;
+  border-radius: ${pxToRem(10)};
+  padding-left: ${pxToRem(50)};
+  padding-right: ${pxToRem(50)};
+  @media (min-width: 1024px) {
+    font-size: ${pxToRem(32)};
+    padding-left: ${pxToRem(103)};
+    padding-right: ${pxToRem(103)};
+  }
+`;
 export {
   TextWrap,
   TextWrap01,
@@ -97,4 +112,5 @@ export {
   TextWrap05,
   Button,
   ReadButton,
+  LoadMoreButton,
 };

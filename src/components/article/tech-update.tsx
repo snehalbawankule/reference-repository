@@ -2,12 +2,8 @@ import React, { useEffect } from "react";
 import techupdate from "../../assets/images/techupdate.png";
 import { Grid, Card, Box, Divider } from "@mui/material";
 import { addArticle } from "../../store/services";
-import {
-  TextWrap02,
-  TextWrap03,
-  Article,
-  ReadButton,
-} from "../home/home.styled";
+import { TextWrap02, TextWrap03, Article, ReadButton } from "./article.styled";
+import { LoadMoreButton } from "./article.styled";
 import { useAppSelector, useAppDispatch } from "../../hooks/hooks";
 import useMediaQuery from "../../hooks/use-media-query";
 const TechUpdate = () => {
@@ -96,6 +92,16 @@ const TechUpdate = () => {
             </Grid>
           );
         })}
+      <Grid
+        item
+        xs={12}
+        sm={12}
+        md={12}
+        lg={12}
+        style={{ display: "flex", justifyContent: "center" }}
+      >
+        <LoadMoreButton>Load more articles</LoadMoreButton>
+      </Grid>
     </Grid>
   );
 };

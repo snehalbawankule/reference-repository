@@ -8,5 +8,14 @@ const Image = styled.img<HomeProps>`
   height: ${pxToRem(200)};
   image: url(${(props) => props.src});
 `;
+const PostButton = styled.button`
+  background: #2f2e41;
+  height: ${pxToRem(42)};
+  border-radius: 7.24416px;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 14.4883px;
+  color: #f3f2ff;
+`;
 
-export { Image };
+export { Image, PostButton };

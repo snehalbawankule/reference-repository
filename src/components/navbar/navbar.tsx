@@ -7,14 +7,15 @@ import React from "react";
 import AppBar from "@mui/material/AppBar";
 import MenuIcon from "@mui/icons-material/Menu";
 import IconButton from "@mui/material/IconButton";
-//import { PostArticle } from "./navbar.styled";
+import { PostButton } from "./navbar.styled";
 import Grid from "@mui/material/Grid";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { TextWrap4 } from "../registration/registration.styled";
+
 const Navbar = () => {
-  const pages = ["home", "article", "contact", "addpost"];
+  const pages = ["home", "article", "contact"];
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
@@ -114,9 +115,9 @@ const Navbar = () => {
           <Grid
             item
             xs={3}
-            sm={4}
-            md={4}
-            lg={4}
+            sm={3}
+            md={3}
+            lg={3}
             style={{ marginLeft: 30 }}
             display="flex"
             justifyContent="space-evenly"
@@ -125,6 +126,19 @@ const Navbar = () => {
             <TwitterIcon />
             <InstagramIcon />
             <YouTubeIcon />
+          </Grid>
+          <Grid item xs={3} sm={3} md={3} lg={3}>
+            <PostButton onClick={handleCloseNavMenu}>
+              <Link
+                style={{
+                  color: "#F3F2FF",
+                  textDecoration: "none",
+                }}
+                to={`/addpost`}
+              >
+                Post your article
+              </Link>
+            </PostButton>
           </Grid>
         </Toolbar>
       </AppBar>

@@ -54,7 +54,7 @@ const Registration = () => {
   };
   return (
     <Grid container style={{ background: "white" }}>
-      <Grid item xs={12} sm={12} md={8} lg={8}>
+      <Grid item xs={12} sm={12} md={12} lg={8}>
         {textwrap &&
           textwrap.map(({ title, description, author, authorCategory }) => (
             <Box
@@ -115,9 +115,10 @@ const Registration = () => {
         item
         xs={12}
         sm={12}
-        md={4}
+        md={12}
         lg={4}
         display="block"
+        sx={{ px: isDesktop ? 4 : "" }}
         style={{
           justifyContent: isDesktop ? "flex-start" : "center",
           textAlign: "center",
