@@ -92,8 +92,7 @@ function Footer() {
       <Box
         sx={{
           mt: 3,
-          marginLeft: isMobile ? "" : 30,
-          marginRight: isMobile ? "" : 30,
+          mx: isDesktop ? 40 : isTablet ? 30 : "",
         }}
         display="flex"
         justifyContent="space-evenly"

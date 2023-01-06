@@ -6,9 +6,11 @@ const initialState = {
       title: "",
       thumbnailUrl: "",
       url: "",
+      reactions: [],
     },
   ],
 };
+
 const { actions, reducer } = createSlice({
   name: "articles",
   initialState,
@@ -18,6 +20,15 @@ const { actions, reducer } = createSlice({
     },
     addNewArticle(state, action) {
       state.article = action.payload;
+    },
+    reactionAdded(state, action) {
+      const { postId, reaction } = action.payload;
+      const existingPost = state.article.find(
+        (article) => article.id === postId
+      );
+      if (existingPost) {
+        existingPost.reactions[reaction]++;
+      }
     },
   },
 });

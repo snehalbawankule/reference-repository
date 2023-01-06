@@ -12,3 +12,13 @@ export const addArticle = createAsyncThunk(
       });
   }
 );
+export const reactionAdded = createAsyncThunk(
+  "article/reactionAdded",
+  async (_, { dispatch }) => {
+    return fetch("https://jsonplaceholder.typicode.com/photos/")
+      .then((res) => res.json())
+      .then((json) => {
+        dispatch(actions.addArticle(json));
+      });
+  }
+);

@@ -1,19 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import techupdate from "../../assets/images/techupdate.png";
 import { Grid, Card, Box } from "@mui/material";
-import { useParams } from "react-router-dom";
 import { TextWrap02, TextWrap03 } from "./article.styled";
 import textwrap from "../textwrap/textwrap.json";
-import { addArticle } from "../../store/services";
-import { useAppSelector, useAppDispatch } from "../../hooks/hooks";
 import useMediaQuery from "../../hooks/use-media-query";
 const Article = () => {
-  const { id } = useParams();
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    dispatch(addArticle());
-  }, [dispatch]);
-  const articles = useAppSelector((state) => state.articles.article);
+  //const { id } = useParams();
   const { isMobile, isTablet, isDesktop } = useMediaQuery();
   return (
     <Grid
@@ -46,7 +38,6 @@ const Article = () => {
                 backgroundPosition: "center",
                 backgroundSize: "cover",
               }}
-              key={id}
             />
             <Grid item xs={12} sm={12} md={12} lg={12} justifyContent="center">
               <TextWrap02>{articleTitle}</TextWrap02>

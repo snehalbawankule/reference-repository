@@ -15,8 +15,8 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import { TextWrap4 } from "../registration/registration.styled";
 import useMediaQuery from "../../hooks/use-media-query";
 const Navbar = () => {
-  const { isMobile, isDesktop, isTablet } = useMediaQuery();
-  const pages = ["home", "article", "contact"];
+  const { isDesktop, isTablet } = useMediaQuery();
+  const pages = ["home", "articles", "contact"];
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null

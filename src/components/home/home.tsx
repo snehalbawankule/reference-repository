@@ -2,8 +2,8 @@ import React from "react";
 import { Divider, Grid } from "@mui/material";
 import useMediaQuery from "../../hooks/use-media-query";
 import Footer from "../footer/footer";
-import LatestArticles from "../article/latest-articles";
-import TechUpdate from "../article/tech-update";
+import LatestArticles from "../latest-articles/latest-articles";
+import TechUpdate from "../tech-update/tech-update";
 import Poster from "../article/poster";
 const Home = () => {
   const { isMobile, isDesktop } = useMediaQuery();

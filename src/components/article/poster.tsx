@@ -49,8 +49,8 @@ const Poster = () => {
               item
               xs={6}
               sm={6}
-              md={3}
-              lg={3}
+              md={4}
+              lg={4}
               sx={{ pl: isDesktop ? 10 : 3, mt: isDesktop ? 10 : 3 }}
             >
               <Button>{readMore}</Button>
