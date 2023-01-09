@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
-import image from "../../assets/images/image.png";
+import techupdate from "../../assets/images/techupdate.png";
 import { Grid, Card, Box } from "@mui/material";
 import { useParams } from "react-router-dom";
-import { TextWrap02, TextWrap03 } from "./article.styled";
+import { TextWrap02, TextWrap03 } from "../article/article.styled";
 import textwrap from "../textwrap/textwrap.json";
 import { addArticle } from "../../store/services";
 import { useAppDispatch } from "../../hooks/hooks";
 import useMediaQuery from "../../hooks/use-media-query";
-const Article = () => {
+const TechArticle = () => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -43,7 +43,7 @@ const Article = () => {
               style={{
                 alignContent: "center",
                 height: isMobile ? "300px" : isDesktop ? "1000px" : "616px",
-                backgroundImage: `url(${image})`,
+                backgroundImage: `url(${techupdate})`,
                 backgroundPosition: "center",
                 backgroundSize: "cover",
               }}
@@ -81,4 +81,4 @@ const Article = () => {
   );
 };
 
-export default Article;
+export default TechArticle;

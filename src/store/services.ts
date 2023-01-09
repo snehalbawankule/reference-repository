@@ -12,10 +12,10 @@ export const addArticle = createAsyncThunk(
       });
   }
 );
-export const reactionAdded = createAsyncThunk(
-  "article/reactionAdded",
+export const articleId = createAsyncThunk(
+  "article/id",
   async (_, { dispatch }) => {
-    return fetch("https://jsonplaceholder.typicode.com/photos/")
+    return fetch("https://jsonplaceholder.typicode.com/photos/$id")
       .then((res) => res.json())
       .then((json) => {
         dispatch(actions.addArticle(json));

@@ -1,22 +1,22 @@
 import React from "react";
-import image2 from "../../assets/images/image2.png";
+import techupdate from "../../assets/images/techupdate.png";
 import { Grid, Card, Box } from "@mui/material";
-
-import { TextWrap01, TextWrap02, TextWrap03 } from "./article.styled";
-import { ReactionButtons } from "../reaction/reaction-button";
-
+import { TextWrap02, TextWrap03 } from "../article/article.styled";
+import { Link } from "react-router-dom";
+import { ReadButton } from "../article/article.styled";
 import textwrap from "../textwrap/textwrap.json";
 import useMediaQuery from "../../hooks/use-media-query";
 import { useNavigate } from "react-router-dom";
-
-const ArticleCard = (props: any) => {
+const TechArticleCard = (props: any) => {
   const { post } = props;
-  const { id, title } = post;
+
+  const { id } = post;
+
   let history = useNavigate();
-  const { isMobile } = useMediaQuery();
+  const { isMobile, isDesktop } = useMediaQuery();
   return (
-    <Grid container>
-      {textwrap.map(({ articleTitle, articleDescription }) => (
+    <Grid container key={id}>
+      {textwrap.map(({ articleTitle, articleDescription, readMore }) => (
         <>
           <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
             <Card
@@ -30,22 +30,11 @@ const ArticleCard = (props: any) => {
                 <Box
                   style={{
                     height: "320px",
-                    backgroundImage: `url(${image2})`,
+                    backgroundImage: `url(${techupdate})`,
                     backgroundPosition: "center",
                     backgroundSize: "cover",
                   }}
-                  onClick={() => history(`/articles/${id}`)}
                 />
-                <Grid
-                  item
-                  xs={12}
-                  sm={12}
-                  md={12}
-                  lg={10}
-                  justifyContent="center"
-                >
-                  <TextWrap01>{title}</TextWrap01>
-                </Grid>
                 <Grid
                   item
                   xs={12}
@@ -74,10 +63,19 @@ const ArticleCard = (props: any) => {
                 sm={12}
                 md={12}
                 lg={12}
-                display="flex"
-                justifyContent="center"
+                sx={{ mt: isDesktop ? 4 : 3 }}
               >
-                <ReactionButtons post={post} />
+                <ReadButton>
+                  <Link
+                    style={{
+                      color: "white",
+                      textDecoration: "none",
+                    }}
+                    to={`/tech-article/${id}`}
+                  >
+                    {readMore}
+                  </Link>
+                </ReadButton>
               </Grid>
             </Card>
           </Grid>
@@ -87,4 +85,4 @@ const ArticleCard = (props: any) => {
   );
 };
 
-export default ArticleCard;
+export default TechArticleCard;

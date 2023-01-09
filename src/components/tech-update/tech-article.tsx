@@ -1,11 +1,19 @@
-import React from "react";
-import techupdate from "../../assets/images/techupdate.png";
+/*import React, { useEffect } from "react";
+import image from "../../assets/images/image.png";
 import { Grid, Card, Box } from "@mui/material";
-import { TextWrap02, TextWrap03 } from "./article.styled";
+import { useParams } from "react-router-dom";
+import { TextWrap02, TextWrap03 } from "../article/article.styled";
 import textwrap from "../textwrap/textwrap.json";
+import { addArticle } from "../../store/services";
+import { useAppDispatch } from "../../hooks/hooks";
 import useMediaQuery from "../../hooks/use-media-query";
-const Article = () => {
-  //const { id } = useParams();
+const TechArticle = () => {
+  const { id } = useParams();
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(addArticle());
+  }, [dispatch]);
+  //const article = useAppSelector((state) => state.articles);
   const { isMobile, isTablet, isDesktop } = useMediaQuery();
   return (
     <Grid
@@ -17,7 +25,7 @@ const Article = () => {
       display="flex"
       sx={{
         mt: 20,
-        px: isDesktop ? 12 : isTablet ? 7 : 4,
+        px: isDesktop ? 10 : isTablet ? 7 : 4,
         display: "flex",
         justifyContent: "center",
       }}
@@ -33,11 +41,13 @@ const Article = () => {
           <Box>
             <Box
               style={{
-                height: isMobile ? "300px" : "616px",
-                backgroundImage: `url(${techupdate})`,
+                alignContent: "center",
+                height: isMobile ? "300px" : isDesktop ? "1000px" : "616px",
+                backgroundImage: `url(${image})`,
                 backgroundPosition: "center",
                 backgroundSize: "cover",
               }}
+              key={id}
             />
             <Grid item xs={12} sm={12} md={12} lg={12} justifyContent="center">
               <TextWrap02>{articleTitle}</TextWrap02>
@@ -71,4 +81,5 @@ const Article = () => {
   );
 };
 
-export default Article;
+export default TechArticle;
+*/

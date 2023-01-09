@@ -9,8 +9,10 @@ import Home from "./components/home";
 import Login from "./components/login";
 import AddPost from "./components/add-post";
 import Articles from "./components/article";
-//import Article from "./components/article/article";
+import Article from "./components/article/article";
 import ContactUs from "./components/contact-us";
+import { Edit } from "./components/edit-article/edit-article";
+import TechArticle from "./components/tech-update/techarticle";
 function App() {
   const location = useLocation();
   return (
@@ -25,7 +27,9 @@ function App() {
         <Route path="/addpost" element={<AddPost />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/articles" element={<Articles />} />
-        {/*<Route path="/articles/:id" element={<Article />} />*/}
+        <Route path="/tech-article/:id" element={<TechArticle />} />
+        <Route path="/articles/:id" element={<Article />} />
+        <Route path="/edit/:id" element={<Edit />} />
       </Routes>
     </Grid>
   );

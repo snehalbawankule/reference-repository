@@ -6,7 +6,12 @@ const initialState = {
       title: "",
       thumbnailUrl: "",
       url: "",
-      reactions: [],
+      content: "",
+      reactions: {
+        like: Number,
+        heart: Number,
+        comment: Number,
+      },
     },
   ],
 };
@@ -27,7 +32,15 @@ const { actions, reducer } = createSlice({
         (article) => article.id === postId
       );
       if (existingPost) {
-        existingPost.reactions[reaction]++;
+        // existingPost.reactions[reaction]++;
+      }
+    },
+    postUpdated(state, action) {
+      const { id, title, content } = action.payload;
+      const existingPost = state.article.find((article) => article.id === id);
+      if (existingPost) {
+        existingPost.title = title;
+        existingPost.content = content;
       }
     },
   },

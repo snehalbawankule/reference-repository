@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const ArticleCard = (props: any) => {
   const { post } = props;
 
-  const { id, title } = post;
+  const { id } = post;
 
   let history = useNavigate();
   const { isMobile } = useMediaQuery();
@@ -34,7 +34,7 @@ const ArticleCard = (props: any) => {
                   justifyContent: isMobile ? "center" : "flex",
                 }}
               >
-                <Box>
+                <Box onClick={() => history(`/articles/${id}`)}>
                   <Box
                     style={{
                       height: "320px",
@@ -42,7 +42,6 @@ const ArticleCard = (props: any) => {
                       backgroundPosition: "center",
                       backgroundSize: "cover",
                     }}
-                    onClick={() => history(`/articles/${id}`)}
                   />
                   <Grid
                     item
@@ -85,7 +84,7 @@ const ArticleCard = (props: any) => {
                   display="flex"
                   sx={{ mt: 3 }}
                 >
-                  <ReactionButtons />
+                  <ReactionButtons post={post} />
                 </Grid>
               </Card>
             </Grid>

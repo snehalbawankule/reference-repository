@@ -29,7 +29,7 @@ const ArticleList = () => {
               display="flex"
               key={post.id}
             >
-              <ArticleCard key={post.id} post={post} />
+              <ArticleCard post={post} />
             </Grid>
           );
         })}
