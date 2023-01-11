@@ -18,7 +18,7 @@ const ArticleList = () => {
       spacing={5}
     >
       <>
-        {articles.article.slice(0, 18).map((post: any) => {
+        {articles.article.slice(12, 24).map((post: any) => {
           return (
             <Grid
               item

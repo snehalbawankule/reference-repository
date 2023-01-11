@@ -5,13 +5,13 @@ import { actions } from "./reducer";
 export const addArticle = createAsyncThunk(
   "article/addArticle",
   async (_, { dispatch }) => {
-    return fetch("https://jsonplaceholder.typicode.com/photos?_limit=18")
+    return fetch("https://jsonplaceholder.typicode.com/photos")
       .then((res) => res.json())
       .then((article) => {
         var data = { article };
 
         var newArray = data.article.filter(function (el: any) {
-          return el.id <= 10;
+          return el.id <= 24;
         });
         newArray.forEach((element: any) => {
           element.title = "How to build a successfully business in Nigeria";

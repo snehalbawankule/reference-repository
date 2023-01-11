@@ -10,32 +10,23 @@ import { Input } from "../registration/registration.styled";
 import useMediaQuery from "../../hooks/use-media-query";
 const Edit = () => {
   const { id } = useParams<{ id: string }>();
-  console.log(id);
   const post = useAppSelector((state) =>
     state.articles.article.find((item) => item.id == id)
   );
-  console.log(post);
   const [userInfo, setUserInfo] = useState({
     id: post?.id,
     title: post?.title,
     description: post?.description,
   });
-  console.log(userInfo);
   const handleChange = (event: any) => {
     setUserInfo({ ...userInfo, [event.target.name]: event.target.value });
   };
   const dispatch = useAppDispatch();
   const [content, setContent] = useState(post?.content);
-  //const navigate = useNavigate();
+  //const navigation = useNavigation();
   const onContentChanged = (e: any) => setContent(e.target.value);
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    /* const newTodo = {
-      id: id,
-      title: userInfo.title,
-      description: userInfo.description,
-    };
-    console.log(newTodo);*/
     dispatch(
       actions.postUpdate({
         id: id,
@@ -43,12 +34,12 @@ const Edit = () => {
         description: userInfo.description,
       })
     );
-    // history.push(`/posts/${postId}`)
+    // navigation.location("/home");
   };
 
   const { isMobile, isTablet, isDesktop } = useMediaQuery();
   return (
-    <form>
+    <form onSubmit={(e) => handleSubmit(e)}>
       <Grid
         container
         display="flex"
@@ -131,7 +122,7 @@ const Edit = () => {
           display="flex"
           justifyContent="center"
         >
-          <PostButton onClick={(e) => handleSubmit(e)}>Post</PostButton>
+          <PostButton>Post</PostButton>
         </Grid>
       </Grid>
     </form>

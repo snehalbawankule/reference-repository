@@ -12,6 +12,7 @@
     "@mui/icons-material": "^5.11.0",
     "@mui/lab": "^5.0.0-alpha.113",
     "@mui/material": "^5.11.0",
+    "@react-navigation/native": "^6.1.2",
     "@react-oauth/google": "^0.5.1",
     "@reduxjs/toolkit": "^1.9.1",
     "@testing-library/jest-dom": "^5.16.5",
