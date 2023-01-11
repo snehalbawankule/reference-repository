@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Grid } from "@mui/material";
 import { Link } from "react-router-dom";
-import { addArticle } from "../../store/services";
-import { useAppSelector, useAppDispatch } from "../../hooks/hooks";
+import { useAppSelector } from "../../hooks/hooks";
 import useMediaQuery from "../../hooks/use-media-query";
 import ArticleCard from "./latest-article-card";
 import { LoadMoreButton } from "../article/article.styled";
@@ -10,10 +9,7 @@ import { LoadMoreButton } from "../article/article.styled";
 const LatestArticles = () => {
   const { isDesktop, isTablet } = useMediaQuery();
   const articles = useAppSelector((state) => state.articles);
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    dispatch(addArticle());
-  }, [dispatch]);
+
   return (
     <Grid
       container

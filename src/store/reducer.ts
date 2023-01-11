@@ -22,12 +22,14 @@ const { actions, reducer } = createSlice({
     addNewArticle(state, action) {
       state.article = action.payload;
     },
-    postUpdated(state, action) {
-      const { id, title, content } = action.payload;
-      const existingPost = state.article.find((article) => article.id === id);
+    postUpdate(state, action) {
+      const { id, title, description } = action.payload;
+      console.log(action.payload);
+      const existingPost = state.article.find((item) => item.id == id);
+
       if (existingPost) {
         existingPost.title = title;
-        existingPost.content = content;
+        existingPost.description = description;
       }
     },
   },
