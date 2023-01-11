@@ -11,7 +11,7 @@ import AddPost from "./components/add-post";
 import Articles from "./components/article";
 import Article from "./components/article/article";
 import ContactUs from "./components/contact-us";
-import { Edit } from "./components/edit-article/edit-article";
+import Edit from "./components/edit-article/edit-article";
 import TechArticle from "./components/tech-update/techarticle";
 function App() {
   const location = useLocation();

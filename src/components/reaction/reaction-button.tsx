@@ -10,9 +10,6 @@ export const ReactionButtons = (props: any) => {
   const [like, setLike] = useState(false);
   const [heart, setHeart] = useState(false);
   const [comment, setComment] = useState(true);
-  /*const handleChange = (event:any) => {
-    setComment({event.value});
-  };*/
 
   return (
     <>
@@ -39,9 +36,9 @@ export const ReactionButtons = (props: any) => {
           <Button
             type="button"
             className="muted-button reaction-button"
-            onClick={() => setHeart((prevHeart) => !prevHeart)}
+            //post={post.id}
           >
-            <Link to={`/editPost/${post.id}`} className="button">
+            <Link to={`/edit/${post.id}`} className="button">
               edit: ✏️
             </Link>
           </Button>

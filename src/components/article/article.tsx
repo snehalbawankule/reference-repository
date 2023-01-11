@@ -7,8 +7,8 @@ import textwrap from "../textwrap/textwrap.json";
 import { addArticle } from "../../store/services";
 import { useAppDispatch } from "../../hooks/hooks";
 import useMediaQuery from "../../hooks/use-media-query";
-const Article = () => {
-  const { id } = useParams();
+const Article = (props: any) => {
+  const { id } = props;
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(addArticle());

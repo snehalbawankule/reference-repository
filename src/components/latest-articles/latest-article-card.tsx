@@ -61,7 +61,7 @@ const ArticleCard = (props: any) => {
                     lg={12}
                     justifyContent="center"
                   >
-                    <TextWrap02>{articleTitle}</TextWrap02>
+                    <TextWrap02>{post.title}</TextWrap02>
                   </Grid>
                   <Grid
                     item
@@ -72,7 +72,7 @@ const ArticleCard = (props: any) => {
                     display="flex"
                     justifyContent="center"
                   >
-                    <TextWrap03>{articleDescription}</TextWrap03>
+                    <TextWrap03>{post.description}</TextWrap03>
                   </Grid>
                 </Box>
                 <Grid

@@ -7,11 +7,7 @@ const initialState = {
       thumbnailUrl: "",
       url: "",
       content: "",
-      reactions: {
-        like: Number,
-        heart: Number,
-        comment: Number,
-      },
+      description: "",
     },
   ],
 };
@@ -26,15 +22,6 @@ const { actions, reducer } = createSlice({
     addNewArticle(state, action) {
       state.article = action.payload;
     },
-    reactionAdded(state, action) {
-      const { postId, reaction } = action.payload;
-      const existingPost = state.article.find(
-        (article) => article.id === postId
-      );
-      if (existingPost) {
-        // existingPost.reactions[reaction]++;
-      }
-    },
     postUpdated(state, action) {
       const { id, title, content } = action.payload;
       const existingPost = state.article.find((article) => article.id === id);
@@ -45,5 +32,6 @@ const { actions, reducer } = createSlice({
     },
   },
 });
+
 export { actions };
 export default reducer;
