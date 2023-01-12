@@ -20,5 +20,4 @@ const PostButton = styled.button`
     height: ${pxToRem(22)};
   }
 `;
-
 export { Image, PostButton };

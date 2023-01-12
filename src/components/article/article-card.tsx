@@ -5,7 +5,7 @@ import { Grid, Card, Box } from "@mui/material";
 import { TextWrap01, TextWrap02, TextWrap03 } from "./article.styled";
 import { ReactionButtons } from "../reaction/reaction-button";
 
-import textwrap from "../textwrap/textwrap.json";
+import { default as textwrap } from "../textwrap/textwrap.json";
 import useMediaQuery from "../../hooks/use-media-query";
 import { useNavigate } from "react-router-dom";
 
@@ -16,73 +16,55 @@ const ArticleCard = (props: any) => {
   const { isMobile } = useMediaQuery();
   return (
     <Grid container>
-      {textwrap.map(({ articleTitle, articleDescription }) => (
-        <>
-          <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
-            <Card
+      <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
+        <Card
+          style={{
+            border: "none",
+            boxShadow: "none",
+            justifyContent: isMobile ? "center" : "flex",
+          }}
+        >
+          <Box>
+            <Box
               style={{
-                border: "none",
-                boxShadow: "none",
-                justifyContent: isMobile ? "center" : "flex",
+                height: "320px",
+                backgroundImage: `url(${image2})`,
+                backgroundPosition: "center",
+                backgroundSize: "cover",
               }}
+              onClick={() => history(`/articles/${id}`)}
+            />
+            <Grid item xs={12} sm={12} md={12} lg={10} justifyContent="center">
+              <TextWrap01>{title}</TextWrap01>
+            </Grid>
+            <Grid item xs={12} sm={12} md={12} lg={12} justifyContent="center">
+              <TextWrap02>{textwrap.articleTitle}</TextWrap02>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              sm={12}
+              md={12}
+              lg={12}
+              display="flex"
+              justifyContent="center"
             >
-              <Box>
-                <Box
-                  style={{
-                    height: "320px",
-                    backgroundImage: `url(${image2})`,
-                    backgroundPosition: "center",
-                    backgroundSize: "cover",
-                  }}
-                  onClick={() => history(`/articles/${id}`)}
-                />
-                <Grid
-                  item
-                  xs={12}
-                  sm={12}
-                  md={12}
-                  lg={10}
-                  justifyContent="center"
-                >
-                  <TextWrap01>{title}</TextWrap01>
-                </Grid>
-                <Grid
-                  item
-                  xs={12}
-                  sm={12}
-                  md={12}
-                  lg={12}
-                  justifyContent="center"
-                >
-                  <TextWrap02>{articleTitle}</TextWrap02>
-                </Grid>
-                <Grid
-                  item
-                  xs={12}
-                  sm={12}
-                  md={12}
-                  lg={12}
-                  display="flex"
-                  justifyContent="center"
-                >
-                  <TextWrap03>{articleDescription}</TextWrap03>
-                </Grid>
-              </Box>
-              <Grid
-                item
-                xs={12}
-                sm={12}
-                md={12}
-                lg={12}
-                display="flex"
-                justifyContent="center"
-              >
-                <ReactionButtons post={post} />
-              </Grid>
-            </Card>
+              <TextWrap03>{textwrap.articleDescription}</TextWrap03>
+            </Grid>
+          </Box>
+          <Grid
+            item
+            xs={12}
+            sm={12}
+            md={12}
+            lg={12}
+            display="flex"
+            justifyContent="center"
+          >
+            <ReactionButtons post={post} />
           </Grid>
-        </>
-      ))}
+        </Card>
+      </Grid>
     </Grid>
   );
 };

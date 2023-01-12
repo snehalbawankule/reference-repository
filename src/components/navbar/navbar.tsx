@@ -1,23 +1,27 @@
-import { Link } from "react-router-dom";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import { Box, Menu, Toolbar, Button } from "@mui/material";
-import MenuItem from "@mui/material/MenuItem";
-import Typography from "@mui/material/Typography";
 import React from "react";
-import AppBar from "@mui/material/AppBar";
+import { Link } from "react-router-dom";
+import {
+  Box,
+  Menu,
+  Toolbar,
+  Button,
+  Grid,
+  IconButton,
+  AppBar,
+  MenuItem,
+  Typography,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import IconButton from "@mui/material/IconButton";
 import { PostButton } from "./navbar.styled";
-import Grid from "@mui/material/Grid";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import TwitterIcon from "@mui/icons-material/Twitter";
+import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { TextWrap4 } from "../registration/registration.styled";
 import useMediaQuery from "../../hooks/use-media-query";
 const Navbar = () => {
   const { isDesktop, isTablet } = useMediaQuery();
   const pages = ["home", "articles", "contact"];
-
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );

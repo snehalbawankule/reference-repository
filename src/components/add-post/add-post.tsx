@@ -1,23 +1,38 @@
 import { NewArticle, PostButton } from "./add-post.styled";
 import { Grid } from "@mui/material";
-//import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+import { actions } from "../../store/reducer";
 import TextField from "@mui/material/TextField";
+import { useAppDispatch } from "../../hooks/hooks";
 import useMediaQuery from "../../hooks/use-media-query";
 import { useState } from "react";
 const AddPost = () => {
-  //const dispatch = useAppDispatch();
-
-  const { isDesktop, isTablet } = useMediaQuery();
-  const [article, setArticle] = useState({
+  const [postInfo, setPostInfo] = useState({
+    id: "",
     title: "",
     image: "",
+    description: "",
     content: "",
   });
   const handleChange = (event: any) => {
-    setArticle({ ...article, [event.target.name]: event.target.value });
+    setPostInfo({ ...postInfo, [event.target.name]: event.target.value });
+  };
+  const dispatch = useAppDispatch();
+
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+    console.log(postInfo.title);
+    dispatch(
+      actions.addNewArticle({
+        title: postInfo.title,
+        description: postInfo.description,
+        content: postInfo.content,
+      })
+    );
+    //navigate("/home");
   };
 
-  const onSavePostClicked = async () => {};
+  const { isDesktop, isTablet } = useMediaQuery();
+
   return (
     <Grid
       container
@@ -32,7 +47,7 @@ const AddPost = () => {
           fullWidth
           style={{ marginTop: 20 }}
           label="Blog Title"
-          defaultValue={article.title}
+          defaultValue={postInfo.title}
           onBlur={handleChange}
         />
       </Grid>
@@ -41,7 +56,16 @@ const AddPost = () => {
           style={{ marginTop: 20 }}
           fullWidth
           label="Image url"
-          defaultValue={article.image}
+          defaultValue={postInfo.image}
+          onBlur={handleChange}
+        />
+      </Grid>
+      <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
+        <TextField
+          fullWidth
+          style={{ marginTop: 20 }}
+          label="Blog description"
+          defaultValue={postInfo.description}
           onBlur={handleChange}
         />
       </Grid>
@@ -50,12 +74,12 @@ const AddPost = () => {
           fullWidth
           style={{ marginTop: 20 }}
           label="Blog Content"
-          defaultValue={article.content}
+          defaultValue={postInfo.content}
           onBlur={handleChange}
         />
       </Grid>
       <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
-        <PostButton onClick={onSavePostClicked}>Post</PostButton>
+        <PostButton onClick={(e) => handleSubmit(e)}>Post</PostButton>
       </Grid>
     </Grid>
   );

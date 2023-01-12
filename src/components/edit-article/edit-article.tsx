@@ -1,40 +1,40 @@
 import React, { useState } from "react";
 import image from "../../assets/images/image.png";
 import { Grid } from "@mui/material";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { actions } from "../../store/reducer";
 import { PostButton } from "../add-post/add-post.styled";
-import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { Input } from "../registration/registration.styled";
 import useMediaQuery from "../../hooks/use-media-query";
 const Edit = () => {
   const { id } = useParams<{ id: string }>();
+  //const navigate = useNavigate();
   const post = useAppSelector((state) =>
     state.articles.article.find((item) => item.id == id)
   );
-  const [userInfo, setUserInfo] = useState({
+  const [postInfo, setPostInfo] = useState({
     id: post?.id,
     title: post?.title,
     description: post?.description,
+    content: post?.content,
   });
   const handleChange = (event: any) => {
-    setUserInfo({ ...userInfo, [event.target.name]: event.target.value });
+    setPostInfo({ ...postInfo, [event.target.name]: event.target.value });
   };
   const dispatch = useAppDispatch();
-  const [content, setContent] = useState(post?.content);
-  //const navigation = useNavigation();
-  const onContentChanged = (e: any) => setContent(e.target.value);
+
   const handleSubmit = (event: any) => {
     event.preventDefault();
     dispatch(
       actions.postUpdate({
         id: id,
-        title: userInfo.title,
-        description: userInfo.description,
+        title: postInfo.title,
+        description: postInfo.description,
+        content: postInfo.content,
       })
     );
-    // navigation.location("/home");
+    //navigate("/home");
   };
 
   const { isMobile, isTablet, isDesktop } = useMediaQuery();
@@ -78,8 +78,8 @@ const Edit = () => {
             type="text"
             name="title"
             onBlur={handleChange}
-            defaultValue={userInfo.title}
-            placeholder="Name"
+            defaultValue={postInfo.title}
+            placeholder="title"
             required
           />
         </Grid>
@@ -97,8 +97,8 @@ const Edit = () => {
             type="text"
             name="description"
             onBlur={handleChange}
-            defaultValue={userInfo.description}
-            placeholder="Name"
+            defaultValue={postInfo.description}
+            placeholder="description"
             required
           />
         </Grid>
@@ -111,7 +111,15 @@ const Edit = () => {
           display="flex"
           justifyContent="center"
         >
-          <textarea value={content} onBlur={onContentChanged}></textarea>
+          <textarea
+            style={{ width: "800px" }}
+            rows={5}
+            name="content"
+            onBlur={handleChange}
+            defaultValue={postInfo.content}
+            placeholder="Content"
+            required
+          />
         </Grid>
         <Grid
           item

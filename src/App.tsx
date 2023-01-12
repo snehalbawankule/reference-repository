@@ -3,7 +3,6 @@ import { Routes, Route } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import { useLocation } from "react-router-dom";
 import Registration from "./components/registration";
-//import { useGoogleLogin } from "@react-oauth/google";
 import Navbar from "./components/navbar/navbar";
 import Home from "./components/home";
 import Login from "./components/login";
@@ -12,7 +11,7 @@ import Articles from "./components/article";
 import Article from "./components/article/article";
 import ContactUs from "./components/contact-us";
 import Edit from "./components/edit-article/edit-article";
-import TechArticle from "./components/tech-update/techarticle";
+import TechArticle from "./components/tech-update/tech-article";
 function App() {
   const location = useLocation();
   return (
