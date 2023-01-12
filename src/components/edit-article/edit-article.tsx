@@ -3,7 +3,7 @@ import image from "../../assets/images/image.png";
 import { Grid } from "@mui/material";
 import { useParams, useNavigate } from "react-router-dom";
 import { actions } from "../../store/reducer";
-import { PostButton } from "../add-post/add-post.styled";
+import { PostButton } from "../new-post/new-post.styled";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { Input } from "../registration/registration.styled";
 import useMediaQuery from "../../hooks/use-media-query";

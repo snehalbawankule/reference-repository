@@ -6,12 +6,12 @@ import Registration from "./components/registration";
 import Navbar from "./components/navbar/navbar";
 import Home from "./components/home";
 import Login from "./components/login";
-import AddPost from "./components/add-post";
 import Articles from "./components/article";
 import Article from "./components/article/article";
 import ContactUs from "./components/contact-us";
 import Edit from "./components/edit-article/edit-article";
 import TechArticle from "./components/tech-update/tech-article";
+import NewPost from "./components/new-post/new-post";
 function App() {
   const location = useLocation();
   return (
@@ -23,7 +23,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/" element={<Registration />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/addpost" element={<AddPost />} />
+        <Route path="/newpost" element={<NewPost />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/articles" element={<Articles />} />
         <Route path="/tech-article/:id" element={<TechArticle />} />

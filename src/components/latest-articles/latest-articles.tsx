@@ -5,14 +5,14 @@ import { useAppSelector } from "../../hooks/hooks";
 import useMediaQuery from "../../hooks/use-media-query";
 import ArticleCard from "./latest-article-card";
 import { LoadMoreButton } from "../article/article.styled";
-import { useSelector } from "react-redux";
-import { getArticle } from "../../store/selector";
+//import { useSelector } from "react-redux";
+//import { getArticle } from "../../store/selector";
 //import { ReactionButtons } from "../reaction/reaction-button";
 const LatestArticles = () => {
   const { isDesktop, isTablet } = useMediaQuery();
   const articles = useAppSelector((state) => state.articles);
-  const temparticles = useSelector(getArticle);
-  console.log(temparticles);
+  //const temparticles = useSelector(getArticle);
+  //console.log(temparticles);
   return (
     <Grid
       container
@@ -31,7 +31,7 @@ const LatestArticles = () => {
               display="flex"
               key={post.id}
             >
-              <ArticleCard key={post.id} post={post} />
+              <ArticleCard post={post} />
             </Grid>
           );
         })}

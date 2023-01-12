@@ -1,4 +1,4 @@
-import { NewArticle, PostButton } from "../add-post/add-post.styled";
+import { NewArticle, PostButton } from "../new-post/new-post.styled";
 import { Grid } from "@mui/material";
 import useMediaQuery from "../../hooks/use-media-query";
 import { useState } from "react";

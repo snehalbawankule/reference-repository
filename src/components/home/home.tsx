@@ -4,7 +4,7 @@ import useMediaQuery from "../../hooks/use-media-query";
 import Footer from "../footer/footer";
 import LatestArticles from "../latest-articles/latest-articles";
 import TechUpdate from "../tech-update/tech-update";
-import Poster from "../article/poster";
+import Poster from "../poster/poster";
 const Home = () => {
   const { isMobile, isDesktop } = useMediaQuery();
 

@@ -5,7 +5,7 @@ import { actions } from "./reducer";
 export const addArticle = createAsyncThunk(
   "article/addArticle",
   async (_, { dispatch }) => {
-    return fetch("https://jsonplaceholder.typicode.com/photos")
+    return fetch("https://jsonplaceholder.typicode.com/photos?_limit=30")
       .then((res) => res.json())
       .then((article) => {
         var data = { article };

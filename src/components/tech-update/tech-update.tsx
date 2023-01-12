@@ -11,6 +11,8 @@ const TechUpdate = () => {
   const articles = useAppSelector((state) => state.articles);
   const dispatch = useAppDispatch();
   useEffect(() => {
+    //if (articles.article.length > 0) {
+    //} else {
     dispatch(addArticle());
   }, [dispatch]);
   const data = articles.article.slice(6, 12);

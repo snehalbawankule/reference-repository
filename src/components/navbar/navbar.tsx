@@ -143,7 +143,7 @@ const Navbar = () => {
                   color: "#F3F2FF",
                   textDecoration: "none",
                 }}
-                to={`/addpost`}
+                to={`/newpost`}
               >
                 Post your article
               </Link>

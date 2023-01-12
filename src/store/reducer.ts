@@ -38,3 +38,4 @@ const { actions, reducer } = createSlice({
 
 export { actions };
 export default reducer;
+export const selectAllPosts = (state: any) => state.articles.article;

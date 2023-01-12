@@ -1,11 +1,11 @@
-import { NewArticle, PostButton } from "./add-post.styled";
+import { NewArticle, PostButton } from "./new-post.styled";
 import { Grid } from "@mui/material";
 import { actions } from "../../store/reducer";
 import TextField from "@mui/material/TextField";
 import { useAppDispatch } from "../../hooks/hooks";
 import useMediaQuery from "../../hooks/use-media-query";
 import { useState } from "react";
-const AddPost = () => {
+const NewPost = () => {
   const [postInfo, setPostInfo] = useState({
     id: "",
     title: "",
@@ -84,4 +84,4 @@ const AddPost = () => {
     </Grid>
   );
 };
-export default AddPost;
+export default NewPost;
