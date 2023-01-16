@@ -3,7 +3,6 @@ import image from "../../assets/images/image.png";
 import { Grid, Card, Box } from "@mui/material";
 import { TextWrap01, TextWrap02, TextWrap03 } from "../article/article.styled";
 import { ReactionButtons } from "../reaction/reaction-button";
-import { default as textwrap } from "../textwrap/textwrap.json";
 import useMediaQuery from "../../hooks/use-media-query";
 import { useNavigate } from "react-router-dom";
 const ArticleCard = (props: any) => {
@@ -32,8 +31,13 @@ const ArticleCard = (props: any) => {
                 backgroundSize: "cover",
               }}
             />
-            <Grid item xs={12} sm={12} md={12} lg={10} justifyContent="center">
-              <TextWrap01>{textwrap.articleDate}</TextWrap01>
+            <Grid container direction="row">
+              <Grid item xs={10} sm={10} md={10} lg={10}>
+                <TextWrap01>{post.date}</TextWrap01>
+              </Grid>
+              <Grid item xs={2} sm={2} md={2} lg={2}>
+                <TextWrap01>{post.edited}</TextWrap01>
+              </Grid>
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={12} justifyContent="center">
               <TextWrap02>{post.title}</TextWrap02>

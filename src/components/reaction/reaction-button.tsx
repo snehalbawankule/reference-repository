@@ -9,8 +9,6 @@ export const ReactionButtons = (props: any) => {
   //const dispatch = useAppDispatch();
   const [like, setLike] = useState(false);
   const [heart, setHeart] = useState(false);
-  const [comment, setComment] = useState(true);
-
   return (
     <>
       <Grid container>

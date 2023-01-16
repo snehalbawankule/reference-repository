@@ -5,9 +5,10 @@ import Footer from "../footer/footer";
 import LatestArticles from "../latest-articles/latest-articles";
 import TechUpdate from "../tech-update/tech-update";
 import Poster from "../poster/poster";
+import { Article } from "../local-storage/local-storage";
 const Home = () => {
   const { isMobile, isDesktop } = useMediaQuery();
-
+  // <Article />;
   return (
     <Grid container display="flex">
       <Poster />

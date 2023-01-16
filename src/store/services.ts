@@ -19,6 +19,7 @@ export const addArticle = createAsyncThunk(
           element.title = "How to build a successfully business in Nigeria";
           element.description =
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Iaculis urna imperdiet netus nibh at fermentum mattis. Amet adipiscing";
+          element.date = "10-Oct-2022";
         });
         dispatch(actions.addArticle(newArray));
       });

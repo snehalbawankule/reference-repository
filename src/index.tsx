@@ -6,9 +6,11 @@ import App from "./App";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+<script type="text/javascript" src="local-storage.js"></script>;
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
     <BrowserRouter>

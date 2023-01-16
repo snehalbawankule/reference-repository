@@ -21,7 +21,7 @@ export const Comment = () => {
           defaultValue={comment}
           onBlurCapture={handleChange}
         />
-        <PostButton>Post</PostButton>
+        <PostButton style={{ marginLeft: 10 }}>Post</PostButton>
       </Grid>
     </form>
   );

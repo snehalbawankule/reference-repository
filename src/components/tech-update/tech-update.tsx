@@ -11,10 +11,10 @@ const TechUpdate = () => {
   const articles = useAppSelector((state) => state.articles);
   const dispatch = useAppDispatch();
   useEffect(() => {
-    //if (articles.article.length > 0) {
-    //} else {
-    dispatch(addArticle());
-  }, [dispatch]);
+    if (articles.article.length < 2) {
+      dispatch(addArticle());
+    }
+  }, [articles.article.length, dispatch]);
   const data = articles.article.slice(6, 12);
   return (
     <Grid container sx={{ p: isDesktop ? 10 : isTablet ? 5 : 3 }} spacing={5}>

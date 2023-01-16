@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import image from "../../assets/images/image.png";
+import moment from "moment";
 import { Grid } from "@mui/material";
 import { useParams, useNavigate } from "react-router-dom";
 import { actions } from "../../store/reducer";
@@ -9,7 +10,7 @@ import { Input } from "../registration/registration.styled";
 import useMediaQuery from "../../hooks/use-media-query";
 const Edit = () => {
   const { id } = useParams<{ id: string }>();
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
   const post = useAppSelector((state) =>
     state.articles.article.find((item) => item.id == id)
   );
@@ -18,6 +19,7 @@ const Edit = () => {
     title: post?.title,
     description: post?.description,
     content: post?.content,
+    date: post?.date,
   });
   const handleChange = (event: any) => {
     setPostInfo({ ...postInfo, [event.target.name]: event.target.value });
@@ -26,15 +28,19 @@ const Edit = () => {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
+    const date = moment().format("ll");
+    const edited = "Edited";
     dispatch(
       actions.postUpdate({
         id: id,
         title: postInfo.title,
         description: postInfo.description,
         content: postInfo.content,
+        date: date,
+        edited: edited,
       })
     );
-    //navigate("/home");
+    navigate("/home");
   };
 
   const { isMobile, isTablet, isDesktop } = useMediaQuery();

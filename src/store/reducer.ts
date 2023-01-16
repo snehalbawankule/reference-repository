@@ -7,7 +7,9 @@ const initialState = {
       thumbnailUrl: "",
       url: "",
       content: "",
+      date: "",
       description: "",
+      edited: "",
     },
   ],
 };
@@ -24,13 +26,14 @@ const { actions, reducer } = createSlice({
       state.article.push(action.payload);
     },
     postUpdate(state, action) {
-      const { id, title, description, content } = action.payload;
+      const { id, title, description, content, date, edited } = action.payload;
       const existingPost = state.article.find((item) => item.id == id);
-
       if (existingPost) {
         existingPost.title = title;
         existingPost.description = description;
         existingPost.content = content;
+        existingPost.date = date;
+        existingPost.edited = edited;
       }
     },
   },

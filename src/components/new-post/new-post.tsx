@@ -1,9 +1,9 @@
 import { NewArticle, PostButton } from "./new-post.styled";
 import { Grid } from "@mui/material";
 import { actions } from "../../store/reducer";
-import TextField from "@mui/material/TextField";
 import { useAppDispatch } from "../../hooks/hooks";
 import useMediaQuery from "../../hooks/use-media-query";
+import { Input } from "../registration/registration.styled";
 import { useState } from "react";
 const NewPost = () => {
   const [postInfo, setPostInfo] = useState({
@@ -17,13 +17,18 @@ const NewPost = () => {
     setPostInfo({ ...postInfo, [event.target.name]: event.target.value });
   };
   const dispatch = useAppDispatch();
+  /* useEffect(() => {
+    if (articles.article.length < 2) {
+      dispatch(addArticle());
+    }
+  });*/
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    console.log(postInfo.title);
     dispatch(
       actions.addNewArticle({
         title: postInfo.title,
+        image: postInfo.image,
         description: postInfo.description,
         content: postInfo.content,
       })
@@ -43,39 +48,47 @@ const NewPost = () => {
         <NewArticle>Post a new article</NewArticle>
       </Grid>
       <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
-        <TextField
-          fullWidth
-          style={{ marginTop: 20 }}
-          label="Blog Title"
+        <Input
+          style={{ width: "800px" }}
+          type="text"
+          name="title"
+          onBlur={handleChange}
           defaultValue={postInfo.title}
-          onBlur={handleChange}
+          placeholder="Article title"
+          required
         />
       </Grid>
       <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
-        <TextField
-          style={{ marginTop: 20 }}
-          fullWidth
-          label="Image url"
+        <Input
+          style={{ width: "800px" }}
+          type="text"
+          name="image"
+          onBlur={handleChange}
           defaultValue={postInfo.image}
-          onBlur={handleChange}
+          placeholder="image url"
+          required
         />
       </Grid>
       <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
-        <TextField
-          fullWidth
-          style={{ marginTop: 20 }}
-          label="Blog description"
+        <Input
+          style={{ width: "800px" }}
+          type="text"
+          name="description"
+          onBlur={handleChange}
           defaultValue={postInfo.description}
-          onBlur={handleChange}
+          placeholder="Article description"
+          required
         />
       </Grid>
       <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
-        <TextField
-          fullWidth
-          style={{ marginTop: 20 }}
-          label="Blog Content"
-          defaultValue={postInfo.content}
+        <Input
+          style={{ width: "800px" }}
+          type="text"
+          name="content"
           onBlur={handleChange}
+          defaultValue={postInfo.content}
+          placeholder="Article content"
+          required
         />
       </Grid>
       <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
