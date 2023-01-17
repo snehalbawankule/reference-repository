@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import image from "../../assets/images/image.png";
 import moment from "moment";
-import { Grid } from "@mui/material";
+import { Grid, TextareaAutosize } from "@mui/material";
 import { useParams, useNavigate } from "react-router-dom";
 import { actions } from "../../store/reducer";
 import { PostButton } from "../new-post/new-post.styled";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { Input } from "../registration/registration.styled";
+import { GrammarlyEditorPlugin } from "@grammarly/editor-sdk-react";
 import useMediaQuery from "../../hooks/use-media-query";
 const Edit = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const post = useAppSelector((state) =>
-    state.articles.article.find((item) => item.id == id)
+    state.articles.article.find((item) => item.id === id)
   );
   const [postInfo, setPostInfo] = useState({
     id: post?.id,
@@ -79,15 +80,18 @@ const Edit = () => {
           display="flex"
           justifyContent="center"
         >
-          <Input
-            style={{ width: "800px" }}
-            type="text"
-            name="title"
-            onBlur={handleChange}
-            defaultValue={postInfo.title}
-            placeholder="title"
-            required
-          />
+          <GrammarlyEditorPlugin clientId="client_T8syY4Z5DW378x72iosNSK">
+            <Input
+              style={{ width: "800px" }}
+              type="text"
+              name="title"
+              onBlur={handleChange}
+              defaultValue={postInfo.title}
+              placeholder="title"
+              maxLength={100}
+              required
+            />
+          </GrammarlyEditorPlugin>
         </Grid>
         <Grid
           item
@@ -98,15 +102,18 @@ const Edit = () => {
           display="flex"
           justifyContent="center"
         >
-          <Input
-            style={{ width: "800px" }}
-            type="text"
-            name="description"
-            onBlur={handleChange}
-            defaultValue={postInfo.description}
-            placeholder="description"
-            required
-          />
+          <GrammarlyEditorPlugin clientId="client_T8syY4Z5DW378x72iosNSK">
+            <Input
+              style={{ width: "800px" }}
+              type="text"
+              name="description"
+              onBlur={handleChange}
+              defaultValue={postInfo.description}
+              placeholder="description"
+              maxLength={130}
+              required
+            />
+          </GrammarlyEditorPlugin>
         </Grid>
         <Grid
           item
@@ -117,15 +124,21 @@ const Edit = () => {
           display="flex"
           justifyContent="center"
         >
-          <textarea
-            style={{ width: "800px" }}
-            rows={5}
-            name="content"
-            onBlur={handleChange}
-            defaultValue={postInfo.content}
-            placeholder="Content"
-            required
-          />
+          <GrammarlyEditorPlugin clientId="client_T8syY4Z5DW378x72iosNSK">
+            <TextareaAutosize
+              style={{
+                width: "800px",
+                borderStyle: "none",
+                borderColor: "Transparent",
+                textOverflow: "ellipsis",
+              }}
+              name="content"
+              onBlur={handleChange}
+              defaultValue={postInfo.content}
+              placeholder="Content"
+              required
+            />
+          </GrammarlyEditorPlugin>
         </Grid>
         <Grid
           item

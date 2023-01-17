@@ -4,12 +4,15 @@ import { actions } from "../../store/reducer";
 import { useAppDispatch } from "../../hooks/hooks";
 import useMediaQuery from "../../hooks/use-media-query";
 import { Input } from "../registration/registration.styled";
+
 import { useState } from "react";
+import moment from "moment";
 const NewPost = () => {
   const [postInfo, setPostInfo] = useState({
     id: "",
+    date: "",
     title: "",
-    image: "",
+    url: "",
     description: "",
     content: "",
   });
@@ -25,10 +28,12 @@ const NewPost = () => {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
+    const date = moment().format("ll");
     dispatch(
       actions.addNewArticle({
+        date: date,
         title: postInfo.title,
-        image: postInfo.image,
+        url: postInfo.url,
         description: postInfo.description,
         content: postInfo.content,
       })
@@ -64,7 +69,7 @@ const NewPost = () => {
           type="text"
           name="image"
           onBlur={handleChange}
-          defaultValue={postInfo.image}
+          defaultValue={postInfo.url}
           placeholder="image url"
           required
         />

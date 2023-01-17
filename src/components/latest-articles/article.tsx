@@ -1,14 +1,13 @@
 import React from "react";
-import image from "../../assets/images/image.png";
 import { Grid } from "@mui/material";
 import { useParams } from "react-router-dom";
-import { TextWrap02, TextWrap03 } from "./article.styled";
+import { TextWrap02, TextWrap03 } from "../article/article.styled";
 import { useAppSelector } from "../../hooks/hooks";
 import useMediaQuery from "../../hooks/use-media-query";
 const Article = () => {
   const { id } = useParams<{ id: string }>();
   const post = useAppSelector((state) =>
-    state.articles.article.find((item) => item.id == id)
+    state.articles.article.find((item) => item.id === id)
   );
   const { isMobile, isTablet, isDesktop } = useMediaQuery();
   return (
@@ -30,7 +29,7 @@ const Article = () => {
         lg={12}
         style={{
           height: isDesktop ? "750px" : isMobile ? "350px" : "600px",
-          backgroundImage: `url(${image})`,
+          backgroundImage: `url(${post?.url})`,
           backgroundPosition: "center",
           backgroundSize: "cover",
         }}

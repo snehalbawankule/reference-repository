@@ -1,5 +1,4 @@
 import React from "react";
-import techupdate from "../../assets/images/techupdate.png";
 import { Grid, Card, Box } from "@mui/material";
 import { TextWrap02, TextWrap03 } from "../article/article.styled";
 import { Link } from "react-router-dom";
@@ -23,13 +22,13 @@ const TechArticleCard = (props: any) => {
           <Box
             style={{
               height: "320px",
-              backgroundImage: `url(${techupdate})`,
+              backgroundImage: `url(${post.url})`,
               backgroundPosition: "center",
               backgroundSize: "cover",
             }}
           />
           <Grid item xs={12} sm={12} md={12} lg={12} justifyContent="center">
-            <TextWrap02>{textwrap.articleTitle}</TextWrap02>
+            <TextWrap02 style={{ height: 80 }}>{post.title}</TextWrap02>
           </Grid>
           <Grid
             item
@@ -40,7 +39,7 @@ const TechArticleCard = (props: any) => {
             display="flex"
             justifyContent="center"
           >
-            <TextWrap03>{textwrap.articleDescription}</TextWrap03>
+            <TextWrap03>{post.description}</TextWrap03>
           </Grid>
 
           <Grid

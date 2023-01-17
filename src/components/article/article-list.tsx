@@ -9,8 +9,10 @@ const ArticleList = () => {
   const articles = useAppSelector((state) => state.articles);
   const dispatch = useAppDispatch();
   useEffect(() => {
-    dispatch(addArticle());
-  }, [dispatch]);
+    if (articles.article.length < 2) {
+      dispatch(addArticle());
+    }
+  }, [articles.article.length, dispatch]);
   return (
     <Grid
       container
@@ -18,7 +20,7 @@ const ArticleList = () => {
       spacing={5}
     >
       <>
-        {articles.article.slice(0, 24).map((post: any) => {
+        {articles.article.map((post: any) => {
           return (
             <Grid
               item

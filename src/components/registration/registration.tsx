@@ -74,10 +74,10 @@ const Registration = () => {
           </Grid>
           <Grid
             item
-            xs={12}
-            sm={8}
-            md={8}
-            lg={8}
+            xs={11}
+            sm={10}
+            md={12}
+            lg={10}
             sx={{ pl: isDesktop ? 10 : 4, pt: isMobile ? 15 : 60 }}
           >
             <TextWrap5>{textwrap.description}</TextWrap5>

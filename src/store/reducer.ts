@@ -27,7 +27,7 @@ const { actions, reducer } = createSlice({
     },
     postUpdate(state, action) {
       const { id, title, description, content, date, edited } = action.payload;
-      const existingPost = state.article.find((item) => item.id == id);
+      const existingPost = state.article.find((item) => item.id === id);
       if (existingPost) {
         existingPost.title = title;
         existingPost.description = description;

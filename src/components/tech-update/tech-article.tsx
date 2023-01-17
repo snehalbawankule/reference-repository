@@ -1,5 +1,4 @@
 import React from "react";
-import techupdate from "../../assets/images/techupdate.png";
 import { Grid, Card, Box } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { TextWrap02, TextWrap03 } from "../article/article.styled";
@@ -8,7 +7,7 @@ import useMediaQuery from "../../hooks/use-media-query";
 const TechArticle = () => {
   const { id } = useParams<{ id: string }>();
   const post = useAppSelector((state) =>
-    state.articles.article.find((item) => item.id == id)
+    state.articles.article.find((item) => item.id === id)
   );
 
   const { isMobile, isTablet, isDesktop } = useMediaQuery();
@@ -39,7 +38,7 @@ const TechArticle = () => {
             style={{
               alignContent: "center",
               height: isMobile ? "300px" : isDesktop ? "1000px" : "616px",
-              backgroundImage: `url(${techupdate})`,
+              backgroundImage: `url(${post?.url})`,
               backgroundPosition: "center",
               backgroundSize: "cover",
             }}

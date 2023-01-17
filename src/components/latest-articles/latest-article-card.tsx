@@ -1,5 +1,4 @@
 import React from "react";
-import image from "../../assets/images/image.png";
 import { Grid, Card, Box } from "@mui/material";
 import { TextWrap01, TextWrap02, TextWrap03 } from "../article/article.styled";
 import { ReactionButtons } from "../reaction/reaction-button";
@@ -26,7 +25,7 @@ const ArticleCard = (props: any) => {
             <Box
               style={{
                 height: "320px",
-                backgroundImage: `url(${image})`,
+                backgroundImage: `url(${post.url})`,
                 backgroundPosition: "center",
                 backgroundSize: "cover",
               }}
@@ -40,7 +39,7 @@ const ArticleCard = (props: any) => {
               </Grid>
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={12} justifyContent="center">
-              <TextWrap02>{post.title}</TextWrap02>
+              <TextWrap02 style={{ height: 80 }}>{post.title}</TextWrap02>
             </Grid>
             <Grid
               item

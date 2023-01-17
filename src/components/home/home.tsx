@@ -5,27 +5,29 @@ import Footer from "../footer/footer";
 import LatestArticles from "../latest-articles/latest-articles";
 import TechUpdate from "../tech-update/tech-update";
 import Poster from "../poster/poster";
-import { Article } from "../local-storage/local-storage";
+
 const Home = () => {
   const { isMobile, isDesktop } = useMediaQuery();
-  // <Article />;
+
   return (
-    <Grid container display="flex">
-      <Poster />
-      <LatestArticles />
-      <Grid
-        item
-        xs={12}
-        sm={12}
-        md={12}
-        lg={12}
-        sx={{ px: isMobile ? 3 : isDesktop ? 9 : 5 }}
-      >
-        <Divider sx={{ borderBottomWidth: 2 }} />
+    <>
+      <Grid container display="flex">
+        <Poster />
+        <LatestArticles />
+        <Grid
+          item
+          xs={12}
+          sm={12}
+          md={12}
+          lg={12}
+          sx={{ px: isMobile ? 3 : isDesktop ? 9 : 5 }}
+        >
+          <Divider sx={{ borderBottomWidth: 2 }} />
+        </Grid>
+        <TechUpdate />
+        <Footer />
       </Grid>
-      <TechUpdate />
-      <Footer />
-    </Grid>
+    </>
   );
 };
 
