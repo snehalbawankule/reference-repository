@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 import { Comment } from "./commet";
 export const ReactionButtons = (props: any) => {
   const { post } = props;
-
-  //const dispatch = useAppDispatch();
   const [like, setLike] = useState(false);
   const [heart, setHeart] = useState(false);
   return (
@@ -31,25 +29,15 @@ export const ReactionButtons = (props: any) => {
           </Button>
         </Grid>
         <Grid item xs={3} sm={3} md={3} lg={3} display="contents">
-          <Button
-            type="button"
-            className="muted-button reaction-button"
-            //post={post.id}
-          >
+          <Button type="button">
             <Link to={`/edit/${post.id}`} className="button">
               edit: ✏️
             </Link>
           </Button>
         </Grid>
         <Grid item xs={3} sm={3} md={3} lg={3} display="contents">
-          <Button
-            type="button"
-            className="muted-button reaction-button"
-            //onClick={() => setComment((prevComment) => !prevComment)}
-          >
-            {/*comment:{comment ? "💭" : <Comment />}*/}
-            <Comment />
-          </Button>
+          {/*comment:{comment ? "💭" : <Comment />}*/}
+          <Comment post={post.id} />
         </Grid>
       </Grid>
     </>

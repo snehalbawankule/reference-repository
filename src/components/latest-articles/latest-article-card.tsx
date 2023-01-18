@@ -8,7 +8,6 @@ const ArticleCard = (props: any) => {
   const { post } = props;
 
   const { id } = post;
-
   let history = useNavigate();
   const { isMobile } = useMediaQuery();
   return (
@@ -63,6 +62,9 @@ const ArticleCard = (props: any) => {
             sx={{ mt: 3 }}
           >
             <ReactionButtons post={post} />
+          </Grid>
+          <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
+            <TextWrap01>{post.comment}</TextWrap01>
           </Grid>
         </Card>
       </Grid>

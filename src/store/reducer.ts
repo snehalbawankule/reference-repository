@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+//import { GlobalState } from "./types";
+
 const initialState = {
   article: [
     {
@@ -10,6 +12,7 @@ const initialState = {
       date: "",
       description: "",
       edited: "",
+      comment: [],
     },
   ],
 };
@@ -34,6 +37,14 @@ const { actions, reducer } = createSlice({
         existingPost.content = content;
         existingPost.date = date;
         existingPost.edited = edited;
+      }
+    },
+    addComment(state, action) {
+      const { id, comment } = action.payload;
+      const existingPost = state.article.find((item) => item.id === id);
+      if (existingPost) {
+        //existingPost.comment += comment;
+        existingPost.comment.push(comment);
       }
     },
   },

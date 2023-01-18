@@ -65,6 +65,7 @@ const Article = () => {
         lg={12}
         display="flex"
         justifyContent="center"
+        style={{ marginBottom: 100 }}
       >
         <TextWrap03>{post?.content}</TextWrap03>
       </Grid>
