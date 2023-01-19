@@ -1,20 +1,34 @@
 import { createSlice } from "@reduxjs/toolkit";
 //import { GlobalState } from "./types";
 
-const initialState = {
-  article: [
-    {
-      id: "",
-      title: "",
-      thumbnailUrl: "",
-      url: "",
-      content: "",
-      date: "",
-      description: "",
-      edited: "",
-      comment: [],
-    },
-  ],
+type Article = {
+  id: string;
+  title: string;
+  thumbnailUrl: string;
+  url: string;
+  content: string;
+  date: string;
+  description: string;
+  edited: string;
+  comment: Array<string>;
+};
+type defaultState = {
+  article: Article[];
+};
+const defaultArticle: Article = {
+  id: "",
+  title: "",
+  thumbnailUrl: "",
+  url: "",
+  content: "",
+  date: "",
+  description: "",
+  edited: "",
+  comment: [],
+};
+
+const initialState: defaultState = {
+  article: [defaultArticle],
 };
 
 const { actions, reducer } = createSlice({
@@ -31,6 +45,7 @@ const { actions, reducer } = createSlice({
     postUpdate(state, action) {
       const { id, title, description, content, date, edited } = action.payload;
       const existingPost = state.article.find((item) => item.id === id);
+      console.log(state);
       if (existingPost) {
         existingPost.title = title;
         existingPost.description = description;
@@ -40,11 +55,16 @@ const { actions, reducer } = createSlice({
       }
     },
     addComment(state, action) {
-      const { id, comment } = action.payload;
+      const { id, comment }: { id: string; comment: string } = action.payload;
+      console.log(action.payload.id);
       const existingPost = state.article.find((item) => item.id === id);
       if (existingPost) {
-        //existingPost.comment += comment;
-        existingPost.comment.push(comment);
+        if (existingPost.comment) {
+          existingPost.comment.push(comment);
+        } else {
+          existingPost.comment = [comment];
+        }
+        // existingPost.comment += comment;
       }
     },
   },
