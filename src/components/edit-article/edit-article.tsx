@@ -53,127 +53,127 @@ const Edit = () => {
   const { isMobile, isTablet, isDesktop } = useMediaQuery();
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
-      <Grammarly clientId={demoClientId}>
+      {/*<Grammarly clientId={demoClientId}>*/}
+      <Grid
+        container
+        display="flex"
+        sx={{
+          mt: 20,
+          px: isDesktop ? 5 : isTablet ? 7 : 4,
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         <Grid
-          container
-          display="flex"
-          sx={{
-            mt: 20,
-            px: isDesktop ? 5 : isTablet ? 7 : 4,
-            display: "flex",
-            justifyContent: "center",
+          item
+          xs={12}
+          sm={12}
+          md={12}
+          lg={12}
+          sx={{ mx: isDesktop ? "200px" : isMobile ? "20px" : "30px" }}
+          style={{
+            height: isDesktop ? "750px" : isMobile ? "350px" : "600px",
+            backgroundImage: `url(${postInfo.url})`,
+            backgroundPosition: "center",
+            backgroundSize: "cover",
           }}
+        />
+        <Grid
+          item
+          xs={12}
+          sm={12}
+          md={12}
+          lg={12}
+          sx={{ mt: 4 }}
+          display="flex"
+          justifyContent="center"
         >
-          <Grid
-            item
-            xs={12}
-            sm={12}
-            md={12}
-            lg={12}
-            sx={{ mx: isDesktop ? "200px" : isMobile ? "20px" : "30px" }}
-            style={{
-              height: isDesktop ? "750px" : isMobile ? "350px" : "600px",
-              backgroundImage: `url(${postInfo.url})`,
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-            }}
-          />
-          <Grid
-            item
-            xs={12}
-            sm={12}
-            md={12}
-            lg={12}
-            sx={{ mt: 4 }}
-            display="flex"
-            justifyContent="center"
-          >
-            <GrammarlyEditorPlugin>
-              <TextareaAutosize
-                style={{
-                  width: "800px",
-                  borderStyle: "none",
-                  borderColor: "Transparent",
-                  textOverflow: "ellipsis",
-                }}
-                spellCheck="true"
-                name="title"
-                maxLength={100}
-                onBlur={handleChange}
-                defaultValue={postInfo.title}
-                placeholder="title"
-                required
-              />
-            </GrammarlyEditorPlugin>
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            sm={12}
-            md={12}
-            lg={12}
-            display="flex"
-            justifyContent="center"
-          >
-            <GrammarlyEditorPlugin>
-              <TextareaAutosize
-                style={{
-                  width: "800px",
-                  borderStyle: "none",
-                  borderColor: "Transparent",
-                  textOverflow: "ellipsis",
-                  marginTop: 20,
-                }}
-                spellCheck="true"
-                name="description"
-                maxLength={150}
-                onBlur={handleChange}
-                defaultValue={postInfo.description}
-                placeholder="Description"
-                required
-              />
-            </GrammarlyEditorPlugin>
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            sm={12}
-            md={12}
-            lg={12}
-            display="flex"
-            justifyContent="center"
-          >
-            <GrammarlyEditorPlugin clientId={demoClientId}>
-              <TextareaAutosize
-                style={{
-                  width: "800px",
-                  borderStyle: "none",
-                  borderColor: "Transparent",
-                  textOverflow: "ellipsis",
-                  marginTop: 20,
-                }}
-                spellCheck="true"
-                name="content"
-                onBlur={handleChange}
-                defaultValue={postInfo.content}
-                placeholder="Content"
-                required
-              />
-            </GrammarlyEditorPlugin>
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            sm={12}
-            md={12}
-            lg={12}
-            display="flex"
-            justifyContent="center"
-          >
-            <PostButton>Post</PostButton>
-          </Grid>
+          <GrammarlyEditorPlugin>
+            <TextareaAutosize
+              style={{
+                width: "800px",
+                borderStyle: "none",
+                borderColor: "Transparent",
+                textOverflow: "ellipsis",
+              }}
+              spellCheck="true"
+              name="title"
+              maxLength={100}
+              onBlur={handleChange}
+              defaultValue={postInfo.title}
+              placeholder="title"
+              required
+            />
+          </GrammarlyEditorPlugin>
         </Grid>
-      </Grammarly>
+        <Grid
+          item
+          xs={12}
+          sm={12}
+          md={12}
+          lg={12}
+          display="flex"
+          justifyContent="center"
+        >
+          <GrammarlyEditorPlugin>
+            <TextareaAutosize
+              style={{
+                width: "800px",
+                borderStyle: "none",
+                borderColor: "Transparent",
+                textOverflow: "ellipsis",
+                marginTop: 20,
+              }}
+              spellCheck="true"
+              name="description"
+              maxLength={150}
+              onBlur={handleChange}
+              defaultValue={postInfo.description}
+              placeholder="Description"
+              required
+            />
+          </GrammarlyEditorPlugin>
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          sm={12}
+          md={12}
+          lg={12}
+          display="flex"
+          justifyContent="center"
+        >
+          <GrammarlyEditorPlugin clientId={demoClientId}>
+            <TextareaAutosize
+              style={{
+                width: "800px",
+                borderStyle: "none",
+                borderColor: "Transparent",
+                textOverflow: "ellipsis",
+                marginTop: 20,
+              }}
+              spellCheck="true"
+              name="content"
+              onBlur={handleChange}
+              defaultValue={postInfo.content}
+              placeholder="Content"
+              required
+            />
+          </GrammarlyEditorPlugin>
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          sm={12}
+          md={12}
+          lg={12}
+          display="flex"
+          justifyContent="center"
+        >
+          <PostButton>Post</PostButton>
+        </Grid>
+      </Grid>
+      {/*</Grammarly>*/}
     </form>
   );
 };
