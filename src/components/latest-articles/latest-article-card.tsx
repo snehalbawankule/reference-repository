@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Grid, Card, Box } from "@mui/material";
 import { TextWrap01, TextWrap02, TextWrap03 } from "../article/article.styled";
 import { ReactionButtons } from "../reaction/reaction-button";
@@ -6,8 +6,14 @@ import useMediaQuery from "../../hooks/use-media-query";
 import { useNavigate } from "react-router-dom";
 const ArticleCard = (props: any) => {
   const { post } = props;
-
   const { id } = post;
+  const Comments: any = "Comments";
+  const length = () => {
+    if (post?.comment?.length > 0) {
+      return Comments;
+    }
+  };
+  const [comments, setComments] = useState(length);
   let history = useNavigate();
   const { isMobile } = useMediaQuery();
   return (
@@ -63,9 +69,16 @@ const ArticleCard = (props: any) => {
           >
             <ReactionButtons post={post} />
           </Grid>
-          <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
-            <TextWrap01>{post.comment}</TextWrap01>
-          </Grid>
+
+          <TextWrap02 style={{ fontSize: 16 }}>{comments}</TextWrap02>
+
+          {post?.comment?.map((item: any) => {
+            return (
+              <TextWrap01 style={{ fontWeight: "bold", paddingLeft: 40 }}>
+                {item} <br />
+              </TextWrap01>
+            );
+          })}
         </Card>
       </Grid>
     </Grid>

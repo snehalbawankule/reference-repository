@@ -7,7 +7,6 @@ export const addArticle = createAsyncThunk(
   "articles/addArticle",
   async (_, { dispatch }) => {
     const newArray = await JSON.parse(localStorage.getItem("articles") || "{}");
-    console.log(newArray);
     return dispatch(actions.addArticle(newArray));
   }
 );

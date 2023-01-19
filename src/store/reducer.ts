@@ -56,7 +56,6 @@ const { actions, reducer } = createSlice({
     },
     addComment(state, action) {
       const { id, comment }: { id: string; comment: string } = action.payload;
-      console.log(action.payload.id);
       const existingPost = state.article.find((item) => item.id === id);
       if (existingPost) {
         if (existingPost.comment) {
@@ -64,7 +63,6 @@ const { actions, reducer } = createSlice({
         } else {
           existingPost.comment = [comment];
         }
-        // existingPost.comment += comment;
       }
     },
   },
