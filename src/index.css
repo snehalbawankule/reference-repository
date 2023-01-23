@@ -16,3 +16,6 @@ code {
   font-family: "Poppins";
   src: local("Poppins") url("./assets/fonts/Poppins-Regular.ttf");
 }
+.highlight {
+  background-color: yellow;
+}

@@ -17,7 +17,7 @@ const Input = styled.input`
   width: ${pxToRem(260)};
   font-size: ${pxToRem(17)};
   border-width: 0 0 2px;
-  margin-bottom: ${pxToRem(10)};
+  margin-top: ${pxToRem(10)};
   @media (max-width: 767px) {
     margin-bottom: ${pxToRem(30)};
   }

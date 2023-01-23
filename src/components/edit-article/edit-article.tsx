@@ -7,10 +7,9 @@ import { actions } from "../../store/reducer";
 import { PostButton } from "../new-post/new-post.styled";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 //import * as Grammarly from "@grammarly/editor-sdk";
-import { Grammarly, GrammarlyEditorPlugin } from "@grammarly/editor-sdk-react";
+import { GrammarlyEditorPlugin } from "@grammarly/editor-sdk-react";
 import useMediaQuery from "../../hooks/use-media-query";
 import { TextWrap2 } from "../registration/registration.styled";
-//import Schedule from "react-schedule-job";
 const Edit = () => {
   const demoClientId = "client_T8syY4Z5DW378x72iosNSK";
   const { id } = useParams<{ id: string }>();
@@ -18,6 +17,8 @@ const Edit = () => {
   const post = useAppSelector((state) =>
     state.articles.article.find((item) => item.id === id)
   );
+  const [isTextSelected, setIsTextSelected] = useState(false);
+
   //Grammarly.init("client_T8syY4Z5DW378x72iosNSK");
   const [postInfo, setPostInfo] = useState({
     id: post?.id,

@@ -27,13 +27,19 @@ const { actions, reducer } = createSlice({
       }
     },
     addComment(state, action) {
-      const { id, comment }: { id: string; comment: string } = action.payload;
+      const {
+        id,
+        comment,
+        review,
+      }: { id: string; comment: string; review: any } = action.payload;
       const existingPost = state.article.find((item) => item.id === id);
       if (existingPost) {
-        if (existingPost.comment) {
-          existingPost.comment.push(comment);
+        if (existingPost.comments) {
+          //existingPost.comments.comment.push(comment);
+          //existingPost.comments.review.push(review);
         } else {
-          existingPost.comment = [comment];
+          //existingPost.comments.comment = [comment];
+          //existingPost.comments.review = [review];
         }
       }
     },

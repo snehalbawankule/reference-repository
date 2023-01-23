@@ -1,15 +1,28 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Grid } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { TextWrap02, TextWrap03 } from "./latest-article.styled";
 import { useAppSelector } from "../../hooks/hooks";
 import useMediaQuery from "../../hooks/use-media-query";
+import "../../index.css";
 const Article = () => {
   const { id } = useParams<{ id: string }>();
   const post = useAppSelector((state) =>
     state.articles.article.find((item) => item.id === id)
   );
   const { isMobile, isTablet, isDesktop } = useMediaQuery();
+
+  const textRef = useRef<HTMLDivElement>(null);
+
+  function handleSelection() {
+    const selectedText = window.getSelection()?.toString();
+    if (selectedText && textRef.current) {
+      const range = window.getSelection()!.getRangeAt(0);
+      const span = document.createElement("span");
+      span.className = "highlight";
+      range.surroundContents(span);
+    }
+  }
   return (
     <Grid
       container
@@ -67,7 +80,9 @@ const Article = () => {
         justifyContent="center"
         style={{ marginBottom: 100 }}
       >
-        <TextWrap03>{post?.content}</TextWrap03>
+        <div ref={textRef} onMouseUp={handleSelection}>
+          {post?.content}
+        </div>
       </Grid>
     </Grid>
   );

@@ -4,18 +4,14 @@ import { TextWrap01, TextWrap02, TextWrap03 } from "../article/article.styled";
 import { ReactionButtons } from "../reaction/reaction-button";
 import useMediaQuery from "../../hooks/use-media-query";
 import { useNavigate } from "react-router-dom";
-import { Comment } from "../reaction/commet";
-
+import { Comment } from "../reaction/add-commet";
+import { Comments } from "../reaction/comments";
+import { StarRating } from "star-rating-react-ts";
 const ArticleCard = (props: any) => {
   const { post } = props;
   const { id } = post;
-  const Comments: any = "Comments";
-  const length = () => {
-    if (post?.comment?.length > 0) {
-      return Comments;
-    }
-  };
-  const [comments, setComments] = useState(length);
+  const review = post?.review;
+
   let history = useNavigate();
   const { isMobile } = useMediaQuery();
   return (
@@ -66,15 +62,14 @@ const ArticleCard = (props: any) => {
           <Grid item xs={12} sm={12} md={12} lg={12} display="contents">
             <Comment post={post.id} />
           </Grid>
-          <TextWrap02 style={{ fontSize: 16 }}>{comments}</TextWrap02>
 
-          {post?.comment?.map((item: any) => {
+          {/*{post?.comments?.map((item: any) => {
             return (
-              <TextWrap01 style={{ fontWeight: "bold", paddingLeft: 40 }}>
-                {item} <br />
-              </TextWrap01>
+              <>
+                <TextWrap02>{item.comment}</TextWrap02>
+              </>
             );
-          })}
+          })}*/}
         </Card>
       </Grid>
     </Grid>

@@ -1,3 +1,9 @@
+type Comments = {
+  review: Array<string>;
+  comment: Array<string>;
+  date: Array<string>;
+};
+
 type Article = {
   id: string;
   title: string;
@@ -7,7 +13,7 @@ type Article = {
   date: string;
   description: string;
   edited: string;
-  comment: Array<string>;
+  comments: Comments[];
 };
 export type defaultState = {
   article: Article[];
@@ -21,5 +27,5 @@ export const defaultArticle: Article = {
   date: "",
   description: "",
   edited: "",
-  comment: [],
+  comments: [],
 };

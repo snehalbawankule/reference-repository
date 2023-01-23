@@ -2,7 +2,6 @@ import { Button } from "@mui/material";
 import { useState } from "react";
 import { Grid } from "@mui/material";
 import { Link } from "react-router-dom";
-import { Comment } from "./commet";
 export const ReactionButtons = (props: any) => {
   const { post } = props;
   const [like, setLike] = useState(false);

@@ -8,7 +8,6 @@ import { useAppDispatch } from "../../hooks/hooks";
 import { Input } from "./reaction.styled";
 export const Comment = (props: any) => {
   const { post } = props;
-
   const dispatch = useAppDispatch();
   const [comment, setComment] = useState();
   const handleChange = (event: any) => {
@@ -17,10 +16,12 @@ export const Comment = (props: any) => {
   const [exampleOneRating, setExampleOneRating] = useState<number>(0);
   const handleSubmit = (event: any) => {
     event.preventDefault();
+    console.log(exampleOneRating);
     dispatch(
       actions.addComment({
         id: post,
         comment: comment,
+        review: exampleOneRating,
       })
     );
   };
