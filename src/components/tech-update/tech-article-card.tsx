@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Grid, Card, Box } from "@mui/material";
-import { TextWrap02, TextWrap03, TextWrap01 } from "../article/article.styled";
+import { TextWrap01, TextWrap02, TextWrap03 } from "../article/article.styled";
+
 import { Link } from "react-router-dom";
 import { ReactionButtons } from "../reaction/reaction-button";
 import { ReadButton } from "../article/article.styled";
@@ -38,7 +39,13 @@ const TechArticleCard = (props: any) => {
             }}
           />
           <Grid item xs={12} sm={12} md={12} lg={12} justifyContent="center">
-            <TextWrap02 style={{ height: 80 }}>{post.title}</TextWrap02>
+            <TextWrap02
+              style={{
+                height: 80,
+              }}
+            >
+              {post.title}
+            </TextWrap02>
           </Grid>
           <Grid
             item
@@ -71,10 +78,9 @@ const TechArticleCard = (props: any) => {
             </Grid>
           </Grid>
           <Grid item xs={9} sm={9} md={9} lg={9} display="contents">
-            <Comment post={post.id} />
+            <Comment style={{ paddingTop: 10 }} post={post.id} />
           </Grid>
           <TextWrap02 style={{ fontSize: 16 }}>{comments}</TextWrap02>
-
           {post?.comment?.map((item: any) => {
             return (
               <TextWrap01 style={{ fontWeight: "bold", paddingLeft: 40 }}>

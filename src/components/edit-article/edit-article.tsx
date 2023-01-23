@@ -34,7 +34,7 @@ const Edit = () => {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    const date = moment().format("ll");
+    const date = moment().format("DD, MMM. yyyy");
     navigate("/home");
     setTimeout(() => {
       const edited = "Edited";

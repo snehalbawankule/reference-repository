@@ -12,7 +12,6 @@ const ArticleCard = (props: any) => {
   const Comments: any = "Comments";
   const length = () => {
     if (post?.comment?.length > 0) {
-      console.log(post.comment?.length);
       return Comments;
     }
   };
@@ -61,19 +60,10 @@ const ArticleCard = (props: any) => {
               <TextWrap03>{post.description}</TextWrap03>
             </Grid>
           </Box>
-          <Grid
-            item
-            xs={12}
-            sm={12}
-            md={12}
-            lg={12}
-            display="flex"
-            sx={{ mt: 3 }}
-          >
+          <Grid item xs={9} sm={9} md={9} lg={9} display="flex" sx={{ mt: 3 }}>
             <ReactionButtons post={post} />
           </Grid>
           <Grid item xs={12} sm={12} md={12} lg={12} display="contents">
-      
             <Comment post={post.id} />
           </Grid>
           <TextWrap02 style={{ fontSize: 16 }}>{comments}</TextWrap02>

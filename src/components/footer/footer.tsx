@@ -10,7 +10,7 @@ import { TextWrap } from "../article/article.styled";
 function Footer() {
   const { isMobile, isDesktop, isTablet } = useMediaQuery();
   const page1 = ["Home", "Articles"];
-  const page2 = ["About Us", "Contact Us"];
+  const page2 = ["About Us", "Contact"];
   return (
     <Grid
       container
@@ -93,17 +93,17 @@ function Footer() {
       <Box
         sx={{
           mt: 3,
-          mx: isDesktop ? 40 : isTablet ? 25 : 7,
+          mx: isDesktop ? 45 : isTablet ? 25 : 12,
         }}
         display="flex"
         justifyContent="space-evenly"
       >
         <FacebookRoundedIcon
-          sx={{ fontSize: isDesktop ? 56 : isTablet ? 45 : 32 }}
+          sx={{ fontSize: isDesktop ? 56 : isTablet ? 45 : 20 }}
         />
-        <TwitterIcon sx={{ fontSize: isDesktop ? 56 : isTablet ? 45 : 32 }} />
-        <InstagramIcon sx={{ fontSize: isDesktop ? 56 : isTablet ? 45 : 32 }} />
-        <YouTubeIcon sx={{ fontSize: isDesktop ? 56 : isTablet ? 45 : 32 }} />
+        <TwitterIcon sx={{ fontSize: isDesktop ? 56 : isTablet ? 45 : 20 }} />
+        <InstagramIcon sx={{ fontSize: isDesktop ? 56 : isTablet ? 45 : 20 }} />
+        <YouTubeIcon sx={{ fontSize: isDesktop ? 56 : isTablet ? 45 : 20 }} />
       </Box>
     </Grid>
   );

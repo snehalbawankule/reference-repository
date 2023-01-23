@@ -9,27 +9,43 @@ export const ReactionButtons = (props: any) => {
   const [heart, setHeart] = useState(false);
   return (
     <>
-      <Grid container display="content" flexDirection="row">
-        <Grid item xs={3} sm={3} md={3} lg={4} display="contents">
+      <Grid
+        container
+        flexDirection="row"
+        display="flex"
+        justifyContent="space-evenly"
+      >
+        <Grid item xs={3} sm={3} md={3} lg={3} display="contents">
           <Button
             type="button"
-            className="muted-button reaction-button"
+            style={{
+              color: "black",
+            }}
             onClick={() => setLike((prevLike) => !prevLike)}
           >
             Like:{like ? "👍" : "🖒"}
           </Button>
         </Grid>
-        <Grid item xs={3} sm={3} md={3} lg={4} display="contents">
+        <Grid item xs={3} sm={3} md={3} lg={3} display="contents">
           <Button
             type="button"
+            style={{
+              color: "black",
+            }}
             onClick={() => setHeart((prevHeart) => !prevHeart)}
           >
             heart:{heart ? "❤️" : "🤍"}
           </Button>
         </Grid>
-        <Grid item xs={3} sm={3} md={3} lg={4} display="contents">
+        <Grid item xs={3} sm={3} md={3} lg={3} display="contents">
           <Button type="button">
-            <Link to={`/edit/${post.id}`} className="button">
+            <Link
+              to={`/edit/${post.id}`}
+              style={{
+                color: "black",
+                textDecoration: "none",
+              }}
+            >
               edit: ✏️
             </Link>
           </Button>

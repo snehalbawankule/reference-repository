@@ -1,7 +1,10 @@
 import React from "react";
 import { Grid, Card, Box } from "@mui/material";
 import { useParams } from "react-router-dom";
-import { TextWrap02, TextWrap03 } from "../article/article.styled";
+import {
+  TextWrap02,
+  TextWrap03,
+} from "../latest-articles/latest-article.styled";
 import { useAppSelector } from "../../hooks/hooks";
 import useMediaQuery from "../../hooks/use-media-query";
 const TechArticle = () => {

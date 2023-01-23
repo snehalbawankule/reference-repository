@@ -16,18 +16,27 @@ const TextWrap01 = styled.div`
   color: #6d6d6d;
 `;
 
-const TextWrap02 = styled.div`
+const TextWrap02 = styled.text`
   font-weight: 700;
   padding-top: ${pxToRem(24)};
   font-size: ${pxToRem(27.61)};
   color: #2f2e41;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const TextWrap03 = styled.div`
   font-weight: 300;
   color: #000000;
   padding-top: ${pxToRem(24)};
-
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: ${pxToRem(20)};
 `;
 const TextWrap04 = styled.text`
@@ -64,13 +73,11 @@ const Button = styled.button`
   }
 `;
 const ReadButton = styled.button`
-  line-height: 19px;
   color: #ffffff;
-  height: 50px;
   font-weight: 300;
   font-size: ${pxToRem(16)};
-  padding-left: ${pxToRem(20)};
-  padding-right: ${pxToRem(20)};
+  padding-left: ${pxToRem(8)};
+  padding-right: ${pxToRem(8)};
   background: #2f2e41;
   border-radius: ${pxToRem(10)};
   @media (max-width: 767px) {
