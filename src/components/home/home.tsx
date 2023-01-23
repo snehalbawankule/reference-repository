@@ -2,7 +2,7 @@ import React from "react";
 import { Divider, Grid } from "@mui/material";
 import useMediaQuery from "../../hooks/use-media-query";
 import Footer from "../footer/footer";
-import LatestArticles from "../latest-articles/latest-articles";
+import LatestArticles from "../latest-articles";
 import TechUpdate from "../tech-update/tech-update";
 import Poster from "../poster/poster";
 
@@ -20,7 +20,7 @@ const Home = () => {
           sm={12}
           md={12}
           lg={12}
-          sx={{ px: isMobile ? 3 : isDesktop ? 9 : 5 }}
+          sx={{ px: isMobile ? 3 : isDesktop ? 10 : 5 }}
         >
           <Divider sx={{ borderBottomWidth: 2 }} />
         </Grid>

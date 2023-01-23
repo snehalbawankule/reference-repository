@@ -1,36 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-//import { GlobalState } from "./types";
-
-type Article = {
-  id: string;
-  title: string;
-  thumbnailUrl: string;
-  url: string;
-  content: string;
-  date: string;
-  description: string;
-  edited: string;
-  comment: Array<string>;
-};
-type defaultState = {
-  article: Article[];
-};
-const defaultArticle: Article = {
-  id: "",
-  title: "",
-  thumbnailUrl: "",
-  url: "",
-  content: "",
-  date: "",
-  description: "",
-  edited: "",
-  comment: [],
-};
-
+import { defaultState, defaultArticle } from "./types";
 const initialState: defaultState = {
   article: [defaultArticle],
 };
-
 const { actions, reducer } = createSlice({
   name: "articles",
   initialState,

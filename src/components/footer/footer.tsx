@@ -25,9 +25,10 @@ function Footer() {
           md={4}
           lg={4}
           style={{
+            paddingRight: isDesktop ? 40 : "",
             display: "flex",
             alignItems: "baseline",
-            justifyContent: "space-evenly",
+            justifyContent: "space-between",
           }}
         >
           {page1.map((page, index) => (
@@ -66,7 +67,7 @@ function Footer() {
             paddingLeft: isDesktop ? 40 : "",
             display: "flex",
             alignItems: "baseline",
-            justifyContent: "space-evenly",
+            justifyContent: "space-between",
           }}
         >
           {page2.map((page, index) => (
@@ -92,15 +93,17 @@ function Footer() {
       <Box
         sx={{
           mt: 3,
-          mx: isDesktop ? 40 : isTablet ? 30 : "",
+          mx: isDesktop ? 40 : isTablet ? 25 : 7,
         }}
         display="flex"
         justifyContent="space-evenly"
       >
-        <FacebookRoundedIcon />
-        <TwitterIcon />
-        <InstagramIcon />
-        <YouTubeIcon />
+        <FacebookRoundedIcon
+          sx={{ fontSize: isDesktop ? 56 : isTablet ? 45 : 32 }}
+        />
+        <TwitterIcon sx={{ fontSize: isDesktop ? 56 : isTablet ? 45 : 32 }} />
+        <InstagramIcon sx={{ fontSize: isDesktop ? 56 : isTablet ? 45 : 32 }} />
+        <YouTubeIcon sx={{ fontSize: isDesktop ? 56 : isTablet ? 45 : 32 }} />
       </Box>
     </Grid>
   );

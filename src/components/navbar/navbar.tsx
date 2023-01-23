@@ -20,7 +20,7 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import { TextWrap4 } from "../registration/registration.styled";
 import useMediaQuery from "../../hooks/use-media-query";
 const Navbar = () => {
-  const { isDesktop, isTablet } = useMediaQuery();
+  const { isDesktop, isTablet, isMobile } = useMediaQuery();
   const pages = ["home", "articles", "contact"];
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
@@ -131,12 +131,20 @@ const Navbar = () => {
             display="flex"
             justifyContent="space-evenly"
           >
-            <FacebookRoundedIcon />
-            <TwitterIcon />
-            <InstagramIcon />
-            <YouTubeIcon />
+            <FacebookRoundedIcon
+              sx={{ fontSize: isDesktop ? 32 : isMobile ? 20 : 24 }}
+            />
+            <TwitterIcon
+              sx={{ fontSize: isDesktop ? 32 : isMobile ? 20 : 24 }}
+            />
+            <InstagramIcon
+              sx={{ fontSize: isDesktop ? 32 : isMobile ? 20 : 24 }}
+            />
+            <YouTubeIcon
+              sx={{ fontSize: isDesktop ? 32 : isMobile ? 20 : 24 }}
+            />
           </Grid>
-          <Grid item xs={3} sm={3} md={2} lg={3} display="contents">
+          <Grid item xs={3} sm={3} md={3} lg={3} display="contents">
             <PostButton onClick={handleCloseNavMenu}>
               <Link
                 style={{

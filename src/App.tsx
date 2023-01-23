@@ -12,7 +12,7 @@ import ContactUs from "./components/contact-us";
 import Edit from "./components/edit-article/edit-article";
 import TechArticle from "./components/tech-update/tech-article";
 import NewPost from "./components/new-post/new-post";
-import { Postss } from "./components/local-storage/local-storage1";
+import { Postss } from "./store/local-storage/local-storage1";
 function App() {
   const location = useLocation();
 

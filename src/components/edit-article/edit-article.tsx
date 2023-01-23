@@ -9,6 +9,7 @@ import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 //import * as Grammarly from "@grammarly/editor-sdk";
 import { Grammarly, GrammarlyEditorPlugin } from "@grammarly/editor-sdk-react";
 import useMediaQuery from "../../hooks/use-media-query";
+import { TextWrap2 } from "../registration/registration.styled";
 //import Schedule from "react-schedule-job";
 const Edit = () => {
   const demoClientId = "client_T8syY4Z5DW378x72iosNSK";
@@ -61,7 +62,7 @@ const Edit = () => {
           mt: 20,
           px: isDesktop ? 5 : isTablet ? 7 : 4,
           display: "flex",
-          justifyContent: "center",
+          justifyContent: "flex-start",
         }}
       >
         <Grid
@@ -70,7 +71,7 @@ const Edit = () => {
           sm={12}
           md={12}
           lg={12}
-          sx={{ mx: isDesktop ? "200px" : isMobile ? "20px" : "30px" }}
+          sx={{ mx: isDesktop ? "200px" : isMobile ? "" : "30px" }}
           style={{
             height: isDesktop ? "750px" : isMobile ? "350px" : "600px",
             backgroundImage: `url(${postInfo.url})`,
@@ -84,17 +85,19 @@ const Edit = () => {
           sm={12}
           md={12}
           lg={12}
-          sx={{ mt: 4 }}
           display="flex"
           justifyContent="center"
+          direction="column"
+          sx={{ mt: 4, ml: isDesktop ? "300px" : isMobile ? "350px" : "600px" }}
         >
+          <TextWrap2 style={{ fontWeight: 500 }}>Title</TextWrap2>
+
           <GrammarlyEditorPlugin>
             <TextareaAutosize
               style={{
-                width: "800px",
+                width: isDesktop ? "800px" : isMobile ? "350px" : "600px",
                 borderStyle: "none",
-                borderColor: "Transparent",
-                textOverflow: "ellipsis",
+                marginTop: 5,
               }}
               spellCheck="true"
               name="title"
@@ -114,15 +117,17 @@ const Edit = () => {
           lg={12}
           display="flex"
           justifyContent="center"
+          direction="column"
+          sx={{ ml: isDesktop ? "300px" : isMobile ? "350px" : "600px" }}
         >
+          <TextWrap2 style={{ fontWeight: 500 }}>Description</TextWrap2>
+
           <GrammarlyEditorPlugin>
             <TextareaAutosize
               style={{
-                width: "800px",
+                width: isDesktop ? "800px" : isMobile ? "350px" : "600px",
                 borderStyle: "none",
-                borderColor: "Transparent",
-                textOverflow: "ellipsis",
-                marginTop: 20,
+                marginTop: 5,
               }}
               spellCheck="true"
               name="description"
@@ -134,6 +139,7 @@ const Edit = () => {
             />
           </GrammarlyEditorPlugin>
         </Grid>
+
         <Grid
           item
           xs={12}
@@ -141,16 +147,17 @@ const Edit = () => {
           md={12}
           lg={12}
           display="flex"
+          direction="column"
           justifyContent="center"
+          sx={{ ml: isDesktop ? "300px" : isMobile ? "350px" : "600px" }}
         >
+          <TextWrap2 style={{ fontWeight: 500 }}>Content</TextWrap2>
           <GrammarlyEditorPlugin clientId={demoClientId}>
             <TextareaAutosize
               style={{
-                width: "800px",
+                width: isDesktop ? "800px" : isMobile ? "350px" : "600px",
                 borderStyle: "none",
-                borderColor: "Transparent",
-                textOverflow: "ellipsis",
-                marginTop: 20,
+                marginTop: 5,
               }}
               spellCheck="true"
               name="content"
@@ -161,6 +168,7 @@ const Edit = () => {
             />
           </GrammarlyEditorPlugin>
         </Grid>
+
         <Grid
           item
           xs={12}
@@ -170,7 +178,7 @@ const Edit = () => {
           display="flex"
           justifyContent="center"
         >
-          <PostButton>Post</PostButton>
+          <PostButton style={{ marginBottom: 50 }}>Post</PostButton>
         </Grid>
       </Grid>
       {/*</Grammarly>*/}

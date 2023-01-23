@@ -69,15 +69,15 @@ const ReadButton = styled.button`
   height: 50px;
   font-weight: 300;
   font-size: ${pxToRem(16)};
-  padding-left: ${pxToRem(40)};
-  padding-right: ${pxToRem(40)};
+  padding-left: ${pxToRem(20)};
+  padding-right: ${pxToRem(20)};
   background: #2f2e41;
   border-radius: ${pxToRem(10)};
   @media (max-width: 767px) {
     font-size: ${pxToRem(10)};
     height: ${pxToRem(30)};
-    padding-left: ${pxToRem(16)};
-    padding-right: ${pxToRem(16)};
+    padding-left: ${pxToRem(12)};
+    padding-right: ${pxToRem(12)};
   }
 `;
 const Article = styled.text`

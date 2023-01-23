@@ -10,11 +10,7 @@ const LatestArticles = () => {
   const { isDesktop, isTablet } = useMediaQuery();
   const articles = useAppSelector((state) => state.articles);
   return (
-    <Grid
-      container
-      sx={{ p: isDesktop ? 10 : isTablet ? 5 : 3, mt: 5 }}
-      spacing={5}
-    >
+    <Grid container sx={{ p: isDesktop ? 10 : isTablet ? 5 : 3 }} spacing={5}>
       <Grid item xs={12} sm={12} md={12} lg={12}>
         <Article>{textwrap.latestArticle}</Article>
       </Grid>

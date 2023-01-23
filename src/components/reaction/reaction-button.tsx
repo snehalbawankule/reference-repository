@@ -9,8 +9,8 @@ export const ReactionButtons = (props: any) => {
   const [heart, setHeart] = useState(false);
   return (
     <>
-      <Grid container>
-        <Grid item xs={3} sm={3} md={3} lg={3} display="contents">
+      <Grid container display="content" flexDirection="row">
+        <Grid item xs={3} sm={3} md={3} lg={4} display="contents">
           <Button
             type="button"
             className="muted-button reaction-button"
@@ -19,25 +19,20 @@ export const ReactionButtons = (props: any) => {
             Like:{like ? "👍" : "🖒"}
           </Button>
         </Grid>
-        <Grid item xs={3} sm={3} md={3} lg={3} display="contents">
+        <Grid item xs={3} sm={3} md={3} lg={4} display="contents">
           <Button
             type="button"
-            className="muted-button reaction-button"
             onClick={() => setHeart((prevHeart) => !prevHeart)}
           >
             heart:{heart ? "❤️" : "🤍"}
           </Button>
         </Grid>
-        <Grid item xs={3} sm={3} md={3} lg={3} display="contents">
+        <Grid item xs={3} sm={3} md={3} lg={4} display="contents">
           <Button type="button">
             <Link to={`/edit/${post.id}`} className="button">
               edit: ✏️
             </Link>
           </Button>
-        </Grid>
-        <Grid item xs={3} sm={3} md={3} lg={3} display="contents">
-          {/*comment:{comment ? "💭" : <Comment />}*/}
-          <Comment post={post.id} />
         </Grid>
       </Grid>
     </>

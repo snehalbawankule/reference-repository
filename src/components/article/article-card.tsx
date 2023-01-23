@@ -1,7 +1,5 @@
-import React from "react";
-import image2 from "../../assets/images/image2.png";
+import React, { useState } from "react";
 import { Grid, Card, Box } from "@mui/material";
-
 import { TextWrap01, TextWrap02, TextWrap03 } from "./article.styled";
 import { ReactionButtons } from "../reaction/reaction-button";
 import useMediaQuery from "../../hooks/use-media-query";
@@ -11,6 +9,14 @@ const ArticleCard = (props: any) => {
   const { post } = props;
   const { id } = post;
   let history = useNavigate();
+  const Comments: any = "Comments";
+  const length = () => {
+    if (post?.comment?.length > 0) {
+      console.log(post.comment?.length);
+      return Comments;
+    }
+  };
+  const [comments, setComments] = useState(length);
   const { isMobile } = useMediaQuery();
   return (
     <Grid container>
@@ -42,7 +48,7 @@ const ArticleCard = (props: any) => {
               </Grid>
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={10} justifyContent="center">
-              <TextWrap02>{post.title}</TextWrap02>
+              <TextWrap02 style={{ height: 80 }}>{post.title}</TextWrap02>
             </Grid>
             <Grid
               item
@@ -67,6 +73,15 @@ const ArticleCard = (props: any) => {
           >
             <ReactionButtons post={post} />
           </Grid>
+          <TextWrap02 style={{ fontSize: 16 }}>{comments}</TextWrap02>
+
+          {post?.comment?.map((item: any) => {
+            return (
+              <TextWrap01 style={{ fontWeight: "bold", paddingLeft: 40 }}>
+                {item} <br />
+              </TextWrap01>
+            );
+          })}
         </Card>
       </Grid>
     </Grid>
