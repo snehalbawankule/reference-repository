@@ -1,6 +1,6 @@
 import { TextWrap } from "../../components/article/article.styled";
 
-export function Postss() {
+export function Posts() {
   var Posts = [
     {
       id: "1",
@@ -310,5 +310,17 @@ export function Postss() {
 
   localStorage.setItem("articles", JSON.stringify(Posts));
 
+  return <TextWrap />;
+}
+
+export function Userdata() {
+  var Users = [
+    {
+      userName: "Snehal",
+      email: "sneh@abc.com",
+      password: "Sne@1234",
+    },
+  ];
+  localStorage.setItem("userdata", JSON.stringify(Users));
   return <TextWrap />;
 }

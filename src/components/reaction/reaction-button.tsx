@@ -8,12 +8,7 @@ export const ReactionButtons = (props: any) => {
   const [heart, setHeart] = useState(false);
   return (
     <>
-      <Grid
-        container
-        flexDirection="row"
-        display="flex"
-        justifyContent="space-evenly"
-      >
+      <Grid container flexDirection="row" display="flex">
         <Grid item xs={3} sm={3} md={3} lg={3} display="contents">
           <Button
             type="button"

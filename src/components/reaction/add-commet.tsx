@@ -1,5 +1,6 @@
-//import { Button } from "@mui/material";
 import { useState } from "react";
+import moment from "moment";
+import { v4 as uuidv4 } from "uuid";
 import { StarRating } from "star-rating-react-ts";
 import { PostButton } from "./reaction.styled";
 import { Grid } from "@mui/material";
@@ -9,6 +10,7 @@ import { Input } from "./reaction.styled";
 export const Comment = (props: any) => {
   const { post } = props;
   const dispatch = useAppDispatch();
+
   const [comment, setComment] = useState();
   const handleChange = (event: any) => {
     setComment(event.target.value);
@@ -16,12 +18,15 @@ export const Comment = (props: any) => {
   const [exampleOneRating, setExampleOneRating] = useState<number>(0);
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    console.log(exampleOneRating);
+    const date = moment().format("DD, MMM. yyyy");
+    const commentId = uuidv4();
     dispatch(
       actions.addComment({
         id: post,
+        commentId: commentId,
         comment: comment,
         review: exampleOneRating,
+        date: date,
       })
     );
   };

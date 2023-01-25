@@ -1,7 +1,8 @@
 import React, { useRef } from "react";
 import { Grid } from "@mui/material";
 import { useParams } from "react-router-dom";
-import { TextWrap02, TextWrap03 } from "./latest-article.styled";
+import { StarRating } from "star-rating-react-ts";
+import { TextWrap02, TextWrap03, TextWrap01 } from "./latest-article.styled";
 import { useAppSelector } from "../../hooks/hooks";
 import useMediaQuery from "../../hooks/use-media-query";
 import "../../index.css";
@@ -57,7 +58,9 @@ const Article = () => {
         display="flex"
         justifyContent="center"
       >
-        <TextWrap02>{post?.title}</TextWrap02>
+        <TextWrap02 ref={textRef} onMouseUp={handleSelection}>
+          {post?.title}
+        </TextWrap02>
       </Grid>
       <Grid
         item
@@ -68,7 +71,9 @@ const Article = () => {
         display="flex"
         justifyContent="center"
       >
-        <TextWrap02>{post?.description}</TextWrap02>
+        <TextWrap02 ref={textRef} onMouseUp={handleSelection}>
+          {post?.description}
+        </TextWrap02>
       </Grid>
       <Grid
         item
@@ -80,10 +85,31 @@ const Article = () => {
         justifyContent="center"
         style={{ marginBottom: 100 }}
       >
-        <div ref={textRef} onMouseUp={handleSelection}>
+        <TextWrap03 ref={textRef} onMouseUp={handleSelection}>
           {post?.content}
-        </div>
+        </TextWrap03>
       </Grid>
+
+      {post?.comments?.map((item: any) => {
+        return (
+          <Grid>
+            <Grid item xs={12} sm={12} md={12} lg={12} display="contents">
+              <StarRating
+                initialRating={item.review}
+                theme={{
+                  size: 20,
+                }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={12} md={12} lg={12} display="contents">
+              <TextWrap01>{item.date}</TextWrap01>
+            </Grid>
+            <Grid item xs={12} sm={12} md={12} lg={12} display="contents">
+              <TextWrap01>{item.comment}</TextWrap01>
+            </Grid>
+          </Grid>
+        );
+      })}
     </Grid>
   );
 };

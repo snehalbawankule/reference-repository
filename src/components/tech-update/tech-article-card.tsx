@@ -1,25 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import { Grid, Card, Box } from "@mui/material";
-import { TextWrap01, TextWrap02, TextWrap03 } from "../article/article.styled";
-
+import { TextWrap02, TextWrap03 } from "../article/article.styled";
 import { Link } from "react-router-dom";
 import { ReactionButtons } from "../reaction/reaction-button";
 import { ReadButton } from "../article/article.styled";
 import { Comment } from "../reaction/add-commet";
 import { default as textwrap } from "../textwrap/textwrap.json";
 import useMediaQuery from "../../hooks/use-media-query";
+import { Comments } from "../reaction/comments";
 const TechArticleCard = (props: any) => {
   const { post } = props;
   const { id } = post;
   const { isMobile, isDesktop } = useMediaQuery();
-  const Comments: any = "Comments";
-  const length = () => {
-    if (post?.comment?.length > 0) {
-      console.log(post.comment?.length);
-      return Comments;
-    }
-  };
-  const [comments, setComments] = useState(length);
+
   return (
     <Grid container>
       <Grid item xs={12} sm={12} md={12} lg={12} display="flex" key={post.id}>
@@ -74,20 +67,13 @@ const TechArticleCard = (props: any) => {
               </ReadButton>
             </Grid>
             <Grid item xs={9} sm={9} md={9} lg={9}>
-              <ReactionButtons post={post} />
+              <ReactionButtons style={{ paddingLeft: 20 }} post={post} />
             </Grid>
           </Grid>
           <Grid item xs={9} sm={9} md={9} lg={9} display="contents">
             <Comment style={{ paddingTop: 10 }} post={post.id} />
           </Grid>
-          <TextWrap02 style={{ fontSize: 16 }}>{comments}</TextWrap02>
-          {post?.comments?.map((item: any) => {
-            return (
-              <TextWrap01 style={{ fontWeight: "bold", paddingLeft: 40 }}>
-                {item.comment} <br />
-              </TextWrap01>
-            );
-          })}
+          <Comments post={post} />
         </Card>
       </Grid>
     </Grid>

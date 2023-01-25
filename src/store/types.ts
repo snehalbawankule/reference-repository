@@ -1,10 +1,4 @@
-type Comments = {
-  review: Array<string>;
-  comment: Array<string>;
-  date: Array<string>;
-};
-
-type Article = {
+export type Article = {
   id: string;
   title: string;
   thumbnailUrl: string;
@@ -13,8 +7,19 @@ type Article = {
   date: string;
   description: string;
   edited: string;
-  comments: Comments[];
+  comments: [
+    {
+      commentId: string;
+      userName: string;
+      review: string;
+      comment: string;
+      date: string;
+      isReply: boolean;
+      replyTo: string;
+    }
+  ];
 };
+
 export type defaultState = {
   article: Article[];
 };
@@ -27,5 +32,15 @@ export const defaultArticle: Article = {
   date: "",
   description: "",
   edited: "",
-  comments: [],
+  comments: [
+    {
+      commentId: "",
+      userName: "",
+      review: "",
+      comment: "",
+      date: "",
+      isReply: false,
+      replyTo: "",
+    },
+  ],
 };

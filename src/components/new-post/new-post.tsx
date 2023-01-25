@@ -1,5 +1,6 @@
 import { NewArticle, PostButton } from "./new-post.styled";
 import { Grid } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import { actions } from "../../store/reducer";
 import { useAppDispatch } from "../../hooks/hooks";
 import useMediaQuery from "../../hooks/use-media-query";
@@ -16,19 +17,17 @@ const NewPost = () => {
     description: "",
     content: "",
   });
+  const navigate = useNavigate();
+
   const handleChange = (event: any) => {
     setPostInfo({ ...postInfo, [event.target.name]: event.target.value });
   };
   const dispatch = useAppDispatch();
-  /* useEffect(() => {
-    if (articles.article.length < 2) {
-      dispatch(addArticle());
-    }
-  });*/
-
   const handleSubmit = (event: any) => {
     event.preventDefault();
+    console.log(postInfo);
     const date = moment().format("ll");
+    console.log(date);
     dispatch(
       actions.addNewArticle({
         date: date,
@@ -38,7 +37,7 @@ const NewPost = () => {
         content: postInfo.content,
       })
     );
-    //navigate("/home");
+    navigate("/articles");
   };
 
   const { isDesktop, isTablet } = useMediaQuery();
@@ -52,53 +51,59 @@ const NewPost = () => {
       <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
         <NewArticle>Post a new article</NewArticle>
       </Grid>
-      <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
-        <Input
-          style={{ width: "800px" }}
-          type="text"
-          name="title"
-          onBlur={handleChange}
-          defaultValue={postInfo.title}
-          placeholder="Article title"
-          required
-        />
-      </Grid>
-      <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
-        <Input
-          style={{ width: "800px" }}
-          type="text"
-          name="image"
-          onBlur={handleChange}
-          defaultValue={postInfo.url}
-          placeholder="image url"
-          required
-        />
-      </Grid>
-      <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
-        <Input
-          style={{ width: "800px" }}
-          type="text"
-          name="description"
-          onBlur={handleChange}
-          defaultValue={postInfo.description}
-          placeholder="Article description"
-          required
-        />
-      </Grid>
-      <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
-        <Input
-          style={{ width: "800px" }}
-          type="text"
-          name="content"
-          onBlur={handleChange}
-          defaultValue={postInfo.content}
-          placeholder="Article content"
-          required
-        />
-      </Grid>
-      <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
-        <PostButton onClick={(e) => handleSubmit(e)}>Post</PostButton>
-      </Grid>
+      <form
+        onSubmit={(e) => {
+          handleSubmit(e);
+        }}
+      >
+        <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
+          <Input
+            style={{ width: "800px" }}
+            type="text"
+            name="title"
+            onBlur={handleChange}
+            defaultValue={postInfo.title}
+            placeholder="Article title"
+            required
+          />
+        </Grid>
+        <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
+          <Input
+            style={{ width: "800px" }}
+            type="text"
+            name="url"
+            onBlur={handleChange}
+            defaultValue={postInfo.url}
+            placeholder="image url"
+            required
+          />
+        </Grid>
+        <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
+          <Input
+            style={{ width: "800px" }}
+            type="text"
+            name="description"
+            onBlur={handleChange}
+            defaultValue={postInfo.description}
+            placeholder="Article description"
+            required
+          />
+        </Grid>
+        <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
+          <Input
+            style={{ width: "800px" }}
+            type="text"
+            name="content"
+            onBlur={handleChange}
+            defaultValue={postInfo.content}
+            placeholder="Article content"
+            required
+          />
+        </Grid>
+        <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
+          <PostButton>Post</PostButton>
+        </Grid>
+      </form>
     </Grid>
   );
 };

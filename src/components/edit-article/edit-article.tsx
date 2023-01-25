@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import moment from "moment";
-
 import { Grid, TextareaAutosize } from "@mui/material";
 import { useParams, useNavigate } from "react-router-dom";
 import { actions } from "../../store/reducer";
 import { PostButton } from "../new-post/new-post.styled";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
-//import * as Grammarly from "@grammarly/editor-sdk";
 import { GrammarlyEditorPlugin } from "@grammarly/editor-sdk-react";
 import useMediaQuery from "../../hooks/use-media-query";
 import { TextWrap2 } from "../registration/registration.styled";
@@ -17,8 +15,6 @@ const Edit = () => {
   const post = useAppSelector((state) =>
     state.articles.article.find((item) => item.id === id)
   );
-  const [isTextSelected, setIsTextSelected] = useState(false);
-
   //Grammarly.init("client_T8syY4Z5DW378x72iosNSK");
   const [postInfo, setPostInfo] = useState({
     id: post?.id,
@@ -36,20 +32,18 @@ const Edit = () => {
   const handleSubmit = (event: any) => {
     event.preventDefault();
     const date = moment().format("DD, MMM. yyyy");
+    const edited = "Edited";
+    dispatch(
+      actions.postUpdate({
+        id: id,
+        title: postInfo.title,
+        description: postInfo.description,
+        content: postInfo.content,
+        date: date,
+        edited: edited,
+      })
+    );
     navigate("/home");
-    setTimeout(() => {
-      const edited = "Edited";
-      dispatch(
-        actions.postUpdate({
-          id: id,
-          title: postInfo.title,
-          description: postInfo.description,
-          content: postInfo.content,
-          date: date,
-          edited: edited,
-        })
-      );
-    }, 1000);
   };
 
   const { isMobile, isTablet, isDesktop } = useMediaQuery();
@@ -98,7 +92,10 @@ const Edit = () => {
               style={{
                 width: isDesktop ? "800px" : isMobile ? "350px" : "600px",
                 borderStyle: "none",
+                color: "#2F2E41",
                 marginTop: 5,
+                fontSize: isDesktop ? "16px" : isMobile ? "12px" : "16px",
+                fontFamily: "Poppins",
               }}
               spellCheck="true"
               name="title"
@@ -128,7 +125,10 @@ const Edit = () => {
               style={{
                 width: isDesktop ? "800px" : isMobile ? "350px" : "600px",
                 borderStyle: "none",
+                color: "#2F2E41",
                 marginTop: 5,
+                fontSize: isDesktop ? "16px" : isMobile ? "12px" : "16px",
+                fontFamily: "Poppins",
               }}
               spellCheck="true"
               name="description"
@@ -152,13 +152,16 @@ const Edit = () => {
           justifyContent="center"
           sx={{ ml: isDesktop ? "300px" : isMobile ? "350px" : "600px" }}
         >
-          <TextWrap2 style={{ fontWeight: 500 }}>Content</TextWrap2>
+          <TextWrap2 style={{ fontWeight: 600 }}>Content</TextWrap2>
           <GrammarlyEditorPlugin clientId={demoClientId}>
             <TextareaAutosize
               style={{
                 width: isDesktop ? "800px" : isMobile ? "350px" : "600px",
                 borderStyle: "none",
+                color: "#2F2E41",
                 marginTop: 5,
+                fontSize: isDesktop ? "16px" : isMobile ? "12px" : "16px",
+                fontFamily: "Poppins",
               }}
               spellCheck="true"
               name="content"

@@ -1,16 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { Grid, Card, Box } from "@mui/material";
-import { TextWrap01, TextWrap02, TextWrap03 } from "../article/article.styled";
+import { TextWrap01, TextWrap02, TextWrap03 } from "./latest-article.styled";
 import { ReactionButtons } from "../reaction/reaction-button";
 import useMediaQuery from "../../hooks/use-media-query";
 import { useNavigate } from "react-router-dom";
 import { Comment } from "../reaction/add-commet";
 import { Comments } from "../reaction/comments";
-import { StarRating } from "star-rating-react-ts";
 const ArticleCard = (props: any) => {
   const { post } = props;
   const { id } = post;
-  const review = post?.review;
+  //const review = post?.review;
 
   let history = useNavigate();
   const { isMobile } = useMediaQuery();
@@ -63,13 +62,7 @@ const ArticleCard = (props: any) => {
             <Comment post={post.id} />
           </Grid>
 
-          {/*{post?.comments?.map((item: any) => {
-            return (
-              <>
-                <TextWrap02>{item.comment}</TextWrap02>
-              </>
-            );
-          })}*/}
+          <Comments post={post} />
         </Card>
       </Grid>
     </Grid>

@@ -1,5 +1,8 @@
 import GoogleLogo from "../../assets/images/GoogleLogo.png";
 import { useState } from "react";
+import { actions } from "../../store/reducer";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+
 import {
   CreateAccountButton,
   Input,
@@ -26,18 +29,30 @@ const Registration = () => {
   const Login = useGoogleLogin({
     onSuccess: (tokenResponse) => console.log(tokenResponse),
   });
-
+  const navigate = useNavigate();
+  const navLogin = () => {
+    navigate("/login");
+  };
   const [userInfo, setUserInfo] = useState({
     name: "",
     email: "",
     password: "",
     password1: "",
   });
-
+  const handleChange = (event: any) => {
+    setUserInfo({ ...userInfo, [event.target.name]: event.target.value });
+  };
+  const dispatch = useAppDispatch();
   const handleSubmit = (event: any) => {
     event.preventDefault();
     if (userInfo.password === userInfo.password1) {
-      console.log(userInfo);
+      dispatch(
+        actions.userData({
+          name: userInfo.name,
+          title: userInfo.email,
+          description: userInfo.password,
+        })
+      );
       setUserInfo({ name: "", email: "", password: "", password1: "" });
       navLogin();
     } else {
@@ -45,13 +60,6 @@ const Registration = () => {
     }
   };
 
-  const handleChange = (event: any) => {
-    setUserInfo({ ...userInfo, [event.target.name]: event.target.value });
-  };
-  const navigate = useNavigate();
-  const navLogin = () => {
-    navigate("/login");
-  };
   return (
     <Grid container style={{ background: "white" }}>
       <Grid item xs={12} sm={12} md={12} lg={8}>

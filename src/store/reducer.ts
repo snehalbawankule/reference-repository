@@ -10,14 +10,20 @@ const { actions, reducer } = createSlice({
     addArticle(state, action) {
       state.article = action.payload;
     },
+    userData(state, action) {
+      state.article = action.payload;
+    },
     addNewArticle(state, action) {
-      console.log(action.payload);
+      const lastId = state.article.slice(-1)[0].id;
+      const stringNumber = parseInt(lastId) + 1;
+      const numberString = stringNumber.toString();
+      action.payload.id = numberString;
       state.article.push(action.payload);
     },
     postUpdate(state, action) {
       const { id, title, description, content, date, edited } = action.payload;
       const existingPost = state.article.find((item) => item.id === id);
-      console.log(state);
+      console.log(existingPost);
       if (existingPost) {
         existingPost.title = title;
         existingPost.description = description;
@@ -27,19 +33,13 @@ const { actions, reducer } = createSlice({
       }
     },
     addComment(state, action) {
-      const {
-        id,
-        comment,
-        review,
-      }: { id: string; comment: string; review: any } = action.payload;
+      const { id } = action.payload;
       const existingPost = state.article.find((item) => item.id === id);
       if (existingPost) {
         if (existingPost.comments) {
-          //existingPost.comments.comment.push(comment);
-          //existingPost.comments.review.push(review);
+          existingPost.comments.push(action.payload);
         } else {
-          //existingPost.comments.comment = [comment];
-          //existingPost.comments.review = [review];
+          existingPost.comments = [action.payload];
         }
       }
     },
