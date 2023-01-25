@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { defaultState, defaultArticle } from "./types";
+import { defaultState, defaultArticle, defaultUserData } from "./types";
 const initialState: defaultState = {
+  userData: [defaultUserData],
   article: [defaultArticle],
 };
 const { actions, reducer } = createSlice({
@@ -11,7 +12,11 @@ const { actions, reducer } = createSlice({
       state.article = action.payload;
     },
     userData(state, action) {
-      state.article = action.payload;
+      if (state.userData) {
+        state.userData.push(action.payload);
+      } else {
+        state.userData = [action.payload];
+      }
     },
     addNewArticle(state, action) {
       const lastId = state.article.slice(-1)[0].id;
@@ -34,6 +39,7 @@ const { actions, reducer } = createSlice({
     },
     addComment(state, action) {
       const { id } = action.payload;
+      console.log(action.payload);
       const existingPost = state.article.find((item) => item.id === id);
       if (existingPost) {
         if (existingPost.comments) {

@@ -35,6 +35,7 @@ const TextWrap06 = styled.div`
 `;
 const TextWrap04 = styled.div`
   font-weight: 300;
+
   font-size: ${pxToRem(16)};
   color: #6d6d6d;
 `;

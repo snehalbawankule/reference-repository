@@ -316,11 +316,12 @@ export function Posts() {
 export function Userdata() {
   var Users = [
     {
-      userName: "Snehal",
+      name: "Snehal",
       email: "sneh@abc.com",
       password: "Sne@1234",
     },
   ];
   localStorage.setItem("userdata", JSON.stringify(Users));
+
   return <TextWrap />;
 }

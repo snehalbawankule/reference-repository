@@ -1,5 +1,5 @@
 import GoogleLogo from "../../assets/images/GoogleLogo.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { actions } from "../../store/reducer";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 
@@ -43,14 +43,21 @@ const Registration = () => {
     setUserInfo({ ...userInfo, [event.target.name]: event.target.value });
   };
   const dispatch = useAppDispatch();
+  /*const userData = useAppSelector((state) => state.userData);
+  useEffect(() => {
+    if (userData.lenght < 2) {
+      dispatch(userData());
+    }
+  }, [userData.length, dispatch]);
+*/
   const handleSubmit = (event: any) => {
     event.preventDefault();
     if (userInfo.password === userInfo.password1) {
       dispatch(
         actions.userData({
           name: userInfo.name,
-          title: userInfo.email,
-          description: userInfo.password,
+          email: userInfo.email,
+          password: userInfo.password,
         })
       );
       setUserInfo({ name: "", email: "", password: "", password1: "" });

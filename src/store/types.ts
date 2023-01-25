@@ -22,6 +22,7 @@ export type Article = {
 
 export type defaultState = {
   article: Article[];
+  userData: UserData[];
 };
 export const defaultArticle: Article = {
   id: "",
@@ -43,4 +44,16 @@ export const defaultArticle: Article = {
       replyTo: "",
     },
   ],
+};
+
+export type UserData = {
+  name: string;
+  email: string;
+  password: string;
+};
+
+export const defaultUserData: UserData = {
+  name: "",
+  email: "",
+  password: "",
 };

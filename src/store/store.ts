@@ -4,6 +4,7 @@ import storeReducer from "./reducer";
 export const store = configureStore({
   reducer: {
     articles: storeReducer,
+    userData: storeReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

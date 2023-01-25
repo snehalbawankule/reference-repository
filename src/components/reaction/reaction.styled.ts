@@ -28,4 +28,54 @@ const Input = styled.input`
     width: ${pxToRem(300)};
   }
 `;
-export { PostButton, Input };
+
+const LengthTextWrap = styled.div`
+  font-weight: 500;
+  padding-top: ${pxToRem(10)};
+  font-size: ${pxToRem(16)};
+  color: #6d6d6d;
+`;
+const TextWrap04 = styled.div`
+  font-weight: 300;
+
+  font-size: ${pxToRem(16)};
+  color: #6d6d6d;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+const ReplyInput = styled.input`
+  font-weight: 300;
+  width: ${pxToRem(260)};
+  font-size: ${pxToRem(17)};
+  border-width: 0 0 2px;
+
+  @media (max-width: 767px) {
+    margin-bottom: ${pxToRem(30)};
+  }
+`;
+const ButtonReply = styled.button`
+  font-weight: 300;
+  border: none;
+  background: none;
+  font-size: ${pxToRem(10)};
+  color: #6d6d6d;
+`;
+const PostReplyButton = styled.button`
+  font-weight: 300;
+  font-size: ${pxToRem(10)};
+  background: #2f2e41;
+  color: #ffffff;
+  border-radius: ${pxToRem(10)};
+`;
+export {
+  PostButton,
+  Input,
+  LengthTextWrap,
+  TextWrap04,
+  ReplyInput,
+  ButtonReply,
+  PostReplyButton,
+};
