@@ -32,7 +32,7 @@ export const Comment = (props: any) => {
   };
 
   return (
-    <Grid item xs={2} sm={2} md={10} lg={10} display="contents">
+    <Grid container display="flex">
       <StarRating
         initialRating={exampleOneRating}
         onClick={(newRating) => setExampleOneRating(newRating)}
@@ -40,12 +40,14 @@ export const Comment = (props: any) => {
           size: 20,
         }}
       />
-      <Input
-        name="comment"
-        placeholder="comment"
-        defaultValue={comment}
-        onBlurCapture={handleChange}
-      />
+      <Grid item xs={9} sm={10} md={6} lg={9}>
+        <Input
+          name="comment"
+          placeholder="comment"
+          defaultValue={comment}
+          onBlurCapture={handleChange}
+        />
+      </Grid>
       <Grid item xs={1} sm={1} md={2} lg={2} display="contents">
         <PostButton onClick={(e) => handleSubmit(e)}>Post</PostButton>
       </Grid>

@@ -39,7 +39,6 @@ const { actions, reducer } = createSlice({
     },
     addComment(state, action) {
       const { id } = action.payload;
-      console.log(action.payload);
       const existingPost = state.article.find((item) => item.id === id);
       if (existingPost) {
         if (existingPost.comments) {

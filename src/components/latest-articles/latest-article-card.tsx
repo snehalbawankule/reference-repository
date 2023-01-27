@@ -55,7 +55,15 @@ const ArticleCard = (props: any) => {
               <TextWrap03>{post.description}</TextWrap03>
             </Grid>
           </Box>
-          <Grid item xs={9} sm={9} md={9} lg={9} display="flex" sx={{ mt: 3 }}>
+          <Grid
+            item
+            xs={12}
+            sm={12}
+            md={12}
+            lg={12}
+            display="flex"
+            sx={{ mt: 3 }}
+          >
             <ReactionButtons post={post} />
           </Grid>
           <Grid item xs={12} sm={12} md={12} lg={12} display="contents">

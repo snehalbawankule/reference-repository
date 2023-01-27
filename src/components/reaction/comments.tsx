@@ -6,23 +6,13 @@ export const Comments = (props: any) => {
   const { post } = props;
   let length =
     !post?.comments || post?.comments?.length === 0
-      ? "No comments Yet"
+      ? ""
       : post?.comments?.length + " Comments";
-  let average =
-    !post?.comments || post?.comments?.length === 0
-      ? 0
-      : post?.comments.reduce((r: any, c: any) => r + c.review, 0) /
-        post?.comments?.length;
+
   return (
     <Grid container direction="row">
       <Grid item xs={6} sm={6} md={6} lg={6}>
-        <LengthTextWrap>{length}</LengthTextWrap>
-      </Grid>
-      <Grid item xs={6} sm={6} md={6} lg={6}>
-        <LengthTextWrap style={{ display: "flex", justifyContent: "end" }}>
-          Average Rating:
-          {average.toFixed(1).replace(/[.,]0$/, "")}
-        </LengthTextWrap>
+        <LengthTextWrap style={{ marginTop: 10 }}>{length}</LengthTextWrap>
       </Grid>
 
       {post?.comments?.slice(0, 2).map((item: any, index: any) => {
@@ -49,7 +39,7 @@ export const Comments = (props: any) => {
             <Grid item xs={12} sm={12} md={12} lg={12}>
               <TextWrap04>{item.comment}</TextWrap04>
             </Grid>
-            <ReplyButton post={post} commentId={item.commentId} />
+            <ReplyButton post={post} />
           </Grid>
         );
       })}
