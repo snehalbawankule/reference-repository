@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Grid, Card, Box } from "@mui/material";
 import { TextWrap01, TextWrap02, TextWrap03 } from "./article.styled";
-import { ReactionButtons } from "../reaction/reaction-button";
+import { ReactionButtons } from "../add-reaction/add-reaction-button";
 import useMediaQuery from "../../hooks/use-media-query";
 import { useNavigate } from "react-router-dom";
 

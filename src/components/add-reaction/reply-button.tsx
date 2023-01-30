@@ -5,7 +5,6 @@ import { ButtonReply, PostReplyButton, ReplyInput } from "./reaction.styled";
 
 import { actions } from "../../store/reducer";
 import { useAppDispatch } from "../../hooks/hooks";
-import { Input } from "./reaction.styled";
 export const ReplyButton = (props: any) => {
   const { post } = props;
   const [inputVisible, setInputVisible] = useState(false);
@@ -31,7 +30,7 @@ export const ReplyButton = (props: any) => {
   };
 
   return (
-    <div>
+    <>
       <ButtonReply onClick={() => setInputVisible(!inputVisible)}>
         Reply
       </ButtonReply>
@@ -48,6 +47,6 @@ export const ReplyButton = (props: any) => {
           </PostReplyButton>
         </>
       ) : null}
-    </div>
+    </>
   );
 };

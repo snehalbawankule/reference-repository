@@ -32,7 +32,7 @@ const Edit = () => {
   const handleSubmit = (event: any) => {
     event.preventDefault();
     const date = moment().format("DD, MMM. yyyy");
-    const edited = "Edited";
+    const edited = "Updated";
     dispatch(
       actions.postUpdate({
         id: id,
@@ -55,9 +55,9 @@ const Edit = () => {
         display="flex"
         sx={{
           mt: 20,
-          px: isDesktop ? 5 : isTablet ? 7 : 4,
+          px: isDesktop ? 55 : isTablet ? 7 : 3,
           display: "flex",
-          justifyContent: "flex-start",
+          justifyContent: "center",
         }}
       >
         <Grid
@@ -66,11 +66,11 @@ const Edit = () => {
           sm={12}
           md={12}
           lg={12}
-          sx={{ mx: isDesktop ? "200px" : isMobile ? "" : "30px" }}
-          style={{
+          sx={{
             height: isDesktop ? "750px" : isMobile ? "350px" : "600px",
             backgroundImage: `url(${postInfo.url})`,
             backgroundPosition: "center",
+
             backgroundSize: "cover",
           }}
         />
@@ -83,7 +83,6 @@ const Edit = () => {
           display="flex"
           justifyContent="center"
           direction="column"
-          sx={{ mt: 4, ml: isDesktop ? "300px" : isMobile ? "350px" : "600px" }}
         >
           <TextWrap2 style={{ fontWeight: 500 }}>Title</TextWrap2>
 
@@ -116,7 +115,6 @@ const Edit = () => {
           display="flex"
           justifyContent="center"
           direction="column"
-          sx={{ ml: isDesktop ? "300px" : isMobile ? "350px" : "600px" }}
         >
           <TextWrap2 style={{ fontWeight: 500 }}>Description</TextWrap2>
 
@@ -148,9 +146,8 @@ const Edit = () => {
           md={12}
           lg={12}
           display="flex"
-          direction="column"
           justifyContent="center"
-          sx={{ ml: isDesktop ? "300px" : isMobile ? "350px" : "600px" }}
+          direction="column"
         >
           <TextWrap2 style={{ fontWeight: 600 }}>Content</TextWrap2>
           <GrammarlyEditorPlugin clientId={demoClientId}>

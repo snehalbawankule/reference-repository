@@ -1,7 +1,6 @@
 export type Article = {
   id: string;
   title: string;
-  thumbnailUrl: string;
   url: string;
   content: string;
   date: string;
@@ -11,7 +10,7 @@ export type Article = {
     {
       commentId: string;
       userName: string;
-      review: string;
+      rating: string;
       comment: string;
       date: string;
       isReply: boolean;
@@ -27,7 +26,6 @@ export type defaultState = {
 export const defaultArticle: Article = {
   id: "",
   title: "",
-  thumbnailUrl: "",
   url: "",
   content: "",
   date: "",
@@ -37,7 +35,7 @@ export const defaultArticle: Article = {
     {
       commentId: "",
       userName: "",
-      review: "",
+      rating: "",
       comment: "",
       date: "",
       isReply: false,

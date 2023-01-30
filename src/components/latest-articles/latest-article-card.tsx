@@ -1,16 +1,14 @@
 import React from "react";
 import { Grid, Card, Box } from "@mui/material";
-import { TextWrap01, TextWrap02, TextWrap03 } from "./latest-article.styled";
-import { ReactionButtons } from "../reaction/reaction-button";
+import { TextWrap01, TextWrap02, TextWrap03 } from "../article/article.styled";
+
+import { ReactionButtons } from "../add-reaction/add-reaction-button";
 import useMediaQuery from "../../hooks/use-media-query";
 import { useNavigate } from "react-router-dom";
-import { Comment } from "../reaction/add-commet";
-import { Comments } from "../reaction/comments";
+import { AllReactions } from "../all-reactions/all-reactions";
 const ArticleCard = (props: any) => {
   const { post } = props;
   const { id } = post;
-  //const review = post?.review;
-
   let history = useNavigate();
   const { isMobile } = useMediaQuery();
   return (
@@ -55,6 +53,7 @@ const ArticleCard = (props: any) => {
               <TextWrap03>{post.description}</TextWrap03>
             </Grid>
           </Box>
+          <AllReactions post={post} />
           <Grid
             item
             xs={12}
@@ -66,11 +65,6 @@ const ArticleCard = (props: any) => {
           >
             <ReactionButtons post={post} />
           </Grid>
-          <Grid item xs={12} sm={12} md={12} lg={12} display="contents">
-            <Comment post={post.id} />
-          </Grid>
-
-          <Comments post={post} />
         </Card>
       </Grid>
     </Grid>

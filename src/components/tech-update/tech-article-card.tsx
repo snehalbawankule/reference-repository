@@ -2,12 +2,10 @@ import React from "react";
 import { Grid, Card, Box } from "@mui/material";
 import { TextWrap02, TextWrap03 } from "../article/article.styled";
 import { Link } from "react-router-dom";
-import { ReactionButtons } from "../reaction/reaction-button";
+import { ReactionButtons } from "../add-reaction/add-reaction-button";
 import { ReadButton } from "../article/article.styled";
-import { Comment } from "../reaction/add-commet";
 import { default as textwrap } from "../textwrap/textwrap.json";
 import useMediaQuery from "../../hooks/use-media-query";
-import { Comments } from "../reaction/comments";
 const TechArticleCard = (props: any) => {
   const { post } = props;
   const { id } = post;
@@ -70,10 +68,6 @@ const TechArticleCard = (props: any) => {
               <ReactionButtons style={{ paddingLeft: 20 }} post={post} />
             </Grid>
           </Grid>
-          <Grid item xs={9} sm={9} md={9} lg={9} display="contents">
-            <Comment style={{ paddingTop: 10 }} post={post.id} />
-          </Grid>
-          <Comments post={post} />
         </Card>
       </Grid>
     </Grid>

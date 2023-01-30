@@ -18,11 +18,11 @@ const Input = styled.input`
   font-size: ${pxToRem(17)};
   border-width: 0 0 2px;
   margin-top: ${pxToRem(10)};
-  @media (max-width: 767px) {
-    margin-bottom: ${pxToRem(30)};
+  @media (min-width: 768px) {
+    width: ${pxToRem(230)};
   }
   @media (min-width: 1200px) {
-    width: ${pxToRem(300)};
+    width: ${pxToRem(250)};
   }
   @media (min-width: 1400px) {
     width: ${pxToRem(300)};
@@ -31,20 +31,16 @@ const Input = styled.input`
 
 const LengthTextWrap = styled.div`
   font-weight: 500;
-  padding-top: ${pxToRem(10)};
+  padding-top: ${pxToRem(5)};
   font-size: ${pxToRem(16)};
-  color: #6d6d6d;
+  color: black;
+  font-family: "Poppins";
 `;
 const TextWrap04 = styled.div`
   font-weight: 300;
 
   font-size: ${pxToRem(16)};
   color: #6d6d6d;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
 `;
 const ReplyInput = styled.input`
   font-weight: 300;
@@ -62,6 +58,8 @@ const ButtonReply = styled.button`
   background: none;
   font-size: ${pxToRem(10)};
   color: #6d6d6d;
+  margin-top: 5px;
+  margin-bottom: 20px;
 `;
 const PostReplyButton = styled.button`
   font-weight: 300;

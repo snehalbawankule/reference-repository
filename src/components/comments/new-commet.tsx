@@ -2,13 +2,15 @@ import { useState } from "react";
 import moment from "moment";
 import { v4 as uuidv4 } from "uuid";
 import { StarRating } from "star-rating-react-ts";
-import { PostButton } from "./reaction.styled";
+import { PostButton } from "../add-reaction/reaction.styled";
 import { Grid } from "@mui/material";
 import { actions } from "../../store/reducer";
 import { useAppDispatch } from "../../hooks/hooks";
-import { Input } from "./reaction.styled";
+
+import { Input } from "../add-reaction/reaction.styled";
 export const Comment = (props: any) => {
   const { post } = props;
+
   const dispatch = useAppDispatch();
 
   const [comment, setComment] = useState();
@@ -25,14 +27,22 @@ export const Comment = (props: any) => {
         id: post,
         commentId: commentId,
         comment: comment,
-        review: exampleOneRating,
+        rating: exampleOneRating,
         date: date,
       })
     );
   };
 
   return (
-    <Grid container display="flex">
+    <Grid
+      item
+      xs={2}
+      sm={2}
+      md={10}
+      lg={10}
+      display="contents"
+      style={{ marginTop: 200 }}
+    >
       <StarRating
         initialRating={exampleOneRating}
         onClick={(newRating) => setExampleOneRating(newRating)}
@@ -40,14 +50,12 @@ export const Comment = (props: any) => {
           size: 20,
         }}
       />
-      <Grid item xs={9} sm={10} md={6} lg={9}>
-        <Input
-          name="comment"
-          placeholder="comment"
-          defaultValue={comment}
-          onBlurCapture={handleChange}
-        />
-      </Grid>
+      <Input
+        name="comment"
+        placeholder="comment"
+        defaultValue={comment}
+        onBlurCapture={handleChange}
+      />
       <Grid item xs={1} sm={1} md={2} lg={2} display="contents">
         <PostButton onClick={(e) => handleSubmit(e)}>Post</PostButton>
       </Grid>
