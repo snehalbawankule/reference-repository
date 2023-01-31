@@ -37,7 +37,7 @@ function App() {
           <Route path="/comments/:id" element={<Comments />} />
         </Routes>
       </Grid>
-      <Posts />
+
       <Userdata />
     </>
   );

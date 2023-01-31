@@ -3,7 +3,11 @@ const pxToRem = (size: number) => `${size / 16}rem`;
 
 const CommentsBox = styled.div`
   overflow-y: scroll;
-  height: ${pxToRem(680)};
+  height: ${pxToRem(700)};
   width: ${pxToRem(330)};
+  @media (min-width: 768px) {
+    height: ${pxToRem(280)};
+    width: ${pxToRem(900)};
+  }
 `;
 export { CommentsBox };

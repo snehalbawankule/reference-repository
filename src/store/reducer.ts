@@ -22,10 +22,15 @@ const { actions, reducer } = createSlice({
       const lastId = state.article.slice(-1)[0].id;
       const stringNumber = parseInt(lastId) + 1;
       const numberString = stringNumber.toString();
-      console.log(action.payload, numberString);
       let payload = { ...action.payload };
       payload.id = numberString;
       state.article.push(payload);
+      const existingArray = JSON.parse(
+        localStorage.getItem("articles") || "{}"
+      );
+      existingArray.push(payload);
+      console.log(existingArray);
+      localStorage.setItem("articles", JSON.stringify(existingArray));
     },
     postUpdate(state, action) {
       const { id, title, description, content, date, edited } = action.payload;
@@ -38,6 +43,14 @@ const { actions, reducer } = createSlice({
         existingPost.date = date;
         existingPost.edited = edited;
       }
+      var existingArray = JSON.parse(localStorage.getItem("articles") || "{}");
+      var target = existingArray.find((item: any) => item.id === id);
+      target.title = title;
+      target.description = description;
+      target.content = content;
+      target.date = date;
+      target.edited = edited;
+      localStorage.setItem("articles", JSON.stringify(existingArray));
     },
     addComment(state, action) {
       const { id } = action.payload;

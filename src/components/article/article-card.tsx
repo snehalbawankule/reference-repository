@@ -62,18 +62,17 @@ const ArticleCard = (props: any) => {
               <TextWrap03>{post.description}</TextWrap03>
             </Grid>
           </Box>
-          <Grid item xs={8} sm={8} md={8} lg={8} display="flex" sx={{ mt: 3 }}>
+          <Grid
+            item
+            xs={12}
+            sm={12}
+            md={12}
+            lg={12}
+            display="flex"
+            sx={{ mt: 3 }}
+          >
             <ReactionButtons post={post} />
           </Grid>
-          <TextWrap02 style={{ fontSize: 16 }}>{comments}</TextWrap02>
-
-          {post?.comment?.map((item: any) => {
-            return (
-              <TextWrap01 style={{ fontWeight: "bold", paddingLeft: 40 }}>
-                {item} <br />
-              </TextWrap01>
-            );
-          })}
         </Card>
       </Grid>
     </Grid>

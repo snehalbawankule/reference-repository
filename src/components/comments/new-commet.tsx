@@ -34,29 +34,25 @@ export const Comment = (props: any) => {
   };
 
   return (
-    <Grid
-      item
-      xs={2}
-      sm={2}
-      md={10}
-      lg={10}
-      display="contents"
-      style={{ marginTop: 200 }}
-    >
-      <StarRating
-        initialRating={exampleOneRating}
-        onClick={(newRating) => setExampleOneRating(newRating)}
-        theme={{
-          size: 20,
-        }}
-      />
-      <Input
-        name="comment"
-        placeholder="comment"
-        defaultValue={comment}
-        onBlurCapture={handleChange}
-      />
-      <Grid item xs={2} sm={12} md={12} lg={12} display="flex">
+    <Grid container display="flex">
+      <Grid item xs={10} sm={10} md={10} lg={10}>
+        <StarRating
+          initialRating={exampleOneRating}
+          onClick={(newRating) => setExampleOneRating(newRating)}
+          theme={{
+            size: 20,
+          }}
+        />
+      </Grid>
+      <Grid item xs={10} sm={10} md={10} lg={10}>
+        <Input
+          name="comment"
+          placeholder="comment"
+          defaultValue={comment}
+          onBlurCapture={handleChange}
+        />
+      </Grid>
+      <Grid item xs={2} sm={12} md={12} lg={12}>
         <SendIcon onClick={(e) => handleSubmit(e)} sx={{ pl: 2 }} />
       </Grid>
     </Grid>

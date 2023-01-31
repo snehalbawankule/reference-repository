@@ -6,6 +6,7 @@ import { TextWrap02, TextWrap03, TextWrap01 } from "./latest-article.styled";
 import { useAppSelector } from "../../hooks/hooks";
 import useMediaQuery from "../../hooks/use-media-query";
 import "../../index.css";
+import { Comments } from "../comments/comments";
 const Article = () => {
   const { id } = useParams<{ id: string }>();
   const post = useAppSelector((state) =>
@@ -83,33 +84,12 @@ const Article = () => {
         lg={12}
         display="flex"
         justifyContent="center"
-        style={{ marginBottom: 100 }}
       >
         <TextWrap03 ref={textRef} onMouseUp={handleSelection}>
           {post?.content}
         </TextWrap03>
       </Grid>
-
-      {post?.comments?.map((item: any) => {
-        return (
-          <Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12} display="contents">
-              <StarRating
-                initialRating={item.review}
-                theme={{
-                  size: 20,
-                }}
-              />
-            </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12} display="contents">
-              <TextWrap01>{item.date}</TextWrap01>
-            </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12} display="contents">
-              <TextWrap01>{item.comment}</TextWrap01>
-            </Grid>
-          </Grid>
-        );
-      })}
+      <Comments />
     </Grid>
   );
 };

@@ -14,7 +14,7 @@ export function Posts() {
     },
     {
       id: "2",
-      title: "Reprehenderit est deserunt velit ipsam",
+      title: "Reprehenderit est deserunt velit ipsam similique qui ",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Iaculis urna imperdiet netus nibh at fermentum mattis. Amet adipiscing",
       date: "2, Oct. 2022",

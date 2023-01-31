@@ -38,21 +38,37 @@ export const ReactionButtons = (props: any) => {
       </Grid>
       <Grid item xs={4} sm={4} md={4} lg={4}>
         <Button type="button">
-          <Link
-            to={`/comments/${post.id}`}
-            style={{
-              color: "black",
-              textDecoration: "none",
-              fontFamily: "Poppins",
-              display: "flex",
-              width: isDesktop ? "131px" : isMobile ? "100px" : "120px",
-            }}
-          >
-            Comment
-            <ChatBubbleOutlineRoundedIcon
-              sx={{ fontSize: isDesktop ? 24 : 20, pl: 1 }}
-            />
-          </Link>
+          {isMobile ? (
+            <Link
+              to={`/comments/${post.id}`}
+              style={{
+                color: "black",
+                textDecoration: "none",
+                fontFamily: "Poppins",
+                display: "flex",
+              }}
+            >
+              Comment
+              <ChatBubbleOutlineRoundedIcon
+                sx={{ fontSize: isDesktop ? 24 : 20, pl: 1 }}
+              />
+            </Link>
+          ) : (
+            <Link
+              to={`/articles/${post.id}`}
+              style={{
+                textDecoration: "none",
+                color: "black",
+                fontFamily: "Poppins",
+                display: "flex",
+              }}
+            >
+              Comment
+              <ChatBubbleOutlineRoundedIcon
+                sx={{ fontSize: isDesktop ? 24 : 20, pl: 1 }}
+              />
+            </Link>
+          )}
         </Button>
       </Grid>
       <Grid item xs={4} sm={4} md={4} lg={4}>
