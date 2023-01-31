@@ -1,9 +1,7 @@
-import { useState } from "react";
 import { Grid } from "@mui/material";
 import { LengthTextWrap } from "../add-reaction/reaction.styled";
 export const AllReactions = (props: any) => {
   const { post } = props;
-  const [like, setLike] = useState(false);
   let length =
     !post?.comments || post?.comments?.length < 1
       ? ""
@@ -22,21 +20,20 @@ export const AllReactions = (props: any) => {
   return (
     <>
       <Grid container flexDirection="row" display="flex">
-        <Grid item xs={6} sm={3} md={3} lg={3} display="contents">
-          <LengthTextWrap style={{ display: "flex", justifyContent: "end" }}>
-            Likes
-          </LengthTextWrap>
+        <Grid item xs={4} sm={4} md={3} lg={3}>
+          <LengthTextWrap style={{ paddingTop: 7.5 }}>Likes</LengthTextWrap>
         </Grid>
-        <Grid item xs={4} sm={3} md={3} lg={3}>
-          <LengthTextWrap style={{ display: "flex", justifyContent: "end" }}>
-            {length}
-          </LengthTextWrap>
-        </Grid>
-
-        <Grid item xs={4} sm={3} md={3} lg={5}>
-          <LengthTextWrap style={{ display: "flex", justifyContent: "end" }}>
-            {average1}
-          </LengthTextWrap>
+        <Grid
+          item
+          xs={8}
+          sm={8}
+          md={9}
+          lg={9}
+          display="flex"
+          justifyContent="end"
+        >
+          <LengthTextWrap style={{ paddingTop: 7.5 }}>{length}</LengthTextWrap>
+          <LengthTextWrap style={{ paddingLeft: 7 }}>{average1}</LengthTextWrap>
         </Grid>
       </Grid>
     </>

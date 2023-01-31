@@ -12,6 +12,7 @@ export const Comments = () => {
   const post = useAppSelector((state) =>
     state.articles.article.find((item) => item.id === id)
   );
+
   let length =
     !post?.comments || post?.comments?.length < 1
       ? ""
@@ -31,7 +32,7 @@ export const Comments = () => {
               style={{ paddingTop: 10 }}
               key={index}
             >
-              <Grid item xs={6} sm={6} md={6} lg={6}>
+              <Grid item xs={6} sm={6} md={12} lg={12}>
                 <StarRating
                   initialRating={item.rating}
                   readOnly

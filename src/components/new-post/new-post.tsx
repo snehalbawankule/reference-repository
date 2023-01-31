@@ -25,9 +25,9 @@ const NewPost = () => {
   const dispatch = useAppDispatch();
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    console.log(postInfo);
+
     const date = moment().format("ll");
-    console.log(date);
+
     dispatch(
       actions.addNewArticle({
         date: date,

@@ -22,8 +22,10 @@ const { actions, reducer } = createSlice({
       const lastId = state.article.slice(-1)[0].id;
       const stringNumber = parseInt(lastId) + 1;
       const numberString = stringNumber.toString();
-      action.payload.id = numberString;
-      state.article.push(action.payload);
+      console.log(action.payload, numberString);
+      let payload = { ...action.payload };
+      payload.id = numberString;
+      state.article.push(payload);
     },
     postUpdate(state, action) {
       const { id, title, description, content, date, edited } = action.payload;

@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Card, Box } from "@mui/material";
+import { Grid, Card, Box, Divider } from "@mui/material";
 import { TextWrap01, TextWrap02, TextWrap03 } from "../article/article.styled";
 
 import { ReactionButtons } from "../add-reaction/add-reaction-button";
@@ -13,7 +13,7 @@ const ArticleCard = (props: any) => {
   const { isMobile } = useMediaQuery();
   return (
     <Grid container>
-      <Grid item xs={12} sm={12} md={12} lg={12} display="flex" key={post.id}>
+      <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
         <Card
           style={{
             border: "none",
@@ -39,7 +39,7 @@ const ArticleCard = (props: any) => {
               </Grid>
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={12} justifyContent="center">
-              <TextWrap02 style={{ height: 80 }}>{post.title}</TextWrap02>
+              <TextWrap02>{post.title}</TextWrap02>
             </Grid>
             <Grid
               item
@@ -54,6 +54,9 @@ const ArticleCard = (props: any) => {
             </Grid>
           </Box>
           <AllReactions post={post} />
+          <Grid item xs={12} sm={12} md={12} lg={12} sx={{ pt: 2 }}>
+            <Divider sx={{ borderBottomWidth: 2 }} />
+          </Grid>
           <Grid
             item
             xs={12}

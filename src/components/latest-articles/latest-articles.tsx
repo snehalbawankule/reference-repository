@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid } from "@mui/material";
+import { Grid, Divider } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "../../hooks/hooks";
 import useMediaQuery from "../../hooks/use-media-query";
@@ -14,9 +14,10 @@ const LatestArticles = () => {
       <Grid item xs={12} sm={12} md={12} lg={12}>
         <Article>{textwrap.latestArticle}</Article>
       </Grid>
-      <>
-        {articles.article.slice(0, 6).map((post: any) => {
-          return (
+
+      {articles.article.slice(0, 6).map((post: any) => {
+        return (
+          <>
             <Grid
               item
               xs={12}
@@ -28,29 +29,29 @@ const LatestArticles = () => {
             >
               <ArticleCard post={post} />
             </Grid>
-          );
-        })}
-        <Grid
-          item
-          xs={12}
-          sm={12}
-          md={12}
-          lg={12}
-          style={{ display: "flex", justifyContent: "center" }}
-        >
-          <LoadMoreButton>
-            <Link
-              to={`/articles`}
-              style={{
-                color: "white",
-                textDecoration: "none",
-              }}
-            >
-              Load more articles
-            </Link>
-          </LoadMoreButton>
-        </Grid>
-      </>
+          </>
+        );
+      })}
+      <Grid
+        item
+        xs={12}
+        sm={12}
+        md={12}
+        lg={12}
+        style={{ display: "flex", justifyContent: "center" }}
+      >
+        <LoadMoreButton>
+          <Link
+            to={`/articles`}
+            style={{
+              color: "white",
+              textDecoration: "none",
+            }}
+          >
+            Load more articles
+          </Link>
+        </LoadMoreButton>
+      </Grid>
     </Grid>
   );
 };

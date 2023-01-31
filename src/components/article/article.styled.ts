@@ -95,16 +95,17 @@ const Article = styled.text`
   }
 `;
 const LoadMoreButton = styled.button`
-  height: ${pxToRem(85)};
+  height: ${pxToRem(65)};
   background: #2f2e41;
   font-weight: 700;
   font-size: ${pxToRem(24)};
   color: #f3f2ff;
   border-radius: ${pxToRem(10)};
-  padding-left: ${pxToRem(50)};
-  padding-right: ${pxToRem(50)};
+  padding-left: ${pxToRem(40)};
+  padding-right: ${pxToRem(40)};
   @media (min-width: 1024px) {
     font-size: ${pxToRem(32)};
+    height: ${pxToRem(85)};
     padding-left: ${pxToRem(103)};
     padding-right: ${pxToRem(103)};
   }

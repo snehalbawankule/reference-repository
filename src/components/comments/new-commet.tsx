@@ -6,7 +6,7 @@ import { PostButton } from "../add-reaction/reaction.styled";
 import { Grid } from "@mui/material";
 import { actions } from "../../store/reducer";
 import { useAppDispatch } from "../../hooks/hooks";
-
+import SendIcon from "@mui/icons-material/Send";
 import { Input } from "../add-reaction/reaction.styled";
 export const Comment = (props: any) => {
   const { post } = props;
@@ -56,8 +56,8 @@ export const Comment = (props: any) => {
         defaultValue={comment}
         onBlurCapture={handleChange}
       />
-      <Grid item xs={1} sm={1} md={2} lg={2} display="contents">
-        <PostButton onClick={(e) => handleSubmit(e)}>Post</PostButton>
+      <Grid item xs={2} sm={12} md={12} lg={12} display="flex">
+        <SendIcon onClick={(e) => handleSubmit(e)} sx={{ pl: 2 }} />
       </Grid>
     </Grid>
   );

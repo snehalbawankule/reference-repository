@@ -32,7 +32,7 @@ const Input = styled.input`
 const LengthTextWrap = styled.div`
   font-weight: 500;
   padding-top: ${pxToRem(5)};
-  font-size: ${pxToRem(16)};
+  font-size: ${pxToRem(14)};
   color: black;
   font-family: "Poppins";
 `;
@@ -44,7 +44,7 @@ const TextWrap04 = styled.div`
 `;
 const ReplyInput = styled.input`
   font-weight: 300;
-  width: ${pxToRem(260)};
+  width: ${pxToRem(220)};
   font-size: ${pxToRem(17)};
   border-width: 0 0 2px;
 
