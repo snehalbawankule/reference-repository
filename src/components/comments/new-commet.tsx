@@ -2,7 +2,6 @@ import { useState } from "react";
 import moment from "moment";
 import { v4 as uuidv4 } from "uuid";
 import { StarRating } from "star-rating-react-ts";
-import { PostButton } from "../add-reaction/reaction.styled";
 import { Grid } from "@mui/material";
 import { actions } from "../../store/reducer";
 import { useAppDispatch } from "../../hooks/hooks";
@@ -44,7 +43,7 @@ export const Comment = (props: any) => {
           }}
         />
       </Grid>
-      <Grid item xs={10} sm={10} md={10} lg={10}>
+      <Grid item xs={10} sm={10} md={10} lg={7}>
         <Input
           name="comment"
           placeholder="comment"
@@ -52,8 +51,11 @@ export const Comment = (props: any) => {
           onBlurCapture={handleChange}
         />
       </Grid>
-      <Grid item xs={2} sm={12} md={12} lg={12}>
-        <SendIcon onClick={(e) => handleSubmit(e)} sx={{ pl: 2 }} />
+      <Grid item xs={2} sm={2} md={2} lg={2}>
+        <SendIcon
+          onClick={(e) => handleSubmit(e)}
+          sx={{ pl: 2, color: "#6d6d6d" }}
+        />
       </Grid>
     </Grid>
   );

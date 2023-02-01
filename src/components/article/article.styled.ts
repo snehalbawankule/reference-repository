@@ -100,12 +100,14 @@ const LoadMoreButton = styled.button`
   font-weight: 700;
   font-size: ${pxToRem(24)};
   color: #f3f2ff;
+
   border-radius: ${pxToRem(10)};
   padding-left: ${pxToRem(40)};
   padding-right: ${pxToRem(40)};
   @media (min-width: 1024px) {
     font-size: ${pxToRem(32)};
     height: ${pxToRem(85)};
+    margin-top: ${pxToRem(20)};
     padding-left: ${pxToRem(103)};
     padding-right: ${pxToRem(103)};
   }

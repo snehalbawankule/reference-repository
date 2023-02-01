@@ -9,7 +9,7 @@ import useMediaQuery from "../../hooks/use-media-query";
 export const ReactionButtons = (props: any) => {
   const { post } = props;
   const [like, setLike] = useState(false);
-  const { isMobile, isDesktop, isTablet } = useMediaQuery();
+  const { isMobile, isDesktop } = useMediaQuery();
   return (
     <Grid container flexDirection="row" display="flex">
       <Grid item xs={4} sm={4} md={4} lg={4}>

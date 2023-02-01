@@ -24,13 +24,12 @@ const { actions, reducer } = createSlice({
       const numberString = stringNumber.toString();
       let payload = { ...action.payload };
       payload.id = numberString;
+
+      const existingPost = JSON.parse(localStorage.getItem("articles") || "{}");
+      existingPost.push(payload);
+      console.log(existingPost);
+      localStorage.setItem("articles", JSON.stringify(existingPost));
       state.article.push(payload);
-      const existingArray = JSON.parse(
-        localStorage.getItem("articles") || "{}"
-      );
-      existingArray.push(payload);
-      console.log(existingArray);
-      localStorage.setItem("articles", JSON.stringify(existingArray));
     },
     postUpdate(state, action) {
       const { id, title, description, content, date, edited } = action.payload;
@@ -55,6 +54,21 @@ const { actions, reducer } = createSlice({
     addComment(state, action) {
       const { id } = action.payload;
       const existingPost = state.article.find((item) => item.id === id);
+      const existingArray = JSON.parse(
+        localStorage.getItem("articles") || "{}"
+      );
+      var target = existingArray.find((item: any) => item.id === id);
+      if (target) {
+        if (target.comments) {
+          target.comments.push(action.payload);
+        } else {
+          target.comments = [action.payload];
+        }
+      }
+
+      console.log(existingArray);
+      localStorage.setItem("articles", JSON.stringify(existingArray));
+
       if (existingPost) {
         if (existingPost.comments) {
           existingPost.comments.push(action.payload);

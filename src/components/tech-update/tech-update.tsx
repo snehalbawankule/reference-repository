@@ -17,7 +17,11 @@ const TechUpdate = () => {
   }, [articles.article.length, dispatch]);
   const data = articles.article.slice(6, 12);
   return (
-    <Grid container sx={{ px: isDesktop ? 10 : isTablet ? 5 : 3 }} spacing={5}>
+    <Grid
+      container
+      sx={{ px: isDesktop ? 10 : isTablet ? 5 : 3, mb: 3 }}
+      spacing={5}
+    >
       <Grid item xs={12} sm={12} md={12} lg={12} style={{ paddingTop: 65 }}>
         <Article style={{ marginTop: 28 }}>{textwrap.techUpdate}</Article>
       </Grid>

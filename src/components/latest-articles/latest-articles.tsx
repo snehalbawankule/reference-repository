@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Divider } from "@mui/material";
+import { Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "../../hooks/hooks";
 import useMediaQuery from "../../hooks/use-media-query";

@@ -10,7 +10,8 @@ export const ReplyButton = (props: any) => {
   const { post } = props;
   const [inputVisible, setInputVisible] = useState(false);
   const dispatch = useAppDispatch();
-  const ReplyTo = post?.comments?.commentId;
+  const ReplyTo = post?.comments?.[4].commentId;
+  console.log(ReplyTo);
   const [comment, setComment] = useState();
   const handleChange = (event: any) => {
     setComment(event.target.value);
@@ -38,7 +39,7 @@ export const ReplyButton = (props: any) => {
         </ButtonReply>
         {inputVisible ? (
           <>
-            <Grid item xs={10} sm={12} md={12} lg={12} display="flex">
+            <Grid item xs={10} sm={12} md={12} lg={5} display="flex">
               <ReplyInput
                 type="text"
                 placeholder="Type here..."
@@ -47,7 +48,10 @@ export const ReplyButton = (props: any) => {
               />
             </Grid>
             <Grid item xs={2} sm={12} md={12} lg={12} display="flex">
-              <SendIcon onClick={(e) => handleSubmit(e)} />
+              <SendIcon
+                onClick={(e) => handleSubmit(e)}
+                sx={{ color: "#6d6d6d" }}
+              />
             </Grid>
           </>
         ) : null}

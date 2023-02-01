@@ -1,10 +1,9 @@
-import { NewArticle, PostButton } from "./new-post.styled";
+import { NewArticle, PostButton, NewPostInput } from "./new-post.styled";
 import { Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { actions } from "../../store/reducer";
 import { useAppDispatch } from "../../hooks/hooks";
 import useMediaQuery from "../../hooks/use-media-query";
-import { Input } from "../registration/registration.styled";
 
 import { useState } from "react";
 import moment from "moment";
@@ -27,7 +26,7 @@ const NewPost = () => {
     event.preventDefault();
 
     const date = moment().format("ll");
-
+    console.log("hello");
     dispatch(
       actions.addNewArticle({
         date: date,
@@ -45,10 +44,20 @@ const NewPost = () => {
   return (
     <Grid
       container
-      sx={{ p: isDesktop ? 10 : isTablet ? 5 : 3, mt: 5 }}
+      display="flex"
+      justifyContent="center"
+      sx={{ pt: isDesktop ? 10 : isTablet ? 5 : 3, mt: 2 }}
       spacing={5}
     >
-      <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
+      <Grid
+        item
+        xs={12}
+        sm={12}
+        md={12}
+        lg={12}
+        display="flex"
+        justifyContent="center"
+      >
         <NewArticle>Post a new article</NewArticle>
       </Grid>
       <form
@@ -57,8 +66,8 @@ const NewPost = () => {
         }}
       >
         <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
-          <Input
-            style={{ width: "800px" }}
+          <NewPostInput
+            style={{ marginTop: 25 }}
             type="text"
             name="title"
             onBlur={handleChange}
@@ -67,9 +76,16 @@ const NewPost = () => {
             required
           />
         </Grid>
-        <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
-          <Input
-            style={{ width: "800px" }}
+        <Grid
+          item
+          xs={12}
+          sm={12}
+          md={12}
+          lg={12}
+          display="flex"
+          justifyContent="center"
+        >
+          <NewPostInput
             type="text"
             name="url"
             onBlur={handleChange}
@@ -79,8 +95,7 @@ const NewPost = () => {
           />
         </Grid>
         <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
-          <Input
-            style={{ width: "800px" }}
+          <NewPostInput
             type="text"
             name="description"
             onBlur={handleChange}
@@ -90,8 +105,7 @@ const NewPost = () => {
           />
         </Grid>
         <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
-          <Input
-            style={{ width: "800px" }}
+          <NewPostInput
             type="text"
             name="content"
             onBlur={handleChange}
@@ -100,7 +114,15 @@ const NewPost = () => {
             required
           />
         </Grid>
-        <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
+        <Grid
+          item
+          xs={12}
+          sm={12}
+          md={12}
+          lg={12}
+          display="flex"
+          justifyContent="center"
+        >
           <PostButton>Post</PostButton>
         </Grid>
       </form>

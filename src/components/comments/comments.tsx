@@ -8,7 +8,7 @@ import { ReplyButton } from "../add-reaction/reply-button";
 import useMediaQuery from "../../hooks/use-media-query";
 import { Comment } from "./new-commet";
 export const Comments = () => {
-  const { isDesktop, isTablet, isMobile } = useMediaQuery();
+  const { isDesktop, isMobile } = useMediaQuery();
   const { id } = useParams<{ id: string }>();
   const post = useAppSelector((state) =>
     state.articles.article.find((item) => item.id === id)
@@ -87,7 +87,11 @@ export const Comments = () => {
             <Comment post={post?.id} />
           </Grid>
           <Grid item md={12} lg={12}>
-            <LengthTextWrap style={{ fontSize: 20 }}>{length}</LengthTextWrap>
+            <LengthTextWrap
+              style={{ fontSize: 20, marginTop: 20, marginBottom: 10 }}
+            >
+              {length}
+            </LengthTextWrap>
           </Grid>
           <CommentsBox>
             {post?.comments?.map((items: any, index: any) => {
