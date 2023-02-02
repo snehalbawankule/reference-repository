@@ -17,7 +17,6 @@ const ContactUs = () => {
   //const dispatch = useAppDispatch();
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    console.log(contactInfo);
     setContactInfo({ name: "", email: "", contact: "", message: "" });
   };
   const { isDesktop, isTablet } = useMediaQuery();

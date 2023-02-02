@@ -13,7 +13,7 @@ const ArticleCard = (props: any) => {
   const { isMobile } = useMediaQuery();
   return (
     <Grid container>
-      <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
+      <Grid item xs={12} sm={12} md={12} lg={12} display="flex" key={id}>
         <Card
           style={{
             border: "none",

@@ -23,20 +23,40 @@ export const ReplyButton = (props: any) => {
   const handleChange = (event: any) => {
     setComment(event.target.value);
   };
+
   const handleSubmit = (event: any) => {
     event.preventDefault();
     const date = moment().format("DD, MMM. yyyy");
     const commentId = uuidv4();
+    const newComment = {
+      id: post?.id,
+      commentId: commentId,
+      comment: comment,
+      date: date,
+      isReply: true,
+      replyTo: ReplyTo,
+    };
     dispatch(
-      actions.addReply({
-        id: post?.id,
+      actions.addComment({
+        id: post,
         commentId: commentId,
         comment: comment,
-        replyTo: ReplyTo,
         date: date,
         isReply: true,
+        replyTo: ReplyTo,
       })
     );
+    const existingPost = JSON.parse(localStorage.getItem("articles") || "{}");
+    var target = existingPost.find((item: any) => item.id === post?.id);
+    console.log(target.comments);
+    if (target) {
+      if (target.comments) {
+        target.comments.push(newComment);
+      } else {
+        target.comments = [newComment];
+      }
+    }
+    localStorage.setItem("articles", JSON.stringify(existingPost));
   };
 
   return (

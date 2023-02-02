@@ -6,6 +6,7 @@ export type Article = {
   date: string;
   description: string;
   edited: string;
+  like: number;
   comments: [
     {
       commentId: string;
@@ -31,6 +32,7 @@ export const defaultArticle: Article = {
   date: "",
   description: "",
   edited: "",
+  like: 0,
   comments: [
     {
       commentId: "",

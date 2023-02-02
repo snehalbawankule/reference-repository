@@ -3,7 +3,6 @@ import { TextWrap04 } from "../add-reaction/reaction.styled";
 import { ReplyButton } from "../add-reaction/reply-button";
 export const ReplyCard = (props: any) => {
   const { post } = props;
-  console.log(post);
   return (
     <Grid container direction="row" style={{ paddingTop: 10 }}>
       <Grid item xs={12} sm={12} md={5} lg={5}>

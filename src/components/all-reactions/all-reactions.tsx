@@ -13,7 +13,6 @@ export const AllReactions = (props: any) => {
     (obj: any) => obj.isReply === false
   );
   const length1 = filteredArray?.length;
-  console.log(length1);
   let average =
     !filteredArray || filteredArray?.length === 0
       ? 0

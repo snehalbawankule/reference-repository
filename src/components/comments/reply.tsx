@@ -7,11 +7,11 @@ export const Reply = (props: any) => {
   const post = useAppSelector((state) =>
     state.articles.article.find((item) => item.id === id)
   );
-  console.log(props.commentId);
+
   const filteredArray = post?.comments?.filter(
     (obj: any) => obj.replyTo === props.commentId && obj.isReply === true
   );
-  console.log(filteredArray);
+
   return (
     <Grid
       container

@@ -15,18 +15,10 @@ const LatestArticles = () => {
         <Article>{textwrap.latestArticle}</Article>
       </Grid>
 
-      {articles.article.slice(0, 6).map((post: any) => {
+      {articles.article.slice(0, 6).map((post: any, index) => {
         return (
           <>
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={6}
-              lg={4}
-              display="flex"
-              key={post.id}
-            >
+            <Grid item xs={12} sm={6} md={6} lg={4} display="flex" key={index}>
               <ArticleCard post={post} />
             </Grid>
           </>

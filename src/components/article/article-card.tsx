@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Grid, Card, Box } from "@mui/material";
 import { TextWrap01, TextWrap02, TextWrap03 } from "./article.styled";
 import { ReactionButtons } from "../add-reaction/add-reaction-button";
@@ -9,14 +9,7 @@ const ArticleCard = (props: any) => {
   const { post } = props;
   const { id } = post;
   let history = useNavigate();
-  const Comments: any = "Comments";
-  const length = () => {
-    if (post?.comment?.length > 0) {
-      console.log(post.comment?.length);
-      return Comments;
-    }
-  };
-  const [comments, setComments] = useState(length);
+
   const { isMobile } = useMediaQuery();
   return (
     <Grid container>
