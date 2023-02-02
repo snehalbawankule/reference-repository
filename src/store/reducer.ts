@@ -24,11 +24,6 @@ const { actions, reducer } = createSlice({
       const numberString = stringNumber.toString();
       let payload = { ...action.payload };
       payload.id = numberString;
-
-      const existingPost = JSON.parse(localStorage.getItem("articles") || "{}");
-      existingPost.push(payload);
-      console.log(existingPost);
-      localStorage.setItem("articles", JSON.stringify(existingPost));
       state.article.push(payload);
     },
     postUpdate(state, action) {
@@ -54,7 +49,15 @@ const { actions, reducer } = createSlice({
     addComment(state, action) {
       const { id } = action.payload;
       const existingPost = state.article.find((item) => item.id === id);
-      const existingArray = JSON.parse(
+      if (existingPost) {
+        if (existingPost.comments) {
+          existingPost.comments.push(action.payload);
+        } else {
+          existingPost.comments = [action.payload];
+        }
+      }
+
+      /*const existingArray = JSON.parse(
         localStorage.getItem("articles") || "{}"
       );
       var target = existingArray.find((item: any) => item.id === id);
@@ -66,9 +69,11 @@ const { actions, reducer } = createSlice({
         }
       }
 
-      console.log(existingArray);
-      localStorage.setItem("articles", JSON.stringify(existingArray));
-
+      localStorage.setItem("articles", JSON.stringify(existingArray));*/
+    },
+    addReply(state, action) {
+      const { id } = action.payload;
+      const existingPost = state.article.find((item) => item.id === id);
       if (existingPost) {
         if (existingPost.comments) {
           existingPost.comments.push(action.payload);
@@ -76,6 +81,19 @@ const { actions, reducer } = createSlice({
           existingPost.comments = [action.payload];
         }
       }
+      /* const existingArray = JSON.parse(
+        localStorage.getItem("articles") || "{}"
+      );
+      var target = existingArray.find((item: any) => item.id === id);
+      if (target) {
+        if (target.comments.commentId === action.payload.replyTo) {
+          target.comments.push(action.payload);
+        } else {
+          target.comments = [action.payload];
+        }
+      }
+
+      localStorage.setItem("articles", JSON.stringify(existingArray));*/
     },
   },
 });

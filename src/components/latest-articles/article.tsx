@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import { Grid } from "@mui/material";
 import { useParams } from "react-router-dom";
-import { StarRating } from "star-rating-react-ts";
-import { TextWrap02, TextWrap03, TextWrap01 } from "./latest-article.styled";
+
+import { TextWrap02, TextWrap03 } from "./latest-article.styled";
 import { useAppSelector } from "../../hooks/hooks";
 import useMediaQuery from "../../hooks/use-media-query";
 import "../../index.css";

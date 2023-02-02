@@ -1,7 +1,7 @@
 import GoogleLogo from "../../assets/images/GoogleLogo.png";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { actions } from "../../store/reducer";
-import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+import { useAppDispatch } from "../../hooks/hooks";
 
 import {
   CreateAccountButton,

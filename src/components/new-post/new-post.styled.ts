@@ -6,7 +6,7 @@ const NewArticle = styled.div`
   font-size: 36px;
   color: #2f2e41;
   @media (max-width: 767px) {
-    font-size: ${pxToRem(24)};
+    font-size: ${pxToRem(20)};
   }
 `;
 const PostButton = styled.button`
@@ -22,18 +22,18 @@ const PostButton = styled.button`
     width: ${pxToRem(120)};
     height: ${pxToRem(30)};
     font-size: ${pxToRem(18)};
+    margin-top: ${pxToRem(5)};
   }
 `;
 const NewPostInput = styled.input`
   font-weight: 300;
   font-size: ${pxToRem(17)};
   border-width: 0 0 2px;
+  width: ${pxToRem(300)};
   margin-bottom: ${pxToRem(56)};
-  @media (max-width: 767px) {
-    margin-bottom: ${pxToRem(30)};
-  }
+
   @media (min-width: 768px) {
-    width: ${pxToRem(300)};
+    width: ${pxToRem(600)};
   }
   ::placeholder {
     color: #2f2e41bf;

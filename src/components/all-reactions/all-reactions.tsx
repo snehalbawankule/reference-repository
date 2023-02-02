@@ -8,13 +8,18 @@ export const AllReactions = (props: any) => {
       : post.comments.length === 1
       ? post?.comments?.length + " Comment"
       : post?.comments?.length + " Comments";
+
+  const filteredArray = post?.comments?.filter(
+    (obj: any) => obj.isReply === false
+  );
+  const length1 = filteredArray?.length;
+  console.log(length1);
   let average =
-    !post?.comments || post?.comments?.length === 0
+    !filteredArray || filteredArray?.length === 0
       ? 0
-      : post?.comments.reduce((r: any, c: any) => r + c.rating, 0) /
-        post?.comments?.length;
+      : filteredArray.reduce((r: any, c: any) => r + c.rating, 0) / length1;
   let average1 =
-    !post?.comments || post?.comments?.length === 0
+    !filteredArray || filteredArray?.length === 0
       ? ""
       : "Rating " + average.toFixed(1).replace(/[.,]0$/, "") + "🌟";
   return (

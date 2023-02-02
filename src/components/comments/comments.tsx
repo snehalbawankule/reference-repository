@@ -1,24 +1,25 @@
-import { StarRating } from "star-rating-react-ts";
-import { LengthTextWrap, TextWrap04 } from "../add-reaction/reaction.styled";
+import { LengthTextWrap } from "../add-reaction/reaction.styled";
 import { Grid, Box } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { useAppSelector } from "../../hooks/hooks";
+import { CommentCard } from "./comment";
 import { CommentsBox } from "./comments.styled";
-import { ReplyButton } from "../add-reaction/reply-button";
 import useMediaQuery from "../../hooks/use-media-query";
 import { Comment } from "./new-commet";
+import { Reply } from "./reply";
 export const Comments = () => {
   const { isDesktop, isMobile } = useMediaQuery();
   const { id } = useParams<{ id: string }>();
   const post = useAppSelector((state) =>
     state.articles.article.find((item) => item.id === id)
   );
-
   let length =
     !post?.comments || post?.comments?.length < 1
       ? ""
       : post?.comments?.length + " Comments";
-
+  const filteredArray = post?.comments?.filter(
+    (obj: any) => obj.isReply === false
+  );
   return (
     <>
       <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -35,39 +36,22 @@ export const Comments = () => {
           </Grid>
 
           <CommentsBox>
-            {post?.comments?.map((items: any, index: any) => {
+            {filteredArray?.map((items: any, index: any) => {
               return (
-                <Grid
-                  container
-                  direction="row"
-                  style={{ paddingTop: 10 }}
-                  key={index}
-                >
-                  <Grid item xs={6} sm={6} md={12} lg={12}>
-                    <StarRating
-                      initialRating={items.rating}
-                      readOnly
-                      theme={{
-                        size: 20,
-                      }}
-                    />
+                <>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={6}
+                    md={6}
+                    lg={4}
+                    display="flex"
+                    key={index}
+                  >
+                    <CommentCard post={items} />
                   </Grid>
-                  <Grid item xs={6} sm={6} md={6} lg={6}>
-                    <TextWrap04
-                      style={{
-                        display: "flex",
-                        justifyContent: "end",
-                        paddingRight: 15,
-                      }}
-                    >
-                      {items.date}
-                    </TextWrap04>
-                  </Grid>
-                  <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <TextWrap04>{items.comment}</TextWrap04>
-                  </Grid>
-                  <ReplyButton post={post} />
-                </Grid>
+                  <Reply commentId={items.commentId} />
+                </>
               );
             })}
           </CommentsBox>
@@ -94,39 +78,14 @@ export const Comments = () => {
             </LengthTextWrap>
           </Grid>
           <CommentsBox>
-            {post?.comments?.map((items: any, index: any) => {
+            {filteredArray?.map((items: any, index: any) => {
               return (
-                <Grid
-                  container
-                  direction="row"
-                  style={{ paddingTop: 10 }}
-                  key={index}
-                >
-                  <Grid item md={6} lg={6}>
-                    <StarRating
-                      initialRating={items.rating}
-                      readOnly
-                      theme={{
-                        size: 20,
-                      }}
-                    />
+                <>
+                  <Grid item md={6} lg={6} display="flex" key={index}>
+                    <CommentCard post={items} />
                   </Grid>
-                  <Grid item md={6} lg={6}>
-                    <TextWrap04
-                      style={{
-                        display: "flex",
-                        justifyContent: "end",
-                        paddingRight: 15,
-                      }}
-                    >
-                      {items.date}
-                    </TextWrap04>
-                  </Grid>
-                  <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <TextWrap04>{items.comment}</TextWrap04>
-                  </Grid>
-                  <ReplyButton post={post} />
-                </Grid>
+                  <Reply commentId={items.commentId} />
+                </>
               );
             })}
           </CommentsBox>

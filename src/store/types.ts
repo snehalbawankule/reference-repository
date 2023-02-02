@@ -10,7 +10,7 @@ export type Article = {
     {
       commentId: string;
       userName: string;
-      rating: string;
+      rating: number;
       comment: string;
       date: string;
       isReply: boolean;
@@ -35,7 +35,7 @@ export const defaultArticle: Article = {
     {
       commentId: "",
       userName: "",
-      rating: "",
+      rating: 0,
       comment: "",
       date: "",
       isReply: false,

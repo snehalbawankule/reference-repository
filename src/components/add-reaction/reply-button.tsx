@@ -4,14 +4,21 @@ import { Grid } from "@mui/material";
 import { v4 as uuidv4 } from "uuid";
 import { ButtonReply, ReplyInput } from "./reaction.styled";
 import SendIcon from "@mui/icons-material/Send";
+import { useParams } from "react-router-dom";
 import { actions } from "../../store/reducer";
-import { useAppDispatch } from "../../hooks/hooks";
+
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+
 export const ReplyButton = (props: any) => {
-  const { post } = props;
+  const { id } = useParams<{ id: string }>();
+  const post = useAppSelector((state) =>
+    state.articles.article.find((item) => item.id === id)
+  );
+
+  const ReplyTo = props.commentId;
   const [inputVisible, setInputVisible] = useState(false);
   const dispatch = useAppDispatch();
-  const ReplyTo = post?.comments?.[4].commentId;
-  console.log(ReplyTo);
+
   const [comment, setComment] = useState();
   const handleChange = (event: any) => {
     setComment(event.target.value);
@@ -21,18 +28,20 @@ export const ReplyButton = (props: any) => {
     const date = moment().format("DD, MMM. yyyy");
     const commentId = uuidv4();
     dispatch(
-      actions.addComment({
-        id: post.id,
+      actions.addReply({
+        id: post?.id,
         commentId: commentId,
         comment: comment,
         replyTo: ReplyTo,
         date: date,
+        isReply: true,
       })
     );
   };
 
   return (
     <Grid container>
+      <Grid item xs={12} sm={12} md={12} lg={12} display="flex"></Grid>
       <Grid item xs={12} sm={12} md={12} lg={12} display="flex">
         <ButtonReply onClick={() => setInputVisible(!inputVisible)}>
           Reply
