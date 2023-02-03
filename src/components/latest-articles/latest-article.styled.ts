@@ -5,6 +5,9 @@ const TextWrap02 = styled.div`
   padding-top: ${pxToRem(24)};
   font-size: ${pxToRem(27.61)};
   color: #2f2e41;
+  @media (max-width: 767px) {
+    font-size: ${pxToRem(22)};
+  }
 `;
 
 const TextWrap03 = styled.div`
@@ -12,6 +15,9 @@ const TextWrap03 = styled.div`
   color: #000000;
   padding-top: ${pxToRem(24)};
   font-size: ${pxToRem(20)};
+  @media (max-width: 767px) {
+    font-size: ${pxToRem(16)};
+  }
 `;
 const TextWrap01 = styled.div`
   padding-top: ${pxToRem(24)};

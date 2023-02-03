@@ -83,7 +83,11 @@ const Article = () => {
         display="flex"
         justifyContent="center"
       >
-        <TextWrap02 ref={textRef} onMouseUp={handleSelection}>
+        <TextWrap02
+          style={{ fontWeight: 500, fontSize: 18 }}
+          ref={textRef}
+          onMouseUp={handleSelection}
+        >
           {post?.description}
         </TextWrap02>
       </Grid>

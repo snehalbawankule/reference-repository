@@ -9,7 +9,7 @@ import SendIcon from "@mui/icons-material/Send";
 import { Input } from "../add-reaction/reaction.styled";
 export const Comment = (props: any) => {
   const { post } = props;
-
+  var currentUser = JSON.parse(localStorage.getItem("currentuser") || "{}");
   const dispatch = useAppDispatch();
 
   const [comment, setComment] = useState("");
@@ -28,6 +28,7 @@ export const Comment = (props: any) => {
       comment: comment,
       rating: exampleOneRating,
       date: date,
+      userName: currentUser.name,
       isReply: false,
     };
     dispatch(

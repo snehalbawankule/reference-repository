@@ -15,7 +15,7 @@ export const CommentCard = (props1: any) => {
           style={{ paddingTop: 10 }}
           key={post?.id}
         >
-          <Grid item xs={6} sm={6}>
+          <Grid item xs={4} sm={4}>
             <StarRating
               initialRating={post?.rating}
               readOnly
@@ -24,7 +24,17 @@ export const CommentCard = (props1: any) => {
               }}
             />
           </Grid>
-          <Grid item xs={6} sm={6}>
+          <Grid item xs={4} sm={4}>
+            <TextWrap04
+              style={{
+                display: "flex",
+                paddingRight: 15,
+              }}
+            >
+              {post?.userName}
+            </TextWrap04>
+          </Grid>
+          <Grid item xs={4} sm={4}>
             <TextWrap04
               style={{
                 display: "flex",
@@ -48,7 +58,7 @@ export const CommentCard = (props1: any) => {
           style={{ paddingTop: 10 }}
           key={post?.id}
         >
-          <Grid item md={6} lg={6}>
+          <Grid item md={4} lg={3}>
             <StarRating
               initialRating={post?.rating}
               readOnly
@@ -57,7 +67,17 @@ export const CommentCard = (props1: any) => {
               }}
             />
           </Grid>
-          <Grid item md={6} lg={6}>
+          <Grid item xs={4} sm={4}>
+            <TextWrap04
+              style={{
+                display: "flex",
+                paddingRight: 15,
+              }}
+            >
+              {post?.userName}
+            </TextWrap04>
+          </Grid>
+          <Grid item md={4} lg={4}>
             <TextWrap04
               style={{
                 display: "flex",

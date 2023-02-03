@@ -9,7 +9,7 @@ export const ReplyButton = (props: any) => {
   const { id } = useParams<{ id: string }>();
   var existingPost = JSON.parse(localStorage.getItem("articles") || "{}");
   var post = existingPost.find((item: any) => item.id === id);
-
+  var currentUser = JSON.parse(localStorage.getItem("currentuser") || "{}");
   const ReplyTo = props.commentId;
   const [inputVisible, setInputVisible] = useState(false);
   const [comment, setComment] = useState();
@@ -26,6 +26,7 @@ export const ReplyButton = (props: any) => {
       commentId: commentId,
       comment: comment,
       date: date,
+      userName: currentUser.name,
       isReply: true,
       replyTo: ReplyTo,
     };

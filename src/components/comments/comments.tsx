@@ -19,6 +19,7 @@ export const Comments = () => {
   const filteredArray = post?.comments?.filter(
     (obj: any) => obj.isReply === false
   );
+
   return (
     <>
       <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
