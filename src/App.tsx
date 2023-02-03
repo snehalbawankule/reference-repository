@@ -38,8 +38,6 @@ function App() {
           <Route path="/comments/:id" element={<Comments />} />
         </Routes>
       </Grid>
-
-      <Userdata />
     </>
   );
 }

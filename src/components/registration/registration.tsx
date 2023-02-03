@@ -26,6 +26,7 @@ import useMediaQuery from "../../hooks/use-media-query";
 
 const Registration = () => {
   const { isMobile, isDesktop } = useMediaQuery();
+  var users = JSON.parse(localStorage.getItem("userdata") || "{}");
   const Login = useGoogleLogin({
     onSuccess: (tokenResponse) => console.log(tokenResponse),
   });
@@ -37,36 +38,29 @@ const Registration = () => {
     name: "",
     email: "",
     password: "",
-    password1: "",
   });
+  var password1 = "";
   const handleChange = (event: any) => {
     setUserInfo({ ...userInfo, [event.target.name]: event.target.value });
   };
-  const dispatch = useAppDispatch();
-  /*const userData = useAppSelector((state) => state.userData);
-  useEffect(() => {
-    if (userData.lenght < 2) {
-      dispatch(userData());
-    }
-  }, [userData.length, dispatch]);
-*/
+  const handleChange1 = (event: any) => {
+    password1 = event.target.value;
+  };
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    if (userInfo.password === userInfo.password1) {
-      dispatch(
-        actions.userData({
-          name: userInfo.name,
-          email: userInfo.email,
-          password: userInfo.password,
-        })
-      );
-      setUserInfo({ name: "", email: "", password: "", password1: "" });
-      navLogin();
+    if (userInfo.password === password1) {
+      if (!users.includes(userInfo.email)) {
+        users.push(userInfo);
+        setUserInfo({ name: "", email: "", password: "" });
+        localStorage.setItem("userdata", JSON.stringify(users));
+        navLogin();
+      } else {
+        alert("This email address has already been added.");
+      }
     } else {
       alert("Passwords Don't Match");
     }
   };
-
   return (
     <Grid container style={{ background: "white" }}>
       <Grid item xs={12} sm={12} md={12} lg={8}>
@@ -197,8 +191,8 @@ const Registration = () => {
                 type="password"
                 id="pass20"
                 name="password1"
-                onChange={handleChange}
-                defaultValue={userInfo.password1}
+                onBlur={handleChange1}
+                defaultValue={password1}
                 placeholder="Confirm Password"
                 required
               />
