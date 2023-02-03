@@ -29,7 +29,6 @@ const { actions, reducer } = createSlice({
     postUpdate(state, action) {
       const { id, title, description, content, date, edited } = action.payload;
       const existingPost = state.article.find((item) => item.id === id);
-      console.log(existingPost);
       if (existingPost) {
         existingPost.title = title;
         existingPost.description = description;
@@ -49,6 +48,7 @@ const { actions, reducer } = createSlice({
     addComment(state, action) {
       const { id } = action.payload;
       const existingPost = state.article.find((item) => item.id === id);
+      console.log(action.payload);
       if (existingPost) {
         if (existingPost.comments) {
           existingPost.comments.push(action.payload);

@@ -2,6 +2,7 @@ import { Grid } from "@mui/material";
 import { LengthTextWrap } from "../add-reaction/reaction.styled";
 export const AllReactions = (props: any) => {
   const { post } = props;
+
   let length =
     !post?.comments || post?.comments?.length < 1
       ? ""

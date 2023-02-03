@@ -5,20 +5,13 @@ import { v4 as uuidv4 } from "uuid";
 import { ButtonReply, ReplyInput } from "./reaction.styled";
 import SendIcon from "@mui/icons-material/Send";
 import { useParams } from "react-router-dom";
-import { actions } from "../../store/reducer";
-
-import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
-
 export const ReplyButton = (props: any) => {
   const { id } = useParams<{ id: string }>();
-  const post = useAppSelector((state) =>
-    state.articles.article.find((item) => item.id === id)
-  );
+  var existingPost = JSON.parse(localStorage.getItem("articles") || "{}");
+  var post = existingPost.find((item: any) => item.id === id);
 
   const ReplyTo = props.commentId;
   const [inputVisible, setInputVisible] = useState(false);
-  const dispatch = useAppDispatch();
-
   const [comment, setComment] = useState();
   const handleChange = (event: any) => {
     setComment(event.target.value);
@@ -36,16 +29,6 @@ export const ReplyButton = (props: any) => {
       isReply: true,
       replyTo: ReplyTo,
     };
-    dispatch(
-      actions.addComment({
-        id: post,
-        commentId: commentId,
-        comment: comment,
-        date: date,
-        isReply: true,
-        replyTo: ReplyTo,
-      })
-    );
     const existingPost = JSON.parse(localStorage.getItem("articles") || "{}");
     var target = existingPost.find((item: any) => item.id === post?.id);
     console.log(target.comments);
@@ -76,7 +59,7 @@ export const ReplyButton = (props: any) => {
                 onBlurCapture={handleChange}
               />
             </Grid>
-            <Grid item xs={2} sm={12} md={12} lg={12} display="flex">
+            <Grid item xs={2} sm={12} md={6} lg={2} display="flex">
               <SendIcon
                 onClick={(e) => handleSubmit(e)}
                 sx={{ color: "#6d6d6d" }}

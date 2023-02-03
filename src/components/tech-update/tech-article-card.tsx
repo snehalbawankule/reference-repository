@@ -2,6 +2,7 @@ import React from "react";
 import { Grid, Card, Box } from "@mui/material";
 import { TextWrap02, TextWrap03 } from "../article/article.styled";
 import { Link } from "react-router-dom";
+import { AllReactions } from "../all-reactions/all-reactions";
 import { ReactionButtons } from "../add-reaction/add-reaction-button";
 import { ReadButton } from "../article/article.styled";
 import { default as textwrap } from "../textwrap/textwrap.json";
@@ -49,7 +50,7 @@ const TechArticleCard = (props: any) => {
           >
             <TextWrap03>{post.description}</TextWrap03>
           </Grid>
-
+          <AllReactions post={post} />
           <Grid container sx={{ mt: isDesktop ? 4 : 3 }}>
             <Grid item xs={3} sm={3} md={3} lg={3} display="contents">
               <ReadButton>

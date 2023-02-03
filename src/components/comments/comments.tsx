@@ -1,7 +1,6 @@
 import { LengthTextWrap } from "../add-reaction/reaction.styled";
 import { Grid, Box } from "@mui/material";
 import { useParams } from "react-router-dom";
-import { useAppSelector } from "../../hooks/hooks";
 import { CommentCard } from "./comment";
 import { CommentsBox } from "./comments.styled";
 import useMediaQuery from "../../hooks/use-media-query";
@@ -10,9 +9,9 @@ import { Reply } from "./reply";
 export const Comments = () => {
   const { isDesktop, isMobile } = useMediaQuery();
   const { id } = useParams<{ id: string }>();
-  const post = useAppSelector((state) =>
-    state.articles.article.find((item) => item.id === id)
-  );
+  var existingPost = JSON.parse(localStorage.getItem("articles") || "{}");
+  var post = existingPost.find((item: any) => item.id === id);
+
   let length =
     !post?.comments || post?.comments?.length < 1
       ? ""

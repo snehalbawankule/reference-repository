@@ -1,21 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Grid, Divider } from "@mui/material";
-import { addArticle } from "../../store/services";
 import TechArticleCard from "./tech-article-card";
 import { Article } from "../article/article.styled";
-import { useAppSelector, useAppDispatch } from "../../hooks/hooks";
 import { default as textwrap } from "../textwrap/textwrap.json";
 import useMediaQuery from "../../hooks/use-media-query";
 const TechUpdate = () => {
   const { isDesktop, isTablet } = useMediaQuery();
-  const articles = useAppSelector((state) => state.articles);
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    if (articles.article.length < 2) {
-      dispatch(addArticle());
-    }
-  }, [articles.article.length, dispatch]);
-  const data = articles.article.slice(6, 12);
+  var article = JSON.parse(localStorage.getItem("articles") || "{}");
+  const data = article.slice(6, 12);
   return (
     <Grid
       container
@@ -29,7 +21,7 @@ const TechUpdate = () => {
         <Divider sx={{ borderBottomWidth: 2 }} />
       </Grid>
       {data &&
-        data.map((post: any, index) => {
+        data.map((post: any, index: any) => {
           return (
             <Grid item xs={12} sm={6} md={6} lg={4} display="flex" key={index}>
               <TechArticleCard post={post} />

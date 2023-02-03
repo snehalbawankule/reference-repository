@@ -1,18 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Grid } from "@mui/material";
-import { addArticle } from "../../store/services";
-import { useAppSelector, useAppDispatch } from "../../hooks/hooks";
+
 import useMediaQuery from "../../hooks/use-media-query";
 import ArticleCard from "./article-card";
 const ArticleList = () => {
   const { isDesktop, isTablet } = useMediaQuery();
-  const articles = useAppSelector((state) => state.articles);
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    if (articles.article.length < 2) {
-      dispatch(addArticle());
-    }
-  }, [articles.article.length, dispatch]);
+  var article = JSON.parse(localStorage.getItem("articles") || "{}");
   return (
     <Grid
       container
@@ -20,7 +13,7 @@ const ArticleList = () => {
       spacing={5}
     >
       <>
-        {articles.article.map((post: any) => {
+        {article.map((post: any) => {
           return (
             <Grid
               item

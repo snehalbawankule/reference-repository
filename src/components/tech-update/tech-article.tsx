@@ -5,13 +5,13 @@ import {
   TextWrap02,
   TextWrap03,
 } from "../latest-articles/latest-article.styled";
-import { useAppSelector } from "../../hooks/hooks";
+
 import useMediaQuery from "../../hooks/use-media-query";
 const TechArticle = () => {
   const { id } = useParams<{ id: string }>();
-  const post = useAppSelector((state) =>
-    state.articles.article.find((item) => item.id === id)
-  );
+  var existingPost = JSON.parse(localStorage.getItem("articles") || "{}");
+  var post = existingPost.find((item: any) => item.id === id);
+
   const textRef = useRef<HTMLDivElement>(null);
 
   function handleSelection() {

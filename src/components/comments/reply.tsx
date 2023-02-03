@@ -1,13 +1,11 @@
 import { Grid } from "@mui/material";
 import { useParams } from "react-router-dom";
-import { useAppSelector } from "../../hooks/hooks";
 import { ReplyCard } from "./reply-card";
 export const Reply = (props: any) => {
   const { id } = useParams<{ id: string }>();
-  const post = useAppSelector((state) =>
-    state.articles.article.find((item) => item.id === id)
-  );
 
+  const existingPost = JSON.parse(localStorage.getItem("articles") || "{}");
+  var post = existingPost.find((item: any) => item.id === id);
   const filteredArray = post?.comments?.filter(
     (obj: any) => obj.replyTo === props.commentId && obj.isReply === true
   );
