@@ -2,7 +2,7 @@ import React from "react";
 import { Grid, Card, Box, Divider } from "@mui/material";
 import { TextWrap01, TextWrap02, TextWrap03 } from "../article/article.styled";
 
-import { ReactionButtons } from "../add-reaction/add-reaction-button";
+import ReactionButtons from "../add-reaction";
 import useMediaQuery from "../../hooks/use-media-query";
 import { useNavigate } from "react-router-dom";
 import { AllReactions } from "../all-reactions/all-reactions";

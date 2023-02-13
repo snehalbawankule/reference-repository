@@ -1,7 +1,6 @@
 import React from "react";
 import { Grid } from "@mui/material";
 import { Link } from "react-router-dom";
-
 import useMediaQuery from "../../hooks/use-media-query";
 import ArticleCard from "./latest-article-card";
 import { LoadMoreButton, Article } from "../article/article.styled";

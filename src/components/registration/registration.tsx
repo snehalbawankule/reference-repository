@@ -1,8 +1,8 @@
 import GoogleLogo from "../../assets/images/GoogleLogo.png";
 import { useState } from "react";
-import { actions } from "../../store/reducer";
-import { useAppDispatch } from "../../hooks/hooks";
 
+import { AES } from "crypto-js";
+import CryptoJS from "crypto-js";
 import {
   CreateAccountButton,
   Input,
@@ -37,187 +37,203 @@ const Registration = () => {
   const [userInfo, setUserInfo] = useState({
     name: "",
     email: "",
+    profile: "",
     password: "",
   });
-  var password1 = "";
+  var confirm_password = "";
   const handleChange = (event: any) => {
     setUserInfo({ ...userInfo, [event.target.name]: event.target.value });
   };
   const handleChange1 = (event: any) => {
-    password1 = event.target.value;
+    confirm_password = event.target.value;
   };
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    if (userInfo.password === password1) {
-      if (!users.includes(userInfo.email)) {
+    if (userInfo.password === confirm_password) {
+      const encryptedData = AES.encrypt(
+        JSON.stringify(userInfo.password),
+        "secret key"
+      ).toString();
+      console.log(encryptedData);
+      if (!users?.includes(userInfo.email)) {
         users.push(userInfo);
-        setUserInfo({ name: "", email: "", password: "" });
+        userInfo.password = CryptoJS.AES.encrypt(
+          userInfo.password,
+          "secret key"
+        ).toString();
+
+        //userInfo.password = bcrypt.hashSync(userInfo.password, 10);
+        setUserInfo({ name: "", email: "", profile: "", password: "" });
         localStorage.setItem("userdata", JSON.stringify(users));
         navLogin();
       } else {
         alert("This email address has already been added.");
       }
     } else {
-      alert("Passwords Don't Match");
+      alert("passwords Don't Match");
     }
   };
   return (
-    <Grid container style={{ background: "white" }}>
-      <Grid item xs={12} sm={12} md={12} lg={8}>
-        <Box
-          style={{
-            backgroundImage: `url(${Rectangle1})`,
-            backgroundPosition: "center",
-            backgroundSize: "cover",
-          }}
-        >
-          <Grid
-            item
-            xs={12}
-            sm={12}
-            md={7}
-            lg={6}
-            sx={{ pl: isDesktop ? 10 : 4, pt: isDesktop ? 5 : 1 }}
-          >
-            <TextWrap4>{textwrap.title}</TextWrap4>
-          </Grid>
-          <Grid
-            item
-            xs={11}
-            sm={10}
-            md={12}
-            lg={10}
-            sx={{ pl: isDesktop ? 10 : 4, pt: isMobile ? 15 : 60 }}
-          >
-            <TextWrap5>{textwrap.description}</TextWrap5>
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            sm={12}
-            md={6}
-            lg={6}
-            sx={{ pl: isDesktop ? 10 : 4 }}
-          >
-            <TextWrap6>{textwrap.author}</TextWrap6>
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            md={6}
-            lg={6}
-            sx={{
-              pl: isDesktop ? 10 : 4,
-              mt: isMobile ? -3 : -5,
-              pb: isMobile ? 3 : 8,
+    <>
+      <Grid container style={{ background: "white" }}>
+        <Grid item xs={12} sm={12} md={12} lg={8}>
+          <Box
+            style={{
+              backgroundImage: `url(${Rectangle1})`,
+              backgroundPosition: "center",
+              backgroundSize: "cover",
             }}
           >
-            <TextWrap7>{textwrap.authorCategory}</TextWrap7>
-          </Grid>
-        </Box>
-      </Grid>
-      <Grid
-        item
-        xs={12}
-        sm={12}
-        md={12}
-        lg={4}
-        display="block"
-        sx={{ px: isDesktop ? 4 : "" }}
-        style={{
-          justifyContent: isDesktop ? "flex-start" : "center",
-          textAlign: "center",
-          alignItems: isMobile ? "center" : "flex-start",
-        }}
-      >
-        <form
-          onSubmit={(e) => {
-            handleSubmit(e);
-          }}
-        >
-          <Box sx={{ pt: isDesktop ? 10 : 3 }}>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
-              <TextWrap1>{textwrap.createAccount}</TextWrap1>
+            <Grid
+              item
+              xs={12}
+              sm={12}
+              md={7}
+              lg={6}
+              sx={{ pl: isDesktop ? 10 : 4, pt: isDesktop ? 5 : 1 }}
+            >
+              <TextWrap4>{textwrap.title}</TextWrap4>
             </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
-              <TextWrap2>{textwrap.accountDescription}</TextWrap2>
+            <Grid
+              item
+              xs={11}
+              sm={10}
+              md={12}
+              lg={10}
+              sx={{ pl: isDesktop ? 10 : 4, pt: isMobile ? 15 : 60 }}
+            >
+              <TextWrap5>{textwrap.description}</TextWrap5>
             </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12} sx={{ marginTop: 4 }}>
-              <Input
-                type="text"
-                name="name"
-                onBlur={handleChange}
-                defaultValue={userInfo.name}
-                placeholder="Name"
-                minLength={5}
-                maxLength={10}
-                required
-              />
+            <Grid
+              item
+              xs={12}
+              sm={12}
+              md={6}
+              lg={6}
+              sx={{ pl: isDesktop ? 10 : 4 }}
+            >
+              <TextWrap6>{textwrap.author}</TextWrap6>
             </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
-              <Input
-                type="email"
-                name="email"
-                placeholder="Email Address"
-                onBlur={handleChange}
-                defaultValue={userInfo.email}
-                required
-              />
-            </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
-              <Input
-                type="text"
-                name="profilepic"
-                placeholder="Add Profile Picture"
-                required
-              />
-            </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
-              <Input
-                type="password"
-                id="pass10"
-                name="password"
-                onBlur={handleChange}
-                defaultValue={userInfo.password}
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-                placeholder="Password"
-                required
-              />
-            </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
-              <Input
-                type="password"
-                id="pass20"
-                name="password1"
-                onBlur={handleChange1}
-                defaultValue={password1}
-                placeholder="Confirm Password"
-                required
-              />
-            </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
-              <CreateAccountButton>
-                {textwrap.createAccountButton}
-              </CreateAccountButton>
-            </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
-              <SignGoogleButton onClick={() => Login()}>
-                <GoogleLogo1 src={GoogleLogo} />
-                {textwrap.googleSignUp}
-              </SignGoogleButton>
-            </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
-              <TextWrap3>
-                {textwrap.alreadyHas}
-                <LoginLink onClick={navLogin}>{textwrap.loginLink}</LoginLink>
-              </TextWrap3>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={6}
+              lg={6}
+              sx={{
+                pl: isDesktop ? 10 : 4,
+                mt: isMobile ? -3 : -5,
+                pb: isMobile ? 3 : 8,
+              }}
+            >
+              <TextWrap7>{textwrap.authorCategory}</TextWrap7>
             </Grid>
           </Box>
-        </form>
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          sm={12}
+          md={12}
+          lg={4}
+          display="block"
+          sx={{ px: isDesktop ? 4 : "" }}
+          style={{
+            justifyContent: isDesktop ? "flex-start" : "center",
+            textAlign: "center",
+            alignItems: isMobile ? "center" : "flex-start",
+          }}
+        >
+          <form
+            onSubmit={(e) => {
+              handleSubmit(e);
+            }}
+          >
+            <Box sx={{ pt: isDesktop ? 10 : 3 }}>
+              <Grid item xs={12} sm={12} md={12} lg={12}>
+                <TextWrap1>{textwrap.createAccount}</TextWrap1>
+              </Grid>
+              <Grid item xs={12} sm={12} md={12} lg={12}>
+                <TextWrap2>{textwrap.accountDescription}</TextWrap2>
+              </Grid>
+              <Grid item xs={12} sm={12} md={12} lg={12} sx={{ marginTop: 4 }}>
+                <Input
+                  type="text"
+                  name="name"
+                  onBlur={handleChange}
+                  defaultValue={userInfo.name}
+                  placeholder="Name"
+                  minLength={5}
+                  maxLength={10}
+                  required
+                />
+              </Grid>
+              <Grid item xs={12} sm={12} md={12} lg={12}>
+                <Input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  onBlur={handleChange}
+                  defaultValue={userInfo.email}
+                  required
+                />
+              </Grid>
+              <Grid item xs={12} sm={12} md={12} lg={12}>
+                <Input
+                  type="url"
+                  name="profile"
+                  onBlur={handleChange}
+                  defaultValue={userInfo.profile}
+                  placeholder="Add Profile Picture"
+                  required
+                />
+              </Grid>
+              <Grid item xs={12} sm={12} md={12} lg={12}>
+                <Input
+                  type="password"
+                  id="pass10"
+                  name="password"
+                  onBlur={handleChange}
+                  defaultValue={userInfo.password}
+                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                  title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                  placeholder="password"
+                  required
+                />
+              </Grid>
+              <Grid item xs={12} sm={12} md={12} lg={12}>
+                <Input
+                  type="password"
+                  id="pass20"
+                  name="confirm_password"
+                  onBlur={handleChange1}
+                  defaultValue={confirm_password}
+                  placeholder="Confirm password"
+                  required
+                />
+              </Grid>
+              <Grid item xs={12} sm={12} md={12} lg={12}>
+                <CreateAccountButton>
+                  {textwrap.createAccountButton}
+                </CreateAccountButton>
+              </Grid>
+              <Grid item xs={12} sm={12} md={12} lg={12}>
+                <SignGoogleButton onClick={() => Login()}>
+                  <GoogleLogo1 src={GoogleLogo} />
+                  {textwrap.googleSignUp}
+                </SignGoogleButton>
+              </Grid>
+              <Grid item xs={12} sm={12} md={12} lg={12}>
+                <TextWrap3>
+                  {textwrap.alreadyHas}
+                  <LoginLink onClick={navLogin}>{textwrap.loginLink}</LoginLink>
+                </TextWrap3>
+              </Grid>
+            </Box>
+          </form>
+        </Grid>
       </Grid>
-    </Grid>
+    </>
   );
 };
 export default Registration;

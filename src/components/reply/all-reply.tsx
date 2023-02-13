@@ -9,7 +9,6 @@ export const AllReply = (props: any) => {
   const filteredArray = post?.comments?.filter(
     (obj: any) => obj.replyTo === props.commentId && obj.isReply === true
   );
-
   return (
     <Grid
       container

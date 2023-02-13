@@ -1,8 +1,10 @@
 import React from "react";
 import { Grid, Card, Box } from "@mui/material";
 import { TextWrap01, TextWrap02, TextWrap03 } from "./article.styled";
-import { ReactionButtons } from "../add-reaction/add-reaction-button";
+import ReactionButtons from "../add-reaction";
 import useMediaQuery from "../../hooks/use-media-query";
+import { AllReactions } from "../all-reactions/all-reactions";
+import { Divider } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 const ArticleCard = (props: any) => {
@@ -55,6 +57,11 @@ const ArticleCard = (props: any) => {
               <TextWrap03>{post.description}</TextWrap03>
             </Grid>
           </Box>
+
+          <AllReactions post={post} />
+          <Grid item xs={12} sm={12} md={12} lg={12} sx={{ pt: 2 }}>
+            <Divider sx={{ borderBottomWidth: 2 }} />
+          </Grid>
           <Grid
             item
             xs={12}

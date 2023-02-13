@@ -1,12 +1,15 @@
 import React, { useRef } from "react";
 import { Grid } from "@mui/material";
 import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 import { TextWrap02, TextWrap03, TextWrap01 } from "./latest-article.styled";
 import useMediaQuery from "../../hooks/use-media-query";
 import "../../index.css";
 import { Comments } from "../comments/comments";
+import { AllReactions } from "../all-reactions/all-reactions";
 const Article = () => {
   const { id } = useParams<{ id: string }>();
+
   var existingPost = JSON.parse(localStorage.getItem("articles") || "{}");
   var post = existingPost.find((item: any) => item.id === id);
   const { isMobile, isTablet, isDesktop } = useMediaQuery();
@@ -25,8 +28,8 @@ const Article = () => {
       container
       display="flex"
       sx={{
-        mt: 20,
-        px: isDesktop ? 5 : isTablet ? 7 : 4,
+        mt: isDesktop ? 15 : isTablet ? 12 : 10,
+        px: isDesktop ? 5 : isTablet ? 5 : 4,
         display: "flex",
         justifyContent: "center",
       }}
@@ -104,6 +107,7 @@ const Article = () => {
           {post?.content}
         </TextWrap03>
       </Grid>
+      <AllReactions post={post} />
       <Comments />
     </Grid>
   );

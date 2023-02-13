@@ -19,7 +19,7 @@ const Input = styled.input`
   border-width: 0 0 2px;
   margin-top: ${pxToRem(10)};
   @media (min-width: 768px) {
-    width: ${pxToRem(700)};
+    width: ${pxToRem(610)};
   }
 `;
 
@@ -38,7 +38,7 @@ const TextWrap04 = styled.div`
 `;
 const ReplyInput = styled.input`
   font-weight: 300;
-  width: ${pxToRem(220)};
+  width: ${pxToRem(200)};
   font-size: ${pxToRem(17)};
   border-width: 0 0 2px;
 

@@ -2,7 +2,8 @@ import { useState } from "react";
 import moment from "moment";
 import { Grid } from "@mui/material";
 import { v4 as uuidv4 } from "uuid";
-import { ButtonReply, ReplyInput } from "./reaction.styled";
+import { useNavigate } from "react-router-dom";
+import { ButtonReply, ReplyInput } from "../add-reaction/reaction.styled";
 import SendIcon from "@mui/icons-material/Send";
 import { useParams } from "react-router-dom";
 export const ReplyButton = (props: any) => {
@@ -16,7 +17,7 @@ export const ReplyButton = (props: any) => {
   const handleChange = (event: any) => {
     setComment(event.target.value);
   };
-
+  const navigate = useNavigate();
   const handleSubmit = (event: any) => {
     event.preventDefault();
     const date = moment().format("DD, MMM. yyyy");
@@ -27,12 +28,12 @@ export const ReplyButton = (props: any) => {
       comment: comment,
       date: date,
       userName: currentUser.name,
+      userProfile: currentUser.profile,
       isReply: true,
       replyTo: ReplyTo,
     };
     const existingPost = JSON.parse(localStorage.getItem("articles") || "{}");
     var target = existingPost.find((item: any) => item.id === post?.id);
-    console.log(target.comments);
     if (target) {
       if (target.comments) {
         target.comments.push(newComment);
@@ -41,6 +42,7 @@ export const ReplyButton = (props: any) => {
       }
     }
     localStorage.setItem("articles", JSON.stringify(existingPost));
+    navigate(`/articles/${id}`);
   };
 
   return (

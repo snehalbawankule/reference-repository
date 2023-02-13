@@ -1,7 +1,7 @@
 import { StarRating } from "star-rating-react-ts";
 import { TextWrap04 } from "../add-reaction/reaction.styled";
 import { Grid, Box } from "@mui/material";
-import { ReplyButton } from "../add-reaction/reply-button";
+import { ReplyButton } from "../reply/reply-button";
 
 export const CommentCard = (props1: any) => {
   const { post } = props1;
@@ -15,7 +15,17 @@ export const CommentCard = (props1: any) => {
           style={{ paddingTop: 10 }}
           key={post?.id}
         >
-          <Grid item xs={4} sm={4}>
+          <Box
+            style={{
+              height: "30px",
+              width: "30px",
+              backgroundImage: `url(${post?.userProfile})`,
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              borderRadius: 50,
+            }}
+          />
+          <TextWrap04 style={{ paddingTop: 3, paddingLeft: 7 }}>
             <StarRating
               initialRating={post?.rating}
               readOnly
@@ -23,28 +33,11 @@ export const CommentCard = (props1: any) => {
                 size: 20,
               }}
             />
-          </Grid>
-          <Grid item xs={4} sm={4}>
-            <TextWrap04
-              style={{
-                display: "flex",
-                paddingRight: 15,
-              }}
-            >
-              {post?.userName}
-            </TextWrap04>
-          </Grid>
-          <Grid item xs={4} sm={4}>
-            <TextWrap04
-              style={{
-                display: "flex",
-                justifyContent: "end",
-                paddingRight: 15,
-              }}
-            >
-              {post?.date}
-            </TextWrap04>
-          </Grid>
+          </TextWrap04>
+
+          <TextWrap04 style={{ paddingLeft: 5 }}>{post?.userName}</TextWrap04>
+
+          <TextWrap04 style={{ paddingLeft: 50 }}>{post?.date}</TextWrap04>
           <Grid item xs={12} sm={12}>
             <TextWrap04>{post?.comment}</TextWrap04>
           </Grid>
@@ -55,10 +48,21 @@ export const CommentCard = (props1: any) => {
         <Grid
           container
           direction="row"
+          display="flex"
           style={{ paddingTop: 10 }}
           key={post?.id}
         >
-          <Grid item md={4} lg={3}>
+          <Box
+            style={{
+              height: "30px",
+              width: "30px",
+              backgroundImage: `url(${post?.userProfile})`,
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              borderRadius: 50,
+            }}
+          />
+          <TextWrap04 style={{ paddingTop: 3, paddingLeft: 10 }}>
             <StarRating
               initialRating={post?.rating}
               readOnly
@@ -66,28 +70,12 @@ export const CommentCard = (props1: any) => {
                 size: 20,
               }}
             />
-          </Grid>
-          <Grid item xs={4} sm={4}>
-            <TextWrap04
-              style={{
-                display: "flex",
-                paddingRight: 15,
-              }}
-            >
-              {post?.userName}
-            </TextWrap04>
-          </Grid>
-          <Grid item md={4} lg={4}>
-            <TextWrap04
-              style={{
-                display: "flex",
-                justifyContent: "end",
-                paddingRight: 15,
-              }}
-            >
-              {post?.date}
-            </TextWrap04>
-          </Grid>
+          </TextWrap04>
+
+          <TextWrap04 style={{ paddingLeft: 10 }}>{post?.userName}</TextWrap04>
+
+          <TextWrap04 style={{ paddingLeft: 10 }}>{post?.date}</TextWrap04>
+
           <Grid item md={12} lg={12}>
             <TextWrap04>{post?.comment}</TextWrap04>
           </Grid>

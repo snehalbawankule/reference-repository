@@ -3,7 +3,7 @@ import { Grid, Card, Box } from "@mui/material";
 import { TextWrap02, TextWrap03 } from "../article/article.styled";
 import { Link } from "react-router-dom";
 import { AllReactions } from "../all-reactions/all-reactions";
-import { ReactionButtons } from "../add-reaction/add-reaction-button";
+import ReactionButtons from "../add-reaction";
 import { ReadButton } from "../article/article.styled";
 import { default as textwrap } from "../textwrap/textwrap.json";
 import useMediaQuery from "../../hooks/use-media-query";

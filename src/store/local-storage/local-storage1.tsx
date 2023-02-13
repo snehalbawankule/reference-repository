@@ -315,13 +315,7 @@ export function Posts() {
 }
 
 export function Userdata() {
-  var users = [
-    {
-      name: "Snehal",
-      email: "sneh@abc.com",
-      password: "Sne@1234",
-    },
-  ];
+  var users = [{}];
   localStorage.setItem("userdata", JSON.stringify(users));
 
   return <TextWrap />;

@@ -1,21 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import moment from "moment";
+import { useNavigate } from "react-router";
 import { v4 as uuidv4 } from "uuid";
 import { StarRating } from "star-rating-react-ts";
 import { Button, Grid } from "@mui/material";
-import { actions } from "../../store/reducer";
-import { useAppDispatch } from "../../hooks/hooks";
 import SendIcon from "@mui/icons-material/Send";
 import { Input } from "../add-reaction/reaction.styled";
 export const Comment = (props: any) => {
   const { post } = props;
   var currentUser = JSON.parse(localStorage.getItem("currentuser") || "{}");
-  const dispatch = useAppDispatch();
 
   const [comment, setComment] = useState("");
   const handleChange = (event: any) => {
     setComment(event.target.value);
   };
+  const navigate = useNavigate();
+
   const isTextareaDisabled = comment?.length === 0;
   const [exampleOneRating, setExampleOneRating] = useState<number>(0);
   const handleSubmit = (event: any) => {
@@ -29,21 +29,13 @@ export const Comment = (props: any) => {
       rating: exampleOneRating,
       date: date,
       userName: currentUser.name,
+      userProfile: currentUser.profile,
       isReply: false,
     };
-    dispatch(
-      actions.addComment({
-        id: post,
-        commentId: commentId,
-        comment: comment,
-        rating: exampleOneRating,
-        date: date,
-        isReply: false,
-      })
-    );
 
     const existingPost = JSON.parse(localStorage.getItem("articles") || "{}");
     var target = existingPost.find((item: any) => item.id === post);
+    const id = target.id;
     if (target) {
       if (target.comments) {
         target.comments.push(newComment);
@@ -52,6 +44,7 @@ export const Comment = (props: any) => {
       }
     }
     localStorage.setItem("articles", JSON.stringify(existingPost));
+    navigate(`/articles/${id}`);
   };
 
   return (

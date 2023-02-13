@@ -35,62 +35,69 @@ const Navbar = () => {
     <Grid container>
       <AppBar position="fixed" style={{ background: "white", color: "black" }}>
         <Toolbar>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <Grid item xs={3} sm={3}>
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleOpenNavMenu}
-                color="inherit"
-              >
-                <MenuIcon />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "left",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
-                sx={{
-                  display: { xs: "block", md: "none" },
-                }}
-              >
-                {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">
-                      <Link to={`/${page}`}>{page}</Link>
-                    </Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
-            </Grid>
-            <Grid item xs={9} sm={9}>
-              <TextWrap4 style={{ color: "black", paddingLeft: 10 }}>
-                SkillupAfrica Blog
-              </TextWrap4>
-            </Grid>
-          </Box>
           <Box
             sx={{
               flexGrow: 1,
-              display: { xs: "none", md: "flex", alignItems: "center" },
+              display: { xs: "flex", md: "none" },
+            }}
+          >
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "left",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "left",
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{
+                display: { xs: "block", md: "none" },
+              }}
+            >
+              {pages.map((page) => (
+                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">
+                    <Link to={`/${page}`}>{page}</Link>
+                  </Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+
+            <TextWrap4 style={{ color: "black", paddingLeft: 10 }}>
+              SkillupAfrica Blog
+            </TextWrap4>
+          </Box>
+
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: {
+                xs: "none",
+                md: "flex",
+                alignItems: "center",
+              },
             }}
           >
             <Grid item md={8} lg={12}>
               <TextWrap4
                 style={{
                   color: "black",
-                  paddingLeft: isDesktop ? 30 : isTablet ? 70 : "",
+                  paddingLeft: isDesktop ? 30 : "",
                 }}
               >
                 SkillupAfrica Blog
@@ -128,6 +135,7 @@ const Navbar = () => {
             sm={3}
             md={3}
             lg={3}
+            sx={{ paddingLeft: isTablet ? -20 : "" }}
             display="flex"
             justifyContent="space-evenly"
           >

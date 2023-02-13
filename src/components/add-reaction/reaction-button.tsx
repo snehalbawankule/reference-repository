@@ -6,7 +6,8 @@ import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import ChatBubbleOutlineRoundedIcon from "@mui/icons-material/ChatBubbleOutlineRounded";
 import useMediaQuery from "../../hooks/use-media-query";
-export const ReactionButtons = (props: any) => {
+
+const ReactionButtons = (props: any) => {
   const { post } = props;
   const [like, setLike] = useState(false);
   const { isMobile, isDesktop } = useMediaQuery();
@@ -92,3 +93,4 @@ export const ReactionButtons = (props: any) => {
     </Grid>
   );
 };
+export default ReactionButtons;

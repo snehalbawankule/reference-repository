@@ -24,6 +24,9 @@
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
     "@types/styled-components": "^5.1.26",
+    "bcryptjs": "^2.4.3",
+    "crypto-js": "^4.1.1",
+    "cryptr": "^6.1.0",
     "google-sign-in": "^3.0.3",
     "input-material-ui": "^3.0.0",
     "jwt-decode": "^3.1.2",
@@ -31,7 +34,9 @@
     "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-encrypt": "^1.0.1",
     "react-native": "^0.71.1",
+    "react-native-crypto": "^2.2.0",
     "react-native-divider": "^1.0.3",
     "react-native-ratings": "^8.1.0",
     "react-redux": "^8.0.5",
@@ -73,7 +78,13 @@
     ]
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/crypto-js": "^4.1.1",
+    "@types/cryptr": "^4.0.1",
     "@types/react-router": "^5.1.20",
     "@types/react-router-dom": "^5.3.3"
+  },
+  "browser": {
+    "crypto": false
   }
 }

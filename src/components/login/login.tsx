@@ -1,6 +1,10 @@
 import { useGoogleLogin } from "@react-oauth/google";
+import { useState } from "react";
 import GoogleLogo from "../../assets/images/GoogleLogo.png";
+import CryptoJS from "crypto-js";
+import { AES } from "crypto-js";
 import { Box, Grid, Divider } from "@mui/material";
+
 import {
   Input,
   SignGoogleButton,
@@ -19,9 +23,41 @@ import { default as textwrap } from "../textwrap/textwrap.json";
 import Rectangle2 from "../../assets/images/Rectangle2.png";
 import { useNavigate } from "react-router-dom";
 import useMediaQuery from "../../hooks/use-media-query";
-const Registration = () => {
+const Login = () => {
   const { isTablet, isDesktop, isMobile } = useMediaQuery();
   const navigate = useNavigate();
+  const [userInfo, setUserInfo] = useState({
+    email: "",
+    password: "",
+  });
+  var user = JSON.parse(localStorage.getItem("userdata") || "{}");
+
+  const handleChange = (event: any) => {
+    setUserInfo({ ...userInfo, [event.target.name]: event.target.value });
+  };
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+    var post = user.find((item: any) => item.email === userInfo.email);
+    console.log(post.password);
+
+    const decryptedPassword = AES.decrypt(post.password, "secret key");
+    const decrypted = decryptedPassword.toString(CryptoJS.enc.Utf8);
+
+    console.log(
+      "decryptPass" + decryptedPassword + "convertToString" + decrypted
+    );
+    console.log(decrypted === userInfo.password);
+
+    if (post) {
+      if (decrypted === userInfo.password) {
+        localStorage.setItem("currentuser", JSON.stringify(post));
+        navHome();
+      } else alert("Password Is Incorrect");
+    } else {
+      alert("Email or Password Is Incorrect");
+    }
+  };
+
   const navRegistration = () => {
     navigate("/");
   };
@@ -122,7 +158,11 @@ const Registration = () => {
           </Grid>
           <Divider style={{ marginTop: 65 }}>OR</Divider>
 
-          <form onSubmit={navHome}>
+          <form
+            onSubmit={(e) => {
+              handleSubmit(e);
+            }}
+          >
             <Grid
               item
               xs={12}
@@ -135,6 +175,8 @@ const Registration = () => {
                 type="email"
                 name="email"
                 placeholder="Email Address"
+                defaultValue={userInfo.email}
+                onBlur={handleChange}
                 required
               />
             </Grid>
@@ -143,7 +185,9 @@ const Registration = () => {
                 style={{ marginBottom: 0 }}
                 type="password"
                 id="pass"
-                name="password1"
+                name="password"
+                onBlur={handleChange}
+                defaultValue={userInfo.password}
                 placeholder="Confirm Password"
                 required
               />
@@ -168,4 +212,4 @@ const Registration = () => {
     </Grid>
   );
 };
-export default Registration;
+export default Login;
