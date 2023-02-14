@@ -14,7 +14,7 @@ const PostButton = styled.button`
 `;
 const Input = styled.input`
   font-weight: 300;
-  width: ${pxToRem(260)};
+  width: ${pxToRem(250)};
   font-size: ${pxToRem(17)};
   border-width: 0 0 2px;
   margin-top: ${pxToRem(10)};
@@ -22,7 +22,7 @@ const Input = styled.input`
     width: ${pxToRem(530)};
   }
   @media (min-width: 1024px) {
-    width: ${pxToRem(832)};
+    width: ${pxToRem(780)};
   }
 `;
 

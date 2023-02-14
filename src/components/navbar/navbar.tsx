@@ -79,20 +79,31 @@ const Navbar = () => {
                 </MenuItem>
               ))}
             </Menu>
+            <TextWrap4 style={{ color: "black", paddingLeft: 10 }}>
+              {textwrap.SkillupAfricaBlog}
+            </TextWrap4>
           </Grid>
-          <TextWrap4 style={{ color: "black", paddingLeft: 10 }}>
-            {textwrap.SkillupAfricaBlog}
-          </TextWrap4>
+
           <Box
             sx={{
               flexGrow: 1,
-              display: {
-                xs: "none",
-                md: "flex",
-                alignItems: "center",
-              },
+              display: isDesktop ? "flex" : "none",
+              alignItems: "center",
             }}
           >
+            <Grid
+              item
+              md={7}
+              lg={6}
+              style={{
+                paddingLeft: isDesktop ? 50 : 10,
+                display: "flex",
+              }}
+            >
+              <TextWrap4 style={{ color: "black" }}>
+                {textwrap.SkillupAfricaBlog}
+              </TextWrap4>
+            </Grid>
             <Grid
               item
               md={12}

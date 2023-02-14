@@ -17,64 +17,54 @@ export const Comments = () => {
   );
 
   return (
-    <>
-      {" "}
-      <Grid container display="flex" justifyContent="center">
-        <Box
+    <Grid container display="flex" justifyContent="center">
+      <Box
+        sx={{
+          display: isDesktop ? "flex" : isTablet ? "flex" : "none",
+          marginTop: isMobile ? "80px" : "40px",
+        }}
+      >
+        <Comment post={post?.id} />
+      </Box>
+      <CommentsBox
+        style={{
+          marginTop: isDesktop ? "20px" : isMobile ? "90px" : "30px",
+          paddingLeft: isDesktop ? "20px" : isMobile ? "10px" : "30px",
+          paddingRight: isDesktop ? "20px" : isMobile ? "10px" : "30px",
+        }}
+      >
+        {filteredArray?.map((items: any, index: any) => {
+          return (
+            <>
+              <Grid
+                item
+                xs={12}
+                sm={12}
+                md={12}
+                lg={12}
+                display="flex"
+                key={index}
+              >
+                <CommentCard post={items} />
+              </Grid>
+              <Reply commentId={items.commentId} />
+            </>
+          );
+        })}
+      </CommentsBox>
+      <Box sx={{ flexGrow: 1, display: isMobile ? "flex" : "none" }}>
+        <Grid
+          container
+          direction="row"
           sx={{
-            flexGrow: 1,
-            display: isDesktop ? "flex" : isTablet ? "flex" : "none",
+            marginTop: isDesktop ? "2px" : isMobile ? "40px" : "5px",
+            mx: 2,
+            marginBottom: 5,
           }}
         >
-          <Grid
-            container
-            sx={{
-              marginTop: isMobile ? "80px" : "30px",
-              mx: 5,
-            }}
-          >
-            <Grid item md={12} lg={12}>
-              <Comment post={post?.id} />
-            </Grid>
-          </Grid>
-        </Box>
-        <CommentsBox
-          style={{
-            marginTop: isDesktop ? "20px" : isMobile ? "90px" : "30px",
-          }}
-        >
-          {filteredArray?.map((items: any, index: any) => {
-            return (
-              <>
-                <Grid
-                  item
-                  xs={12}
-                  sm={12}
-                  md={12}
-                  lg={12}
-                  display="flex"
-                  key={index}
-                >
-                  <CommentCard post={items} />
-                </Grid>
-                <Reply commentId={items.commentId} />
-              </>
-            );
-          })}
-        </CommentsBox>
-        <Box sx={{ flexGrow: 1, display: isMobile ? "flex" : "none" }}>
-          <Grid
-            container
-            direction="row"
-            sx={{
-              marginTop: isDesktop ? "2px" : isMobile ? "80px" : "5px",
-              mx: 5,
-            }}
-          >
-            <Comment post={post?.id} />
-          </Grid>
-        </Box>
-      </Grid>
-    </>
+          <Comment post={post?.id} />
+        </Grid>
+      </Box>
+    </Grid>
   );
 };
