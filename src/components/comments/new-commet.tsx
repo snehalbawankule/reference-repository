@@ -58,23 +58,21 @@ export const Comment = (props: any) => {
           }}
         />
       </Grid>
-      <Grid item xs={10} sm={10} md={10} lg={7}>
-        <Input
-          name="comment"
-          placeholder="comment"
-          defaultValue={comment}
-          onBlurCapture={handleChange}
-        />
-      </Grid>
-      <Grid item xs={2} sm={2} md={2} lg={2}>
-        <Button
-          disabled={isTextareaDisabled}
-          onClick={(e) => handleSubmit(e)}
-          sx={{ pl: 2, color: "#6d6d6d" }}
-        >
-          <SendIcon />
-        </Button>
-      </Grid>
+
+      <Input
+        name="comment"
+        placeholder="comment"
+        defaultValue={comment}
+        onBlurCapture={handleChange}
+      />
+
+      <Button
+        disabled={isTextareaDisabled}
+        onClick={(e) => handleSubmit(e)}
+        sx={{ pl: 2, color: "#6d6d6d" }}
+      >
+        <SendIcon />
+      </Button>
     </Grid>
   );
 };
