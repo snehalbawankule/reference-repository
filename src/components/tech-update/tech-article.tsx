@@ -35,7 +35,7 @@ const TechArticle = () => {
       lg={12}
       display="flex"
       sx={{
-        mt: 20,
+        mt: isDesktop ? 20 : isTablet ? 12 : 10,
         px: isDesktop ? 10 : isTablet ? 7 : 4,
         display: "flex",
         justifyContent: "center",
