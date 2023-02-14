@@ -1,3 +1,6 @@
-[submodule "path_to_submodule"] 
-  path = path_to_submodule 
+[submodule "src"] 
+  path =src
   url = https://github.com/snehalbawankule/reference-repository
+
+
+   
