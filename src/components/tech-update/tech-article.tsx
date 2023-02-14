@@ -5,7 +5,8 @@ import {
   TextWrap02,
   TextWrap03,
 } from "../latest-articles/latest-article.styled";
-
+import { AllReactions } from "../all-reactions/all-reactions";
+import { Comments } from "../comments/comments";
 import useMediaQuery from "../../hooks/use-media-query";
 const TechArticle = () => {
   const { id } = useParams<{ id: string }>();
@@ -89,6 +90,8 @@ const TechArticle = () => {
               {post?.content}
             </TextWrap03>
           </Grid>
+          <AllReactions post={post} />
+          <Comments />
         </Box>
       </Card>
     </Grid>

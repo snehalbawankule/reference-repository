@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import moment from "moment";
 import { useNavigate } from "react-router";
 import { v4 as uuidv4 } from "uuid";
 import { StarRating } from "star-rating-react-ts";
 import { Button, Grid } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
+
 import { Input } from "../add-reaction/reaction.styled";
 export const Comment = (props: any) => {
   const { post } = props;
@@ -48,8 +49,16 @@ export const Comment = (props: any) => {
   };
 
   return (
-    <Grid container display="flex">
-      <Grid item xs={10} sm={10} md={10} lg={10}>
+    <Grid container display="flex" sx={{ justifyContent: "center" }}>
+      <Grid
+        item
+        xs={10}
+        sm={10}
+        md={10}
+        lg={10}
+        display="flex"
+        justifyContent="start"
+      >
         <StarRating
           initialRating={exampleOneRating}
           onClick={(newRating) => setExampleOneRating(newRating)}

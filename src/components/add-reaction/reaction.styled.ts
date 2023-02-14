@@ -19,7 +19,10 @@ const Input = styled.input`
   border-width: 0 0 2px;
   margin-top: ${pxToRem(10)};
   @media (min-width: 768px) {
-    width: ${pxToRem(610)};
+    width: ${pxToRem(530)};
+  }
+  @media (min-width: 1024px) {
+    width: ${pxToRem(832)};
   }
 `;
 

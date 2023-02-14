@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import { Grid } from "@mui/material";
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
 import { TextWrap02, TextWrap03, TextWrap01 } from "./latest-article.styled";
 import useMediaQuery from "../../hooks/use-media-query";
 import "../../index.css";
@@ -29,7 +28,7 @@ const Article = () => {
       display="flex"
       sx={{
         mt: isDesktop ? 15 : isTablet ? 12 : 10,
-        px: isDesktop ? 5 : isTablet ? 5 : 4,
+        px: isDesktop ? 10 : isTablet ? 5 : 4,
         display: "flex",
         justifyContent: "center",
       }}

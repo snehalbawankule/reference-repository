@@ -11,6 +11,7 @@ import {
   MenuItem,
   Typography,
 } from "@mui/material";
+import { default as textwrap } from "../textwrap/textwrap.json";
 import MenuIcon from "@mui/icons-material/Menu";
 import { PostButton } from "./navbar.styled";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
@@ -35,7 +36,8 @@ const Navbar = () => {
     <Grid container>
       <AppBar position="fixed" style={{ background: "white", color: "black" }}>
         <Toolbar>
-          <Box
+          <Grid
+            item
             sx={{
               flexGrow: 1,
               display: { xs: "flex", md: "none" },
@@ -77,12 +79,10 @@ const Navbar = () => {
                 </MenuItem>
               ))}
             </Menu>
-
-            <TextWrap4 style={{ color: "black", paddingLeft: 10 }}>
-              SkillupAfrica Blog
-            </TextWrap4>
-          </Box>
-
+          </Grid>
+          <TextWrap4 style={{ color: "black", paddingLeft: 10 }}>
+            {textwrap.SkillupAfricaBlog}
+          </TextWrap4>
           <Box
             sx={{
               flexGrow: 1,
@@ -93,16 +93,6 @@ const Navbar = () => {
               },
             }}
           >
-            <Grid item md={8} lg={12}>
-              <TextWrap4
-                style={{
-                  color: "black",
-                  paddingLeft: isDesktop ? 30 : "",
-                }}
-              >
-                SkillupAfrica Blog
-              </TextWrap4>
-            </Grid>
             <Grid
               item
               md={12}
@@ -161,7 +151,7 @@ const Navbar = () => {
                 }}
                 to={`/newpost`}
               >
-                Post your article
+                {textwrap.PostArticle}
               </Link>
             </PostButton>
           </Grid>
