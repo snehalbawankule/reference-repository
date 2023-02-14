@@ -5,7 +5,6 @@ import { v4 as uuidv4 } from "uuid";
 import { StarRating } from "star-rating-react-ts";
 import { Button, Grid } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
-
 import { Input } from "../add-reaction/reaction.styled";
 export const Comment = (props: any) => {
   const { post } = props;
@@ -49,16 +48,8 @@ export const Comment = (props: any) => {
   };
 
   return (
-    <Grid container display="flex" sx={{ justifyContent: "center" }}>
-      <Grid
-        item
-        xs={10}
-        sm={10}
-        md={10}
-        lg={10}
-        display="flex"
-        justifyContent="start"
-      >
+    <Grid container display="flex" direction="column" justifyContent="center">
+      <Grid item display="flex">
         <StarRating
           initialRating={exampleOneRating}
           onClick={(newRating) => setExampleOneRating(newRating)}
@@ -67,21 +58,22 @@ export const Comment = (props: any) => {
           }}
         />
       </Grid>
+      <Grid container display="flex" direction="row">
+        <Input
+          name="comment"
+          placeholder="comment"
+          defaultValue={comment}
+          onBlurCapture={handleChange}
+        />
 
-      <Input
-        name="comment"
-        placeholder="comment"
-        defaultValue={comment}
-        onBlurCapture={handleChange}
-      />
-
-      <Button
-        disabled={isTextareaDisabled}
-        onClick={(e) => handleSubmit(e)}
-        sx={{ pl: 2, color: "#6d6d6d" }}
-      >
-        <SendIcon />
-      </Button>
+        <Button
+          disabled={isTextareaDisabled}
+          onClick={(e) => handleSubmit(e)}
+          sx={{ pl: 2, color: "#6d6d6d" }}
+        >
+          <SendIcon />
+        </Button>
+      </Grid>
     </Grid>
   );
 };
