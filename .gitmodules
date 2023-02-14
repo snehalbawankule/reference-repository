@@ -1,5 +1,5 @@
-[submodule "src"] 
-  path =src
+[submodule "src/store/local-storage"] 
+  path =src/store/local-storage
   url = https://github.com/snehalbawankule/reference-repository
 
 
