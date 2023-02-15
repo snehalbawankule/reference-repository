@@ -8,7 +8,9 @@ import { default as textwrap } from "../textwrap/textwrap.json";
 const LatestArticles = () => {
   const { isDesktop, isTablet } = useMediaQuery();
   var article = JSON.parse(localStorage.getItem("articles") || "{}");
-  const data = article.slice(0, 6);
+  var art = article.reverse();
+
+  const data = art.slice(0, 6);
   return (
     <Grid container sx={{ p: isDesktop ? 10 : isTablet ? 5 : 3 }} spacing={5}>
       <Grid item xs={12} sm={12} md={12} lg={12}>

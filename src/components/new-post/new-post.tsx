@@ -23,8 +23,7 @@ const NewPost = () => {
   const handleSubmit = (event: any) => {
     event.preventDefault();
 
-    const date = moment().format("ll");
-
+    const date = moment().format("DD, MMM. yyyy");
     const existingPost = JSON.parse(localStorage.getItem("articles") || "{}");
     const lastId = existingPost.slice(-1)[0].id;
     const stringNumber = parseInt(lastId) + 1;

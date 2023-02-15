@@ -38,15 +38,9 @@ const Login = () => {
   const handleSubmit = (event: any) => {
     event.preventDefault();
     var post = user.find((item: any) => item.email === userInfo.email);
-    console.log(post.password);
 
     const decryptedPassword = AES.decrypt(post.password, "secret key");
     const decrypted = decryptedPassword.toString(CryptoJS.enc.Utf8);
-
-    console.log(
-      "decryptPass" + decryptedPassword + "convertToString" + decrypted
-    );
-    console.log(decrypted === userInfo.password);
 
     if (post) {
       if (decrypted === userInfo.password) {
