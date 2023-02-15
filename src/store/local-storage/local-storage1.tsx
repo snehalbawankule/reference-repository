@@ -309,8 +309,8 @@ export function Posts() {
     },
   ];
 
-  const name = localStorage.getItem("articles");
-  if (!name) {
+  const article = localStorage.getItem("articles");
+  if (!article) {
     localStorage.setItem("articles", JSON.stringify(Posts));
   }
 
@@ -319,7 +319,10 @@ export function Posts() {
 
 export function Userdata() {
   var users = [{}];
-  localStorage.setItem("userdata", JSON.stringify(users));
+  const userData = localStorage.getItem("userdata");
+  if (!userData) {
+    localStorage.setItem("userdata", JSON.stringify(users));
+  }
 
   return <TextWrap />;
 }
