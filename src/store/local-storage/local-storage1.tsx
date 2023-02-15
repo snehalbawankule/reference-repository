@@ -309,7 +309,10 @@ export function Posts() {
     },
   ];
 
-  localStorage.setItem("articles", JSON.stringify(Posts));
+  const name = localStorage.getItem("articles");
+  if (!name) {
+    localStorage.setItem("articles", JSON.stringify(Posts));
+  }
 
   return <TextWrap />;
 }
