@@ -62,8 +62,6 @@ const Registration = () => {
           "secret key"
         ).toString();
 
-        //userInfo.password = bcrypt.hashSync(userInfo.password, 10);
-
         localStorage.setItem("userdata", JSON.stringify(users));
         navLogin();
       } else {

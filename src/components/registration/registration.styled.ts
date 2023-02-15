@@ -120,7 +120,7 @@ const GoogleLogo1 = styled.img<RegistrationProps>`
   margin-left: ${pxToRem(10)};
   margin-right: ${pxToRem(16)};
   margin-top: ${pxToRem(-7)};
-  background-image: url(${(props) => props.src});
+  background-image: url(${(props: any) => props.src});
 `;
 
 export {

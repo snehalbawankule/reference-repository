@@ -6,7 +6,7 @@ type HomeProps = {
 const Image = styled.img<HomeProps>`
   width: ${pxToRem(460)};
   height: ${pxToRem(200)};
-  image: url(${(props) => props.src});
+  image: url(${(props: any) => props.src});
 `;
 const PostButton = styled.button`
   background: #2f2e41;

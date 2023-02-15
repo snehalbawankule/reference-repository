@@ -124,7 +124,7 @@ const ContactUs = () => {
           display="flex"
           justifyContent="center"
         >
-          <PostButton onClick={(e) => handleSubmit(e)}>Post</PostButton>
+          <PostButton onClick={handleSubmit}>Post</PostButton>
         </Grid>
       </Grid>
     </form>
