@@ -63,15 +63,7 @@ const ArticleCard = (props: any) => {
           <Grid item xs={12} sm={12} md={12} lg={12} sx={{ pt: 2 }}>
             <Divider sx={{ borderBottomWidth: 2 }} />
           </Grid>
-          <Grid
-            item
-            xs={12}
-            sm={12}
-            md={12}
-            lg={12}
-            display="flex"
-            sx={{ mt: 3 }}
-          >
+          <Grid item xs={12} sm={12} md={12} lg={12} sx={{ mt: 3 }}>
             <ReactionButtons post={post} />
           </Grid>
         </Card>
