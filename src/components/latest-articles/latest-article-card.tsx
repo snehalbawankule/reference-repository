@@ -39,7 +39,13 @@ const ArticleCard = (props: any) => {
               </Grid>
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={12} justifyContent="center">
-              <TextWrap02>{post.title}</TextWrap02>
+              <TextWrap02
+                style={{
+                  height: 80,
+                }}
+              >
+                {post.title}
+              </TextWrap02>
             </Grid>
             <Grid
               item
