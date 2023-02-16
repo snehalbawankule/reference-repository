@@ -32,6 +32,9 @@ const Navbar = () => {
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
+  const handleLogOut = () => {
+    localStorage.setItem("currentuser", JSON.stringify(""));
+  };
   return (
     <Grid container>
       <AppBar position="fixed" style={{ background: "white", color: "black" }}>
@@ -166,6 +169,22 @@ const Navbar = () => {
               </Link>
             </PostButton>
           </Grid>
+          <PostButton
+            onClick={handleLogOut}
+            style={{
+              marginLeft: 5,
+            }}
+          >
+            <Link
+              style={{
+                color: "#F3F2FF",
+                textDecoration: "none",
+              }}
+              to={`/login`}
+            >
+              {textwrap.LogOut}
+            </Link>
+          </PostButton>
         </Toolbar>
       </AppBar>
     </Grid>

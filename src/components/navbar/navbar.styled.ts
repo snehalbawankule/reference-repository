@@ -12,7 +12,7 @@ const PostButton = styled.button`
   background: #2f2e41;
   height: ${pxToRem(22)};
   border-radius: 7.24416px;
-  font-style: italic;
+
   font-weight: 300;
   font-size: ${pxToRem(7)};
   @media (min-width: 768px) {
