@@ -1,5 +1,5 @@
 import { Button } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
@@ -9,13 +9,37 @@ import useMediaQuery from "../../hooks/use-media-query";
 
 const ReactionButtons = (props: any) => {
   const { post } = props;
-  const [like, setLike] = useState(false);
   const { isMobile, isDesktop } = useMediaQuery();
+  var currentUser = JSON.parse(localStorage.getItem("currentuser") || "{}");
+  const existingPost = JSON.parse(localStorage.getItem("articles") || "{}");
+  var target = existingPost.find((item: any) => item.id === post.id);
+  const savedLikes = JSON.parse(
+    localStorage.getItem(`likes_${target.id}`) || "[{}]"
+  );
+  console.log(savedLikes);
+  const [likes, setLikes] = useState<string[]>(savedLikes);
+
+  const userId = currentUser.email;
+  console.log(likes.includes(userId), savedLikes);
+
+  useEffect(() => {
+    localStorage.setItem(`likes_${target.id}`, JSON.stringify(likes));
+  }, [target.id, likes]);
+
+  const handleLike = () => {
+    const userLiked = likes.includes(userId);
+
+    if (!userLiked) {
+      setLikes([...likes, userId]);
+    } else {
+      setLikes(likes.filter((id) => id !== userId));
+    }
+  };
+
   return (
     <Grid container flexDirection="row" display="flex">
       <Grid item xs={4} sm={4} md={4} lg={4}>
         <Button
-          type="button"
           style={{
             color: "black",
             width: isDesktop ? "131px" : isMobile ? "100px" : "120px",
@@ -23,10 +47,10 @@ const ReactionButtons = (props: any) => {
             display: "flex",
             justifyContent: "start",
           }}
-          onClick={() => setLike((prevLike) => !prevLike)}
+          onClick={() => handleLike()}
         >
-          Like:
-          {like ? (
+          Like
+          {likes.includes(userId) ? (
             <ThumbUpIcon
               sx={{ fontSize: isDesktop ? 24 : 20, pl: 1, color: "#1877F2" }}
             />
@@ -36,6 +60,17 @@ const ReactionButtons = (props: any) => {
             />
           )}
         </Button>
+        {/*<Button onClick={handleLike}>
+          {likes.includes(userId) ? (
+            <>
+              <i className="fas fa-thumbs-up"></i> Liked
+            </>
+          ) : (
+            <>
+              <i className="far fa-thumbs-up"></i> Like
+            </>
+          )}
+        </Button>*/}
       </Grid>
       <Grid item xs={4} sm={4} md={4} lg={4}>
         <Button type="button">
