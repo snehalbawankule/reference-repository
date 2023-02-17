@@ -1,8 +1,22 @@
 import { Grid } from "@mui/material";
+import { useEffect, useState } from "react";
 import { LengthTextWrap } from "../add-reaction/reaction.styled";
 export const AllReactions = (props: any) => {
   const { post } = props;
+  const [like, setLike] = useState([]);
+  useEffect(() => {
+    const savedLikes = JSON.parse(
+      localStorage.getItem(`likes_${post.id}`) || "[]"
+    );
 
+    setLike(savedLikes);
+  }, [post.id]);
+  let likes =
+    !like || like?.length < 1
+      ? ""
+      : like.length === 1
+      ? like.length + " Like"
+      : like.length + " Likes";
   let length =
     !post?.comments || post?.comments?.length < 1
       ? ""
@@ -26,7 +40,7 @@ export const AllReactions = (props: any) => {
     <>
       <Grid container flexDirection="row" display="flex">
         <Grid item xs={4} sm={4} md={3} lg={3}>
-          <LengthTextWrap style={{ paddingTop: 7.5 }}>Likes</LengthTextWrap>
+          <LengthTextWrap style={{ paddingTop: 7.5 }}>{likes}</LengthTextWrap>
         </Grid>
         <Grid
           item

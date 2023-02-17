@@ -14,7 +14,7 @@ const ReactionButtons = (props: any) => {
   const existingPost = JSON.parse(localStorage.getItem("articles") || "{}");
   var target = existingPost.find((item: any) => item.id === post.id);
   const savedLikes = JSON.parse(
-    localStorage.getItem(`likes_${target.id}`) || "[{}]"
+    localStorage.getItem(`likes_${target.id}`) || "[]"
   );
   console.log(savedLikes);
   const [likes, setLikes] = useState<string[]>(savedLikes);
@@ -60,17 +60,6 @@ const ReactionButtons = (props: any) => {
             />
           )}
         </Button>
-        {/*<Button onClick={handleLike}>
-          {likes.includes(userId) ? (
-            <>
-              <i className="fas fa-thumbs-up"></i> Liked
-            </>
-          ) : (
-            <>
-              <i className="far fa-thumbs-up"></i> Like
-            </>
-          )}
-        </Button>*/}
       </Grid>
       <Grid item xs={4} sm={4} md={4} lg={4}>
         <Button type="button">

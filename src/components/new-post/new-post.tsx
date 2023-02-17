@@ -44,7 +44,7 @@ const NewPost = () => {
         console.log("Already added");
       }
     }
-    navigate("/articles");
+    navigate("/home");
   };
 
   const { isDesktop, isMobile, isTablet } = useMediaQuery();
