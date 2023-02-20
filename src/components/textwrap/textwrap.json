@@ -24,5 +24,10 @@
   "loadMoreArticles": "Load more articles",
   "SkillupAfricaBlog": "SkillupAfrica Blog",
   "PostArticle": "Post Article",
-  "LogOut": "Log Out"
+  "LogOut": "Log Out",
+  "Like": "Like",
+  "Likes": "Likes",
+  "Comment": "Comment",
+  "Comments": "Comments",
+  "Edit": "Edit"
 }
