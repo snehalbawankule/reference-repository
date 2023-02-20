@@ -19,7 +19,7 @@ import {
   TextWrap2,
 } from "../registration/registration.styled";
 import { Forget, LoginButton } from "./login.styled";
-import { default as textwrap } from "../textwrap/textwrap.json";
+import { default as textwrap } from "../../store/textwrap/textwrap.json";
 import Rectangle2 from "../../assets/images/Rectangle2.png";
 import { useNavigate } from "react-router-dom";
 import useMediaQuery from "../../hooks/use-media-query";

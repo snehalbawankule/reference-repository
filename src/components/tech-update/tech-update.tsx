@@ -2,7 +2,7 @@ import React from "react";
 import { Grid, Divider } from "@mui/material";
 import TechArticleCard from "./tech-article-card";
 import { Article } from "../article/article.styled";
-import { default as textwrap } from "../textwrap/textwrap.json";
+import { default as textwrap } from "../../store/textwrap/textwrap.json";
 import useMediaQuery from "../../hooks/use-media-query";
 const TechUpdate = () => {
   const { isDesktop, isTablet } = useMediaQuery();

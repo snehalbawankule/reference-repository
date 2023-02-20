@@ -18,7 +18,7 @@ import {
   LoginLink,
 } from "./registration.styled";
 import { Box, Grid } from "@mui/material";
-import { default as textwrap } from "../textwrap/textwrap.json";
+import { default as textwrap } from "../../store/textwrap/textwrap.json";
 import { useGoogleLogin } from "@react-oauth/google";
 import Rectangle1 from "../../assets/images/Rectangle1.png";
 import { useNavigate } from "react-router-dom";

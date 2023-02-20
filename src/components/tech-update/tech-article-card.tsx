@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { AllReactions } from "../all-reactions/all-reactions";
 import ReactionButtons from "../add-reaction";
 import { ReadButton } from "../article/article.styled";
-import { default as textwrap } from "../textwrap/textwrap.json";
+import { default as textwrap } from "../../store/textwrap/textwrap.json";
 import useMediaQuery from "../../hooks/use-media-query";
 const TechArticleCard = (props: any) => {
   const { post } = props;

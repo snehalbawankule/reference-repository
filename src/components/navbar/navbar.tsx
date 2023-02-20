@@ -11,7 +11,7 @@ import {
   MenuItem,
   Typography,
 } from "@mui/material";
-import { default as textwrap } from "../textwrap/textwrap.json";
+import { default as textwrap } from "../../store/textwrap/textwrap.json";
 import MenuIcon from "@mui/icons-material/Menu";
 import { PostButton } from "./navbar.styled";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";

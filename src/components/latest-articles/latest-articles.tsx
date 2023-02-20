@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import useMediaQuery from "../../hooks/use-media-query";
 import ArticleCard from "./latest-article-card";
 import { LoadMoreButton, Article } from "../article/article.styled";
-import { default as textwrap } from "../textwrap/textwrap.json";
+import { default as textwrap } from "../../store/textwrap/textwrap.json";
 const LatestArticles = () => {
   const { isDesktop, isTablet } = useMediaQuery();
   var article = JSON.parse(localStorage.getItem("articles") || "{}");

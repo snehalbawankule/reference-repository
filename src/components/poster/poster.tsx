@@ -1,7 +1,7 @@
 import React from "react";
 import picture from "../../assets/images/picture.png";
 import { Grid } from "@mui/material";
-import { default as textwrap } from "../textwrap/textwrap.json";
+import { default as textwrap } from "../../store/textwrap/textwrap.json";
 import { Button, TextWrap04, TextWrap05 } from "../article/article.styled";
 import useMediaQuery from "../../hooks/use-media-query";
 const Poster = () => {

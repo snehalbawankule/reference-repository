@@ -6,21 +6,21 @@ import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import ChatBubbleOutlineRoundedIcon from "@mui/icons-material/ChatBubbleOutlineRounded";
 import useMediaQuery from "../../hooks/use-media-query";
-
+import { default as textwrap } from "../../store/textwrap/textwrap.json";
 const ReactionButtons = (props: any) => {
   const { post } = props;
   const { isMobile, isDesktop } = useMediaQuery();
+
   var currentUser = JSON.parse(localStorage.getItem("currentuser") || "{}");
   const existingPost = JSON.parse(localStorage.getItem("articles") || "{}");
   var target = existingPost.find((item: any) => item.id === post.id);
   const savedLikes = JSON.parse(
     localStorage.getItem(`likes_${target.id}`) || "[]"
   );
-  console.log(savedLikes);
+
   const [likes, setLikes] = useState<string[]>(savedLikes);
 
   const userId = currentUser.email;
-  console.log(likes.includes(userId), savedLikes);
 
   useEffect(() => {
     localStorage.setItem(`likes_${target.id}`, JSON.stringify(likes));
@@ -28,7 +28,7 @@ const ReactionButtons = (props: any) => {
 
   const handleLike = () => {
     const userLiked = likes.includes(userId);
-
+    console.log(likes, userId);
     if (!userLiked) {
       setLikes([...likes, userId]);
     } else {
@@ -49,7 +49,7 @@ const ReactionButtons = (props: any) => {
           }}
           onClick={() => handleLike()}
         >
-          Like
+          {textwrap.Like}
           {likes.includes(userId) ? (
             <ThumbUpIcon
               sx={{ fontSize: isDesktop ? 24 : 20, pl: 1, color: "#1877F2" }}
@@ -73,7 +73,7 @@ const ReactionButtons = (props: any) => {
                 display: "flex",
               }}
             >
-              Comment
+              {textwrap.Comment}
               <ChatBubbleOutlineRoundedIcon
                 sx={{ fontSize: isDesktop ? 24 : 20, pl: 1 }}
               />
@@ -88,7 +88,7 @@ const ReactionButtons = (props: any) => {
                 display: "flex",
               }}
             >
-              Comment
+              {textwrap.Comment}
               <ChatBubbleOutlineRoundedIcon
                 sx={{ fontSize: isDesktop ? 24 : 20, pl: 1 }}
               />
@@ -110,7 +110,7 @@ const ReactionButtons = (props: any) => {
               width: isDesktop ? "135px" : isMobile ? "100px" : "120px",
             }}
           >
-            Edit: ✏️
+            {textwrap.Edit}: ✏️
           </Link>
         </Button>
       </Grid>
