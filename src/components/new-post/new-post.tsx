@@ -3,7 +3,7 @@ import { Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 import useMediaQuery from "../../hooks/use-media-query";
-
+import { default as textwrap } from "../../store/textwrap/textwrap.json";
 import { useState } from "react";
 import moment from "moment";
 const NewPost = () => {
@@ -70,7 +70,7 @@ const NewPost = () => {
         display="flex"
         justifyContent="center"
       >
-        <NewArticle>Post a new article</NewArticle>
+        <NewArticle>{textwrap.PostNewArticle}</NewArticle>
       </Grid>
       <form
         onSubmit={(e) => {
@@ -127,7 +127,7 @@ const NewPost = () => {
           display="flex"
           sx={{ justifyContent: isMobile ? "center" : "" }}
         >
-          <PostButton>Post</PostButton>
+          <PostButton>{textwrap.Post}</PostButton>
         </Grid>
       </form>
     </Grid>

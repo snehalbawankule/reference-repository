@@ -29,5 +29,9 @@
   "Likes": "Likes",
   "Comment": "Comment",
   "Comments": "Comments",
-  "Edit": "Edit"
+  "Edit": "Edit",
+  "LoadMoreArticles": "Load More Articles",
+  "PasswordsDontMatch": "passwords Don't Match",
+  "PostNewArticle": "Post a new article",
+  "Post": "Post"
 }

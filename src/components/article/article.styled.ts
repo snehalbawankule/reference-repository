@@ -49,7 +49,6 @@ const TextWrap04 = styled.text`
 `;
 const TextWrap05 = styled.text`
   color: #e6e6e6;
-
   font-size: ${pxToRem(32)};
   @media (max-width: 767px) {
     font-size: ${pxToRem(16)};

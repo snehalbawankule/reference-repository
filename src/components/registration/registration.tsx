@@ -68,7 +68,7 @@ const Registration = () => {
         alert("This email address has already been added.");
       }
     } else {
-      alert("passwords Don't Match");
+      alert("Passwords Don't Match");
     }
   };
   return (
@@ -134,12 +134,9 @@ const Registration = () => {
           sm={12}
           md={12}
           lg={4}
-          display="block"
           sx={{ px: isDesktop ? 4 : "" }}
           style={{
-            justifyContent: isDesktop ? "flex-start" : "center",
             textAlign: "center",
-            alignItems: isMobile ? "center" : "flex-start",
           }}
         >
           <form

@@ -15,7 +15,7 @@ const Edit = () => {
   var existingPost = JSON.parse(localStorage.getItem("articles") || "{}");
   var post = existingPost.find((item: any) => item.id === id);
   //Grammarly.init("client_T8syY4Z5DW378x72iosNSK");
-  const [postInfo, setPostInfo] = useState({
+  const [postInfo, setPostInfo] = useState({                                                                                                                        
     id: post?.id,
     title: post?.title,
     url: post?.url,

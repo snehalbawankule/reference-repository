@@ -42,7 +42,7 @@ const LatestArticles = () => {
               textDecoration: "none",
             }}
           >
-            Load more articles
+            {textwrap.LoadMoreArticles}
           </Link>
         </LoadMoreButton>
       </Grid>

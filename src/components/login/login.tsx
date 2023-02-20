@@ -178,19 +178,16 @@ const Login = () => {
               <Input
                 style={{ marginBottom: 0 }}
                 type="password"
-                id="pass"
                 name="password"
                 onBlur={handleChange}
                 defaultValue={userInfo.password}
-                placeholder="Confirm Password"
+                placeholder="Password"
                 required
               />
             </Grid>
             <Forget>{textwrap.forgotPassword}</Forget>
             <Grid item xs={12} sm={12} md={12} lg={12}>
-              <LoginButton style={{ marginTop: 50 }}>
-                {textwrap.loginButton}
-              </LoginButton>
+              <LoginButton>{textwrap.loginButton}</LoginButton>
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={12}>
               <TextWrap3>
